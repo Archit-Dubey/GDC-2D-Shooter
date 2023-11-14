@@ -1,21 +1,22 @@
 extends Sprite2D
 
+@export var aimStick=false
+@export var maxLength = 50
+
 @onready var parent = $".."
 
-var pressing = false
-
-@export var maxLength = 50
 var deadzone = 15
+var pressing = false
 
 func _ready():
 	deadzone = parent.deadzone
 	maxLength *= parent.scale.x
 
 func _physics_process(delta):
-	if pressing:
-		if get_global_mouse_position().distance_to(parent.global_position) <= maxLength:
+	if pressing: 
+		if get_global_mouse_position().distance_to(parent.global_position) <= maxLength:# the knob is within the circle
 			global_position = get_global_mouse_position()
-		else:
+		else:# the knob is outside the circle
 			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
 			global_position.x = parent.global_position.x + cos(angle)*maxLength
 			global_position.y = parent.global_position.y + sin(angle)*maxLength

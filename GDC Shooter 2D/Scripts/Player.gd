@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@onready var joystick_direction = $"../CanvasLayer/Bottom_Left_Container/Joystick_Direction"
-@onready var joystick_rotation = $"../CanvasLayer/Bottom_Right_Container/Joystick_Rotation"
+@onready var joystick_direction = $"../GUI/directionAnchor/Joystick_Direction"
+@onready var joystick_rotation = $"../GUI/rotationAnchor/Joystick_Rotation"
 
 @export var movingspeed = 300
 @export var rotation_speed = 5 
