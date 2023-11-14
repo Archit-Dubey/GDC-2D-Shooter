@@ -11,7 +11,7 @@ func _ready():
 	deadzone = parent.deadzone
 	maxLength *= parent.scale.x
 
-func _process(delta):
+func _physics_process(delta):
 	if pressing:
 		if get_global_mouse_position().distance_to(parent.global_position) <= maxLength:
 			global_position = get_global_mouse_position()
@@ -19,6 +19,7 @@ func _process(delta):
 			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
 			global_position.x = parent.global_position.x + cos(angle)*maxLength
 			global_position.y = parent.global_position.y + sin(angle)*maxLength
+			print("outside")
 		calculateVector()
 	else:
 		global_position = lerp(global_position, parent.global_position, delta*50)

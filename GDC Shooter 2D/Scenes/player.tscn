@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://xcee157fq5ca"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_is4dd"]
+[ext_resource type="Texture2D" uid="uid://tiko2t3qtqlb" path="res://Assets/Art/Player/Player Sprites.png" id="2_81p4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppgtp"]
+atlas = ExtResource("2_81p4u")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h1rg"]
+atlas = ExtResource("2_81p4u")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e72hr"]
+atlas = ExtResource("2_81p4u")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pc2h0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppgtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h1rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e72hr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(400, 200)
+script = ExtResource("1_is4dd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_pc2h0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(0, -24, -25, 24, 25, 24)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(24, 0)
+position_smoothing_enabled = true
+
+[node name="GunTip" type="Node2D" parent="."]
+position = Vector2(23, 0)
