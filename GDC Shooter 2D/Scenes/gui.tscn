@@ -32,3 +32,4 @@ grow_vertical = 0
 [node name="Joystick_Rotation" parent="rotationAnchor" instance=ExtResource("1_ucnmp")]
 position = Vector2(-89, -89)
 scale = Vector2(2, 2)
+aimStick = true

@@ -6,6 +6,7 @@ extends Node2D
 @onready var knob=$Knob
 
 var posVector: Vector2
+var shoot=false # to tell if the gun should be fired
 
 var pressing = false
 
@@ -13,15 +14,19 @@ func _ready():
 	maxLength *= scale.x
 
 func _physics_process(delta):
+	if aimStick == true:
+				shoot=false
 	if pressing: 
 		if (get_global_mouse_position()).distance_to(global_position) <= maxLength:# the knob is within the circle
+			
 			knob.global_position = get_global_mouse_position()
+			
 		else:# the knob is outside the circle
 			var angle = global_position.angle_to_point(get_global_mouse_position())
 			knob.global_position.x = global_position.x + cos(angle)*maxLength
 			knob.global_position.y = global_position.y + sin(angle)*maxLength
 			if aimStick == true:
-				print("outside")
+				shoot=true #flag that the gun can be fired
 		calculateVector()
 	else:
 		knob.global_position = lerp(knob.global_position, global_position, delta*50)

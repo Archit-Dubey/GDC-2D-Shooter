@@ -42,7 +42,7 @@ sprite_frames = SubResource("SpriteFrames_pc2h0")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
 rotation = 1.5708
 polygon = PackedVector2Array(0, -24, -25, 24, 25, 24)
 
@@ -52,3 +52,7 @@ position_smoothing_enabled = true
 
 [node name="GunTip" type="Node2D" parent="."]
 position = Vector2(23, 0)
+
+[node name="gunCoolDownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
