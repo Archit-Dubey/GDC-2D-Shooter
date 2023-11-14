@@ -24,8 +24,7 @@ func _physics_process(delta):
 	
 	if direction:
 		velocity = direction * movingspeed
-		print(direction)
-		print(velocity)
+		
 	else:
 		velocity = Vector2(0,0)
 		
@@ -34,9 +33,8 @@ func _physics_process(delta):
 		var debug_key_x=Input.get_action_raw_strength("right")-Input.get_action_raw_strength("left")
 		var debug_key_y=Input.get_action_raw_strength("down")-Input.get_action_raw_strength("up")
 		direction=Vector2(debug_key_x,debug_key_y)
-		velocity = direction * movingspeed
-		print(direction)
-		print(velocity)
+		velocity = direction.normalized() * movingspeed
+		
 		#remove till above
 		
 		
@@ -47,7 +45,8 @@ func _physics_process(delta):
 	var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
 	
 	if rotation_input.length() > 0.01:
-		rotation = rotation_angle(velocity, rotation_input)
+		print(rotation_input)
+		rotation=rotation_angle(rotation_input)
 		print(rotation)
 		rotate(rotation * rotation_speed * delta)
 	
@@ -61,7 +60,8 @@ func _physics_process(delta):
 		gun.add_child(newBullet)
 		gunCoolDown.start() 
 
-func rotation_angle(a: Vector2, b: Vector2) -> float:
-	return atan2(b.y, b.x) - atan2(a.y, a.x)
+func rotation_angle(rotation_vector: Vector2) -> float: 
+	#modified function to calculate angle from a given vector, previous one was buggy
+	return atan2(rotation_vector.y, rotation_vector.x)
 
 
