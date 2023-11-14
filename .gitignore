@@ -1,2 +1,6 @@
-"/GDC Shooter 2D/.import/"
-"/GDC Shooter 2D/export_presets.cfg"
+"GDC Shooter 2D/.import/"
+"GDC Shooter 2D/export_presets.cfg"
+.import/
+export.cfg
+export_presets.cfg
+"/GDC Shooter 2D/.godot/"
