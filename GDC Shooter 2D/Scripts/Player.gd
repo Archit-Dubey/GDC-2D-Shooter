@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @onready var joystick_direction = $"../GUI/directionAnchor/Joystick_Direction" #movement joystick
 @onready var joystick_rotation = $"../GUI/rotationAnchor/Joystick_Rotation" #aiming joystick
 @onready var gun=$GunTip # the tip of the gun from which projectiles will be spawned
@@ -45,9 +46,7 @@ func _physics_process(delta):
 	var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
 	
 	if rotation_input.length() > 0.01:
-		print(rotation_input)
 		rotation=rotation_angle(rotation_input)
-		print(rotation)
 		rotate(rotation * rotation_speed * delta)
 	
 		
@@ -63,5 +62,7 @@ func _physics_process(delta):
 func rotation_angle(rotation_vector: Vector2) -> float: 
 	#modified function to calculate angle from a given vector, previous one was buggy
 	return atan2(rotation_vector.y, rotation_vector.x)
+	
+
 
 

@@ -4,6 +4,7 @@ res://Scenes/gui.tscn
 res://Scenes/joystick.tscn
 res://Scenes/player.tscn
 res://Scenes/chaser_enemy.tscn
-res://Spawner.gd
-res://Scenes/Main.gd
+res://Scripts/Player.gd
+res://Scripts/main.tscn
+res://Scripts/Main.gd
 res://Scripts/Chaser_Enemy.gd

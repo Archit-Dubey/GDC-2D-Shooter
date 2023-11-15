@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ceqvl"]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["Player"]]
 script = ExtResource("1_lfkgq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
