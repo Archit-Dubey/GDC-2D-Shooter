@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d20ga7d1n8k7w"]
+[gd_scene load_steps=5 format=3 uid="uid://d20ga7d1n8k7w"]
 
 [ext_resource type="PackedScene" uid="uid://cx0ed02rryg76" path="res://Scenes/gui.tscn" id="1_w257l"]
 [ext_resource type="PackedScene" uid="uid://xcee157fq5ca" path="res://Scenes/player.tscn" id="2_irpq3"]
 [ext_resource type="Texture2D" uid="uid://mib7garokarc" path="res://icon.svg" id="3_qbbl1"]
+[ext_resource type="PackedScene" uid="uid://oo738ersgkxq" path="res://Scenes/chaser_enemy.tscn" id="4_0taoq"]
 
 [node name="Main" type="Node2D"]
 
@@ -21,3 +22,6 @@ texture = ExtResource("3_qbbl1")
 [node name="placeholderRock3" type="Sprite2D" parent="."]
 position = Vector2(223, 138)
 texture = ExtResource("3_qbbl1")
+
+[node name="Chaser_Enemy" parent="." instance=ExtResource("4_0taoq")]
+position = Vector2(660, 397)
