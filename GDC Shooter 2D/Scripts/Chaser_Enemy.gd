@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed = 200  # Adjust this value to control the speed of the enemy
-@onready var player=$"../Player"
+@onready var player=$"/root/Main/Player"
 
 func _ready():
 		# Start moving towards the player

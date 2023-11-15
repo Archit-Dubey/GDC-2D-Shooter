@@ -1,7 +1,9 @@
 res://Scenes/main.tscn
-res://Scenes/joystick.tscn
 res://Scenes/defaultBullet.tscn
 res://Scenes/gui.tscn
+res://Scenes/joystick.tscn
 res://Scenes/player.tscn
 res://Scenes/chaser_enemy.tscn
+res://Spawner.gd
+res://Scenes/Main.gd
 res://Scripts/Chaser_Enemy.gd
