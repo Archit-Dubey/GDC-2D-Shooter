@@ -56,3 +56,11 @@ position = Vector2(23, 0)
 [node name="gunCoolDownTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="Area2D"]
+rotation = 1.5708
+polygon = PackedVector2Array(0, -24, -25, 24, 25, 24)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

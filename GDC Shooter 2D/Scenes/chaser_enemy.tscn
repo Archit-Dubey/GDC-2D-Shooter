@@ -32,7 +32,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Chaser_Enemy" type="Area2D"]
+[node name="Chaser_Enemy" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_o5i31")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

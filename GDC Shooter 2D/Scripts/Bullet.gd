@@ -3,7 +3,7 @@ extends Area2D
 #to account for physics anf stuff
 
 @export var damage=10 #set later
-@export var speed=1000 #speed of bullet
+@export var speed=500 #speed of bullet
 
 @onready var direction:Vector2
 

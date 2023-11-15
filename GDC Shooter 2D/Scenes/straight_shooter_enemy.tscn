@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1a0jvm3pst4t"]
+
+[ext_resource type="Texture2D" uid="uid://bs1nv3ld1mkkq" path="res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png" id="1_akgwj"]
+[ext_resource type="Script" path="res://Scripts/Straight_Shooter_Enemy.gd" id="1_dqyth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6xrm"]
+atlas = ExtResource("1_akgwj")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5uf4"]
+atlas = ExtResource("1_akgwj")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4jgg"]
+atlas = ExtResource("1_akgwj")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xn2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6xrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5uf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4jgg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ls6an"]
+radius = 24.0
+height = 52.0
+
+[node name="Straight_Shooter_Enemy" type="Area2D"]
+script = ExtResource("1_dqyth")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 4.71239
+sprite_frames = SubResource("SpriteFrames_7xn2v")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ls6an")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="GunTip" type="Node2D" parent="."]
+position = Vector2(23, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

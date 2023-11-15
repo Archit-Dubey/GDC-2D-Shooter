@@ -1,19 +1,21 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1700049074
+::res://::1700067784
 export_presets.cfg::TextFile::-1::1700025056::0::1::::<><>::
 icon.svg::CompressedTexture2D::858899324018195348::1700025056::1700025370::1::::<><>::
 ::res://Assets/::1700025056
-::res://Assets/Art/::1700026641
-::res://Assets/Art/Bullets/::1700025371
-dummy_bullet.png::CompressedTexture2D::1275392103945828325::1700025056::1700025371::1::::<><>::
-::res://Assets/Art/Enemies/::1700026652
+::res://Assets/Art/::1700067996
+::res://Assets/Art/Enemies/::1700067059
 ::res://Assets/Art/Enemies/Chaser/::1700026668
 Chaser Sprites.png::CompressedTexture2D::6848828320411799064::1700025056::1700026668::1::::<><>::
+::res://Assets/Art/Enemies/Straight/::1700068063
+Enemy_StraightProjectile.png::CompressedTexture2D::7268071879029324061::1700025056::1700068072::1::::<><>::
+Straight Shoot Sprites.png::CompressedTexture2D::3704322001179392172::1700025056::1700067572::1::::<><>::
 ::res://Assets/Art/Joystick/::1700025372
 joyknobpng.png::CompressedTexture2D::4043551822747918995::1700025056::1700025372::1::::<><>::
 joyring.png::CompressedTexture2D::8697860937527974593::1700025056::1700025372::1::::<><>::
-::res://Assets/Art/Player/::1700025371
+::res://Assets/Art/Player/::1700066006
 Player Sprites.png::CompressedTexture2D::1350736670973503375::1700025056::1700025371::1::::<><>::
+Player_Projectile.png::CompressedTexture2D::7502782042431653124::1700025056::1700066006::1::::<><>::
 ::res://Old Assets/::1700025372
 AlienSpaceStation.png::CompressedTexture2D::4635897312218514842::1700025056::1700025371::1::::<><>::
 Asteroid_1.png::CompressedTexture2D::1447636172370468490::1700025056::1700025371::1::::<><>::
@@ -77,17 +79,19 @@ UIBackdrop.png::CompressedTexture2D::978073241146201789::1700025056::1700025370:
 UIButton.png::CompressedTexture2D::8224195908218557776::1700025056::1700025370::1::::<><>::
 volumeSlider.png::CompressedTexture2D::6047707684053286985::1700025056::1700025370::1::::<><>::
 Wormhole.png::CompressedTexture2D::7898828591183037050::1700025056::1700025370::1::::<><>::
-::res://Scenes/::1700049074
-chaser_enemy.tscn::PackedScene::1013539785733631030::1700048997::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png
-defaultBullet.tscn::PackedScene::3558923926258882816::1700049066::0::1::::<><>::res://Scripts/Bullet.gd<>uid://sf2ry8sy0xu0::::res://Assets/Art/Bullets/dummy_bullet.png
-gui.tscn::PackedScene::6439043795854765991::1700048643::0::1::::<><>::uid://bnoasihi24wj0::::res://Scenes/joystick.tscn
-joystick.tscn::PackedScene::3327809515235809147::1700049066::0::1::::<><>::res://Scripts/Joystick.gd<>uid://dv6kq7xq4op5j::::res://Assets/Art/Joystick/joyring.png<>uid://bxuyycfoi67p4::::res://Assets/Art/Joystick/joyknobpng.png
-player.tscn::PackedScene::1618723583742064908::1700049066::0::1::::<><>::res://Scripts/Player.gd<>uid://tiko2t3qtqlb::::res://Assets/Art/Player/Player Sprites.png
-::res://Scripts/::1700049074
-Bullet.gd::GDScript::-1::1700025056::0::1::::<>Area2D<>::
-Chaser_Enemy.gd::GDScript::-1::1700049060::0::1::::<>Area2D<>::
+::res://Scenes/::1700067876
+chaser_enemy.tscn::PackedScene::1013539785733631030::1700066754::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png<>res://Scripts/Chaser_Enemy.gd
+defaultBullet.tscn::PackedScene::3558923926258882816::1700067876::0::1::::<><>::res://Scripts/Bullet.gd<>uid://de5nyva2bhvls::::res://Assets/Art/Player/Player_Projectile.png
+gui.tscn::PackedScene::6439043795854765991::1700066754::0::1::::<><>::uid://bnoasihi24wj0::::res://Scenes/joystick.tscn
+joystick.tscn::PackedScene::3327809515235809147::1700066754::0::1::::<><>::res://Scripts/Joystick.gd<>uid://dv6kq7xq4op5j::::res://Assets/Art/Joystick/joyring.png<>uid://bxuyycfoi67p4::::res://Assets/Art/Joystick/joyknobpng.png
+main.tscn::PackedScene::9106336261695891670::1700066753::0::1::::<><>::res://Scripts/Main.gd<>uid://cx0ed02rryg76::::res://Scenes/gui.tscn<>uid://xcee157fq5ca::::res://Scenes/player.tscn<>uid://oo738ersgkxq::::res://Scenes/chaser_enemy.tscn
+player.tscn::PackedScene::1618723583742064908::1700066754::0::1::::<><>::res://Scripts/Player.gd<>uid://tiko2t3qtqlb::::res://Assets/Art/Player/Player Sprites.png
+straight_shooter_enemy.tscn::PackedScene::6599286421760323129::1700067810::0::1::::<><>::uid://bs1nv3ld1mkkq::::res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png<>res://Scripts/Straight_Shooter_Enemy.gd
+::res://Scripts/::1700067810
+Bullet.gd::GDScript::-1::1700066381::0::1::::<>Area2D<>::
+Chaser_Enemy.gd::GDScript::-1::1700054120::0::1::::<>Area2D<>::
 Joystick.gd::GDScript::-1::1700025056::0::1::::<>Node2D<>::
 Knob.gd::GDScript::-1::1700025056::0::1::::<>Sprite2D<>::
-Main.gd::GDScript::-1::1700039739::0::1::::<>Node2D<>::
-main.tscn::PackedScene::9106336261695891670::1700049074::0::1::::<><>::res://Scripts/Main.gd<>uid://oo738ersgkxq::::res://Scenes/chaser_enemy.tscn<>uid://cx0ed02rryg76::::res://Scenes/gui.tscn<>uid://xcee157fq5ca::::res://Scenes/player.tscn<>uid://mib7garokarc::::res://icon.svg
-Player.gd::GDScript::-1::1700048736::0::1::::<>CharacterBody2D<>::
+Main.gd::GDScript::-1::1700049127::0::1::::<>Node2D<>::
+Player.gd::GDScript::-1::1700066705::0::1::::<>CharacterBody2D<>::
+Straight_Shooter_Enemy.gd::GDScript::-1::1700067810::0::1::::<>Area2D<>::

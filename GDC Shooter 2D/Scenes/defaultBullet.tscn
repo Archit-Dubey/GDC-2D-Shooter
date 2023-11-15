@@ -1,16 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqx77sn4o8ktk"]
+[gd_scene load_steps=9 format=3 uid="uid://bqx77sn4o8ktk"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_lfkgq"]
-[ext_resource type="Texture2D" uid="uid://sf2ry8sy0xu0" path="res://Assets/Art/Bullets/dummy_bullet.png" id="1_v53yo"]
+[ext_resource type="Texture2D" uid="uid://de5nyva2bhvls" path="res://Assets/Art/Player/Player_Projectile.png" id="3_up40l"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ceqvl"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b4n6q"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suj8e"]
+atlas = ExtResource("3_up40l")
+region = Rect2(0, 0, 11, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sywl5"]
+atlas = ExtResource("3_up40l")
+region = Rect2(11, 0, 11, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urp8d"]
+atlas = ExtResource("3_up40l")
+region = Rect2(22, 0, 11, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le0wb"]
+atlas = ExtResource("3_up40l")
+region = Rect2(33, 0, 11, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1qih2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suj8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sywl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urp8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le0wb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="Bullet" type="Area2D" groups=["Player"]]
 script = ExtResource("1_lfkgq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ceqvl")
+shape = SubResource("CapsuleShape2D_b4n6q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0186949, 0.0186949)
-texture = ExtResource("1_v53yo")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_1qih2")
+animation = &"Idle"

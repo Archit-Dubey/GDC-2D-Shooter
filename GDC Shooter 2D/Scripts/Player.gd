@@ -11,6 +11,8 @@ extends CharacterBody2D
 @export var movingspeed = 300
 @export var rotation_speed = 5 
 @export var defaultFireRate=0.25 #no of seconds between each bullet
+@export var health = 5
+@export var lives = 1
 
 
 
@@ -39,8 +41,8 @@ func _physics_process(delta):
 		#remove till above
 		
 		
-		
 	move_and_slide()
+	
 	
 	var rotation_input = joystick_rotation.posVector
 	var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
@@ -56,13 +58,16 @@ func _physics_process(delta):
 		var newBullet=bulletType.instantiate()
 		newBullet.global_position=gun.global_position
 		newBullet.set_direction(rotation)
+		newBullet.global_rotation_degrees = global_rotation_degrees
 		gun.add_child(newBullet)
-		gunCoolDown.start() 
+		gunCoolDown.start()
+		
 
 func rotation_angle(rotation_vector: Vector2) -> float: 
 	#modified function to calculate angle from a given vector, previous one was buggy
 	return atan2(rotation_vector.y, rotation_vector.x)
 	
 
-
-
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Enemy"):
+		pass
