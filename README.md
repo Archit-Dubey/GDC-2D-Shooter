@@ -4,7 +4,7 @@
 2. Player (Done)
 3. Joystick to move and rotate the player (Done)
 4. Set Shooting Controls for Player (Done)
-5. Insert enemies and make them spawn on random durations (Mostly Done)
+5. Insert enemies and make them spawn on random durations (Mostly Done because there might be new additions, right now 2 types of enemy are done)
 6. Set shooting controls for enemies (Mostly Done)
 7. Add player health bar
 8. Add enemy health
