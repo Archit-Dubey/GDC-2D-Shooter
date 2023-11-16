@@ -1,12 +1,15 @@
 extends Area2D
-
+@export var health=20
+@export var damageFactor=20
 @export var speed = 200  # Adjust this value to control the speed of the enemy
-@onready var player=$"/root/Main/Player"
+@onready var player=$"../../Player"
 
 func _ready():
-		pass
+	pass
 
 func _process(delta):
+	if health<0:
+		queue_free()
 	if player:
 		
 		# Make the enemy look at player all the time
@@ -20,10 +23,6 @@ func _process(delta):
 func _on_body_entered(body):
 	
 	if body.is_in_group("Player"):
+		body.health-=damageFactor
 		queue_free()
 		
-
-func _on_area_entered(area):
-	
-	if area.is_in_group("Player"):
-		queue_free()

@@ -1,97 +1,98 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1700067784
-export_presets.cfg::TextFile::-1::1700025056::0::1::::<><>::
-icon.svg::CompressedTexture2D::858899324018195348::1700025056::1700025370::1::::<><>::
-::res://Assets/::1700025056
-::res://Assets/Art/::1700067996
-::res://Assets/Art/Enemies/::1700067059
-::res://Assets/Art/Enemies/Chaser/::1700026668
-Chaser Sprites.png::CompressedTexture2D::6848828320411799064::1700025056::1700026668::1::::<><>::
-::res://Assets/Art/Enemies/Straight/::1700068063
-Enemy_StraightProjectile.png::CompressedTexture2D::7268071879029324061::1700025056::1700068072::1::::<><>::
-Straight Shoot Sprites.png::CompressedTexture2D::3704322001179392172::1700025056::1700067572::1::::<><>::
-::res://Assets/Art/Joystick/::1700025372
-joyknobpng.png::CompressedTexture2D::4043551822747918995::1700025056::1700025372::1::::<><>::
-joyring.png::CompressedTexture2D::8697860937527974593::1700025056::1700025372::1::::<><>::
-::res://Assets/Art/Player/::1700066006
-Player Sprites.png::CompressedTexture2D::1350736670973503375::1700025056::1700025371::1::::<><>::
-Player_Projectile.png::CompressedTexture2D::7502782042431653124::1700025056::1700066006::1::::<><>::
-::res://Old Assets/::1700025372
-AlienSpaceStation.png::CompressedTexture2D::4635897312218514842::1700025056::1700025371::1::::<><>::
-Asteroid_1.png::CompressedTexture2D::1447636172370468490::1700025056::1700025371::1::::<><>::
-Asteroid_2.png::CompressedTexture2D::3399019062436253290::1700025056::1700025371::1::::<><>::
-Asteroid_3.png::CompressedTexture2D::123994379266908876::1700025056::1700025371::1::::<><>::
-Asteroid_4.png::CompressedTexture2D::847799087159221971::1700025056::1700025371::1::::<><>::
-A_CompleteSpaceBackground.png::CompressedTexture2D::2752246478479854236::1700025056::1700025371::1::::<><>::
-A_NebulaWithStars.png::CompressedTexture2D::6437405929976019396::1700025056::1700025371::1::::<><>::
-BigBluePlanet.png::CompressedTexture2D::5610164500189654522::1700025056::1700025371::1::::<><>::
-BigRedPlanet.png::CompressedTexture2D::332562871872450303::1700025056::1700025371::1::::<><>::
-Big_Blackhole.png::CompressedTexture2D::693782409146974164::1700025056::1700025370::1::::<><>::
-Big_BlueFrozenPlanet.png::CompressedTexture2D::7639147266180067403::1700025056::1700025370::1::::<><>::
-BlackBackground.png::CompressedTexture2D::202028824886637566::1700025056::1700025370::1::::<><>::
-BlackSpace1.png::CompressedTexture2D::4826459189800924330::1700025056::1700025370::1::::<><>::
-BlackSpace2.png::CompressedTexture2D::2081310815799655355::1700025056::1700025371::1::::<><>::
-BlackSpace3.png::CompressedTexture2D::4827233317511811783::1700025056::1700025371::1::::<><>::
-B_CompleteSpaceBackground.png::CompressedTexture2D::4896348852659225061::1700025056::1700025371::1::::<><>::
-B_NebulaWithStars.png::CompressedTexture2D::2739502362073691076::1700025056::1700025371::1::::<><>::
-Chaser Sprites.png::CompressedTexture2D::6470335650686853835::1700025056::1700025371::1::::<><>::
-C_CompleteSpaceBackground.png::CompressedTexture2D::8277806399397335077::1700025056::1700025371::1::::<><>::
-C_NebulaWithStars.png::CompressedTexture2D::5761685043659965914::1700025056::1700025371::1::::<><>::
-DShoot Sprites.png::CompressedTexture2D::2187070739797318052::1700025056::1700025371::1::::<><>::
-D_CompleteSpaceBackground.png::CompressedTexture2D::7609044094565791271::1700025056::1700025371::1::::<><>::
-Enemy Explosion.png::CompressedTexture2D::3125361234749898387::1700025056::1700025371::1::::<><>::
-Enemy_DiagonalProjectile.png::CompressedTexture2D::3310166344408972753::1700025056::1700025371::1::::<><>::
-Enemy_StraightProjectile.png::CompressedTexture2D::8977561838230795323::1700025056::1700025371::1::::<><>::
-Life.png::CompressedTexture2D::451819142787395802::1700025056::1700025372::1::::<><>::
-Medium_BluePlanet.png::CompressedTexture2D::1419203806969833599::1700025056::1700025371::1::::<><>::
-Medium_DryPlanet.png::CompressedTexture2D::6619633677481400552::1700025056::1700025371::1::::<><>::
-Medium_GreyPlanet.png::CompressedTexture2D::5037523522880380227::1700025056::1700025371::1::::<><>::
-Medium_RingedRedPlanet.png::CompressedTexture2D::7347766391818219619::1700025056::1700025371::1::::<><>::
-MoreAccurate_Blackhole.png::CompressedTexture2D::7251905851070276084::1700025056::1700025370::1::::<><>::
-offToggle.png::CompressedTexture2D::8256000384934474946::1700025056::1700025371::1::::<><>::
-onToggle.png::CompressedTexture2D::7089589257043776323::1700025056::1700025371::1::::<><>::
-Player Explosion.png::CompressedTexture2D::717372802324202989::1700025056::1700025370::1::::<><>::
-Player Sprites.png::CompressedTexture2D::804257032039591771::1700025056::1700025370::1::::<><>::
-PlayerThrust.png::CompressedTexture2D::3292167980408241792::1700025056::1700025370::1::::<><>::
-Player_Projectile.png::CompressedTexture2D::699964144615910013::1700025056::1700025370::1::::<><>::
-PyramidSpaceStation.png::CompressedTexture2D::6150320265767206917::1700025056::1700025370::1::::<><>::
-Reticle1.png::CompressedTexture2D::5805634966363864306::1700025056::1700025370::1::::<><>::
-Reticle2.png::CompressedTexture2D::2585751843876268763::1700025056::1700025370::1::::<><>::
-Reticle3.png::CompressedTexture2D::770589482582678208::1700025056::1700025370::1::::<><>::
-Reticle4.png::CompressedTexture2D::8602420343592285703::1700025056::1700025370::1::::<><>::
-Reticle5.png::CompressedTexture2D::7898849655462523196::1700025056::1700025370::1::::<><>::
-Reticle.png::CompressedTexture2D::7021525264623855533::1700025056::1700025370::1::::<><>::
-Reticle_Blue.png::CompressedTexture2D::2652208646326674413::1700025056::1700025370::1::::<><>::
-Reticle_BlueAngel.png::CompressedTexture2D::3281176831964821643::1700025056::1700025370::1::::<><>::
-Reticle_Gold.png::CompressedTexture2D::8190058771307497744::1700025056::1700025370::1::::<><>::
-Reticle_Grey.png::CompressedTexture2D::1345159502157883918::1700025056::1700025370::1::::<><>::
-Small_Blackhole.png::CompressedTexture2D::6763076127780592869::1700025056::1700025370::1::::<><>::
-Small_BrownPlanet.png::CompressedTexture2D::2372800037892241179::1700025056::1700025370::1::::<><>::
-Small_DarkRedPlanet.png::CompressedTexture2D::7504252455129388161::1700025056::1700025370::1::::<><>::
-Small_FrozenPlanet.png::CompressedTexture2D::4259322649061162261::1700025056::1700025370::1::::<><>::
-Small_GreenPlanet.png::CompressedTexture2D::1966871307166144486::1700025056::1700025370::1::::<><>::
-Small_RedPlanet.png::CompressedTexture2D::4336050655965464097::1700025056::1700025370::1::::<><>::
-Small_RingedYellowPlanet.png::CompressedTexture2D::2325177240016249036::1700025056::1700025370::1::::<><>::
-Small_SpaceStation.png::CompressedTexture2D::2926707590168618685::1700025056::1700025370::1::::<><>::
-SolarSpaceStation.png::CompressedTexture2D::4215774841021384972::1700025056::1700025370::1::::<><>::
-SShoot Sprites.png::CompressedTexture2D::26072039301803947::1700025056::1700025370::1::::<><>::
-UIBackdrop.png::CompressedTexture2D::978073241146201789::1700025056::1700025370::1::::<><>::
-UIButton.png::CompressedTexture2D::8224195908218557776::1700025056::1700025370::1::::<><>::
-volumeSlider.png::CompressedTexture2D::6047707684053286985::1700025056::1700025370::1::::<><>::
-Wormhole.png::CompressedTexture2D::7898828591183037050::1700025056::1700025370::1::::<><>::
-::res://Scenes/::1700067876
-chaser_enemy.tscn::PackedScene::1013539785733631030::1700066754::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png<>res://Scripts/Chaser_Enemy.gd
-defaultBullet.tscn::PackedScene::3558923926258882816::1700067876::0::1::::<><>::res://Scripts/Bullet.gd<>uid://de5nyva2bhvls::::res://Assets/Art/Player/Player_Projectile.png
-gui.tscn::PackedScene::6439043795854765991::1700066754::0::1::::<><>::uid://bnoasihi24wj0::::res://Scenes/joystick.tscn
-joystick.tscn::PackedScene::3327809515235809147::1700066754::0::1::::<><>::res://Scripts/Joystick.gd<>uid://dv6kq7xq4op5j::::res://Assets/Art/Joystick/joyring.png<>uid://bxuyycfoi67p4::::res://Assets/Art/Joystick/joyknobpng.png
-main.tscn::PackedScene::9106336261695891670::1700066753::0::1::::<><>::res://Scripts/Main.gd<>uid://cx0ed02rryg76::::res://Scenes/gui.tscn<>uid://xcee157fq5ca::::res://Scenes/player.tscn<>uid://oo738ersgkxq::::res://Scenes/chaser_enemy.tscn
-player.tscn::PackedScene::1618723583742064908::1700066754::0::1::::<><>::res://Scripts/Player.gd<>uid://tiko2t3qtqlb::::res://Assets/Art/Player/Player Sprites.png
-straight_shooter_enemy.tscn::PackedScene::6599286421760323129::1700067810::0::1::::<><>::uid://bs1nv3ld1mkkq::::res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png<>res://Scripts/Straight_Shooter_Enemy.gd
-::res://Scripts/::1700067810
-Bullet.gd::GDScript::-1::1700066381::0::1::::<>Area2D<>::
-Chaser_Enemy.gd::GDScript::-1::1700054120::0::1::::<>Area2D<>::
-Joystick.gd::GDScript::-1::1700025056::0::1::::<>Node2D<>::
-Knob.gd::GDScript::-1::1700025056::0::1::::<>Sprite2D<>::
-Main.gd::GDScript::-1::1700049127::0::1::::<>Node2D<>::
-Player.gd::GDScript::-1::1700066705::0::1::::<>CharacterBody2D<>::
-Straight_Shooter_Enemy.gd::GDScript::-1::1700067810::0::1::::<>Area2D<>::
+::res://::1700153980
+export_presets.cfg::TextFile::-1::1700153949::0::1::::<><>::
+icon.svg::CompressedTexture2D::858899324018195348::1699977039::1699978145::1::::<><>::
+::res://Assets/::1699977039
+::res://Assets/Art/::1700153959
+::res://Assets/Art/Enemies/::1700153959
+::res://Assets/Art/Enemies/Chaser/::1700153959
+Chaser Sprites.png::CompressedTexture2D::6848828320411799064::1700153959::1700153959::1::::<><>::
+::res://Assets/Art/Enemies/Straight/::1700153959
+Enemy_StraightProjectile.png::CompressedTexture2D::7268071879029324061::1700153959::1700153959::1::::<><>::
+Straight Shoot Sprites.png::CompressedTexture2D::3704322001179392172::1700153959::1700153959::1::::<><>::
+::res://Assets/Art/Joystick/::1699978146
+joyknobpng.png::CompressedTexture2D::4043551822747918995::1699977039::1699978146::1::::<><>::
+joyring.png::CompressedTexture2D::8697860937527974593::1699977039::1699978146::1::::<><>::
+::res://Assets/Art/Player/::1700153959
+Player Sprites.png::CompressedTexture2D::1350736670973503375::1699977039::1699978145::1::::<><>::
+Player_Projectile.png::CompressedTexture2D::7502782042431653124::1700153959::1700153959::1::::<><>::
+::res://Old Assets/::1699978145
+AlienSpaceStation.png::CompressedTexture2D::4635897312218514842::1699977039::1699978145::1::::<><>::
+Asteroid_1.png::CompressedTexture2D::1447636172370468490::1699977039::1699978145::1::::<><>::
+Asteroid_2.png::CompressedTexture2D::3399019062436253290::1699977039::1699978145::1::::<><>::
+Asteroid_3.png::CompressedTexture2D::123994379266908876::1699977039::1699978145::1::::<><>::
+Asteroid_4.png::CompressedTexture2D::847799087159221971::1699977039::1699978145::1::::<><>::
+A_CompleteSpaceBackground.png::CompressedTexture2D::2752246478479854236::1699977039::1699978145::1::::<><>::
+A_NebulaWithStars.png::CompressedTexture2D::6437405929976019396::1699977039::1699978145::1::::<><>::
+BigBluePlanet.png::CompressedTexture2D::5610164500189654522::1699977039::1699978145::1::::<><>::
+BigRedPlanet.png::CompressedTexture2D::332562871872450303::1699977039::1699978145::1::::<><>::
+Big_Blackhole.png::CompressedTexture2D::693782409146974164::1699977039::1699978145::1::::<><>::
+Big_BlueFrozenPlanet.png::CompressedTexture2D::7639147266180067403::1699977039::1699978145::1::::<><>::
+BlackBackground.png::CompressedTexture2D::202028824886637566::1699977039::1699978145::1::::<><>::
+BlackSpace1.png::CompressedTexture2D::4826459189800924330::1699977039::1699978145::1::::<><>::
+BlackSpace2.png::CompressedTexture2D::2081310815799655355::1699977039::1699978145::1::::<><>::
+BlackSpace3.png::CompressedTexture2D::4827233317511811783::1699977039::1699978145::1::::<><>::
+B_CompleteSpaceBackground.png::CompressedTexture2D::4896348852659225061::1699977039::1699978145::1::::<><>::
+B_NebulaWithStars.png::CompressedTexture2D::2739502362073691076::1699977039::1699978145::1::::<><>::
+Chaser Sprites.png::CompressedTexture2D::6470335650686853835::1699977039::1699978145::1::::<><>::
+C_CompleteSpaceBackground.png::CompressedTexture2D::8277806399397335077::1699977039::1699978145::1::::<><>::
+C_NebulaWithStars.png::CompressedTexture2D::5761685043659965914::1699977039::1699978145::1::::<><>::
+DShoot Sprites.png::CompressedTexture2D::2187070739797318052::1699977039::1699978145::1::::<><>::
+D_CompleteSpaceBackground.png::CompressedTexture2D::7609044094565791271::1699977039::1699978145::1::::<><>::
+Enemy Explosion.png::CompressedTexture2D::3125361234749898387::1699977039::1699978145::1::::<><>::
+Enemy_DiagonalProjectile.png::CompressedTexture2D::3310166344408972753::1699977039::1699978145::1::::<><>::
+Enemy_StraightProjectile.png::CompressedTexture2D::8977561838230795323::1699977039::1699978145::1::::<><>::
+Life.png::CompressedTexture2D::451819142787395802::1699977039::1699978145::1::::<><>::
+Medium_BluePlanet.png::CompressedTexture2D::1419203806969833599::1699977039::1699978145::1::::<><>::
+Medium_DryPlanet.png::CompressedTexture2D::6619633677481400552::1699977039::1699978145::1::::<><>::
+Medium_GreyPlanet.png::CompressedTexture2D::5037523522880380227::1699977039::1699978145::1::::<><>::
+Medium_RingedRedPlanet.png::CompressedTexture2D::7347766391818219619::1699977039::1699978145::1::::<><>::
+MoreAccurate_Blackhole.png::CompressedTexture2D::7251905851070276084::1699977039::1699978144::1::::<><>::
+offToggle.png::CompressedTexture2D::8256000384934474946::1699977039::1699978145::1::::<><>::
+onToggle.png::CompressedTexture2D::7089589257043776323::1699977039::1699978145::1::::<><>::
+Player Explosion.png::CompressedTexture2D::717372802324202989::1699977039::1699978144::1::::<><>::
+Player Sprites.png::CompressedTexture2D::804257032039591771::1699977039::1699978144::1::::<><>::
+PlayerThrust.png::CompressedTexture2D::3292167980408241792::1699977039::1699978144::1::::<><>::
+Player_Projectile.png::CompressedTexture2D::699964144615910013::1699977039::1699978144::1::::<><>::
+PyramidSpaceStation.png::CompressedTexture2D::6150320265767206917::1699977039::1699978144::1::::<><>::
+Reticle1.png::CompressedTexture2D::5805634966363864306::1699977039::1699978144::1::::<><>::
+Reticle2.png::CompressedTexture2D::2585751843876268763::1699977039::1699978144::1::::<><>::
+Reticle3.png::CompressedTexture2D::770589482582678208::1699977039::1699978144::1::::<><>::
+Reticle4.png::CompressedTexture2D::8602420343592285703::1699977039::1699978144::1::::<><>::
+Reticle5.png::CompressedTexture2D::7898849655462523196::1699977039::1699978144::1::::<><>::
+Reticle.png::CompressedTexture2D::7021525264623855533::1699977039::1699978144::1::::<><>::
+Reticle_Blue.png::CompressedTexture2D::2652208646326674413::1699977039::1699978144::1::::<><>::
+Reticle_BlueAngel.png::CompressedTexture2D::3281176831964821643::1699977039::1699978144::1::::<><>::
+Reticle_Gold.png::CompressedTexture2D::8190058771307497744::1699977039::1699978145::1::::<><>::
+Reticle_Grey.png::CompressedTexture2D::1345159502157883918::1699977039::1699978145::1::::<><>::
+Small_Blackhole.png::CompressedTexture2D::6763076127780592869::1699977039::1699978145::1::::<><>::
+Small_BrownPlanet.png::CompressedTexture2D::2372800037892241179::1699977039::1699978145::1::::<><>::
+Small_DarkRedPlanet.png::CompressedTexture2D::7504252455129388161::1699977039::1699978145::1::::<><>::
+Small_FrozenPlanet.png::CompressedTexture2D::4259322649061162261::1699977039::1699978145::1::::<><>::
+Small_GreenPlanet.png::CompressedTexture2D::1966871307166144486::1699977039::1699978145::1::::<><>::
+Small_RedPlanet.png::CompressedTexture2D::4336050655965464097::1699977039::1699978145::1::::<><>::
+Small_RingedYellowPlanet.png::CompressedTexture2D::2325177240016249036::1699977039::1699978145::1::::<><>::
+Small_SpaceStation.png::CompressedTexture2D::2926707590168618685::1699977039::1699978145::1::::<><>::
+SolarSpaceStation.png::CompressedTexture2D::4215774841021384972::1699977039::1699978145::1::::<><>::
+SShoot Sprites.png::CompressedTexture2D::26072039301803947::1699977039::1699978145::1::::<><>::
+UIBackdrop.png::CompressedTexture2D::978073241146201789::1699977039::1699978145::1::::<><>::
+UIButton.png::CompressedTexture2D::8224195908218557776::1699977039::1699978145::1::::<><>::
+volumeSlider.png::CompressedTexture2D::6047707684053286985::1699977039::1699978145::1::::<><>::
+Wormhole.png::CompressedTexture2D::7898828591183037050::1699977039::1699978145::1::::<><>::
+::res://Scenes/::1700153959
+chaser_enemy.tscn::PackedScene::1013539785733631030::1700153959::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png<>res://Scripts/Chaser_Enemy.gd
+defaultBullet.tscn::PackedScene::3558923926258882816::1700153959::0::1::::<><>::res://Scripts/Bullet.gd<>uid://de5nyva2bhvls::::res://Assets/Art/Player/Player_Projectile.png
+gui.tscn::PackedScene::6439043795854765991::1700153496::0::1::::<><>::uid://bnoasihi24wj0::::res://Scenes/joystick.tscn
+joystick.tscn::PackedScene::3327809515235809147::1700153959::0::1::::<><>::res://Scripts/Joystick.gd<>uid://dv6kq7xq4op5j::::res://Assets/Art/Joystick/joyring.png<>uid://bxuyycfoi67p4::::res://Assets/Art/Joystick/joyknobpng.png
+main.tscn::PackedScene::9106336261695891670::1700153959::0::1::::<><>::res://Scripts/Main.gd<>uid://cx0ed02rryg76::::res://Scenes/gui.tscn<>uid://xcee157fq5ca::::res://Scenes/player.tscn<>uid://c1a0jvm3pst4t::::res://Scenes/straight_shooter_enemy.tscn<>uid://oo738ersgkxq::::res://Scenes/chaser_enemy.tscn
+player.tscn::PackedScene::1618723583742064908::1700153959::0::1::::<><>::res://Scripts/Player.gd<>uid://tiko2t3qtqlb::::res://Assets/Art/Player/Player Sprites.png
+straight_shooter_bullet.tscn::PackedScene::502544237863217101::1700153959::0::1::::<><>::res://Scripts/Bullet.gd<>uid://dbsyc10yfjg2x::::res://Assets/Art/Enemies/Straight/Enemy_StraightProjectile.png
+straight_shooter_enemy.tscn::PackedScene::6599286421760323129::1700153959::0::1::::<><>::uid://bs1nv3ld1mkkq::::res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png<>res://Scripts/Straight_Shooter_Enemy.gd
+::res://Scripts/::1700153959
+Bullet.gd::GDScript::-1::1700153959::0::1::::<>Area2D<>::
+Chaser_Enemy.gd::GDScript::-1::1700153959::0::1::::<>Area2D<>::
+joystick.gd::GDScript::-1::1699983881::0::1::::<>Node2D<>::
+Knob.gd::GDScript::-1::1699980965::0::1::::<>Sprite2D<>::
+Main.gd::GDScript::-1::1700153959::0::1::::<>Node2D<>::
+Player.gd::GDScript::-1::1700153959::0::1::::<>CharacterBody2D<>::
+Straight_Shooter_Enemy.gd::GDScript::-1::1700153959::0::1::::<>Area2D<>::

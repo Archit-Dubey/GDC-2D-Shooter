@@ -36,7 +36,7 @@ animations = [{
 radius = 24.0
 height = 52.0
 
-[node name="Straight_Shooter_Enemy" type="Area2D"]
+[node name="Straight_Shooter_Enemy" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_dqyth")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
