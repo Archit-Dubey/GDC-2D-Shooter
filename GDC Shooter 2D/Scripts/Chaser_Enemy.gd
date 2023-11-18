@@ -1,7 +1,9 @@
 extends Area2D
 @export var health=20
 @export var damageFactor=20
+@export var score=100#score increase on death
 @export var speed = 200  # Adjust this value to control the speed of the enemy
+@onready var GUI=$"../../GUI"
 @onready var player=$"../../Player"
 
 func _ready():
@@ -9,6 +11,7 @@ func _ready():
 
 func _process(delta):
 	if health<0:
+		GUI.incScore(score)
 		queue_free()
 	if player:
 		

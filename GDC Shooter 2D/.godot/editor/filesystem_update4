@@ -1,6 +1,7 @@
+res://Scenes/gui.tscn
+res://Scripts/Gui.gd
 res://Scenes/main.tscn
 res://Scenes/defaultBullet.tscn
-res://Scenes/gui.tscn
 res://Scenes/joystick.tscn
 res://Scenes/chaser_enemy.tscn
 res://Scenes/player.tscn
@@ -10,5 +11,3 @@ res://Scripts/Player.gd
 res://Scripts/Straight_Shooter_Enemy.gd
 res://Scripts/Chaser_Enemy.gd
 res://Scripts/Bullet.gd
-res://Scripts/enemy_bullet.gd
-res://Scripts/Gui.gd

@@ -5,8 +5,10 @@ extends Area2D
 @export var bulletDamage=10
 @export var speed = 100  # Adjust this value to control the speed of the enemy
 @export var health=20#health of the enemy
+@export var score=100#score increase on death
 @onready var player = $"../../Player"
 @onready var gun = $GunTip
+@onready var GUI=$"../../GUI"
 @onready var bullet = preload("res://Scenes/straight_shooter_bullet.tscn")
 
 
@@ -15,6 +17,7 @@ func _ready():
 
 func _physics_process(delta):
 	if health<0:
+		GUI.incScore(score)
 		queue_free()
 	if player:
 		

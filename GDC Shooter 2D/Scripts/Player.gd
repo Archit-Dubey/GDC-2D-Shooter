@@ -44,6 +44,23 @@ func _physics_process(delta):
 			
 			
 		move_and_slide()
+		var rotation_input = joystick_rotation.posVector
+		var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
+		
+		if rotation_input.length() > 0.01:
+			rotation=rotation_angle(rotation_input)
+			rotate(rotation * rotation_speed * delta)
+		
+			
+		if firePressed and gunCoolDown.is_stopped(): 
+			#if joystick knob is outside and gun is ready to fire
+			
+			var newBullet=bulletType.instantiate()
+			newBullet.global_position=gun.global_position
+			newBullet.set_direction(rotation)
+			newBullet.global_rotation_degrees = global_rotation_degrees
+			gun.add_child(newBullet)
+			gunCoolDown.start()
 	else:#put explosion animation here
 		if lives>0:
 			print("new life")
@@ -52,23 +69,7 @@ func _physics_process(delta):
 		else:
 			print("died")
 	
-	var rotation_input = joystick_rotation.posVector
-	var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
 	
-	if rotation_input.length() > 0.01:
-		rotation=rotation_angle(rotation_input)
-		rotate(rotation * rotation_speed * delta)
-	
-		
-	if firePressed and gunCoolDown.is_stopped(): 
-		#if joystick knob is outside and gun is ready to fire
-		
-		var newBullet=bulletType.instantiate()
-		newBullet.global_position=gun.global_position
-		newBullet.set_direction(rotation)
-		newBullet.global_rotation_degrees = global_rotation_degrees
-		gun.add_child(newBullet)
-		gunCoolDown.start()
 		
 
 func rotation_angle(rotation_vector: Vector2) -> float: 
