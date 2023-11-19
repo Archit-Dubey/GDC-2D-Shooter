@@ -13,8 +13,8 @@ func _process(delta):
 	if health<0:
 		GUI.incScore(score)
 		queue_free()
-	if player:
 		
+	if player:
 		# Make the enemy look at player all the time
 		look_at(player.global_position)
 

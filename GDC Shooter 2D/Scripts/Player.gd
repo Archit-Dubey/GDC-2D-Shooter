@@ -8,24 +8,23 @@ extends CharacterBody2D
 @onready var defaultBullet=preload("res://Scenes/defaultBullet.tscn") #basic bullet type
 @onready var bulletType=defaultBullet # the current type of gun/bullet selected
 @onready var gui=$"../GUI"
+
 @export var movingspeed = 300
 @export var rotation_speed = 5 
 @export var defaultFireRate=0.25 #no of seconds between each bullet
 @export var maxHealth=100
-var health = 100#current health
-@export var lives = 1
+@export var maxLives = 3
+@export var lives = 3
 
-
+var health = maxHealth#current health
 
 func _ready():
-	health=maxHealth
 	gunCoolDown.wait_time=defaultFireRate
 
 func _physics_process(delta):
 	gui.updatePlayerHealth(health)
 	if health>0:
-		var direction = joystick_direction.posVector
-		
+		var direction = joystick_direction.posVector	
 		
 		if direction:
 			velocity = direction * movingspeed
@@ -41,7 +40,6 @@ func _physics_process(delta):
 			velocity = direction.normalized() * movingspeed
 			
 			#remove till above
-			
 			
 		move_and_slide()
 		var rotation_input = joystick_rotation.posVector

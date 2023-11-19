@@ -1,22 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://d20ga7d1n8k7w"]
+[gd_scene load_steps=8 format=3 uid="uid://d20ga7d1n8k7w"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_o5v6k"]
 [ext_resource type="PackedScene" uid="uid://cx0ed02rryg76" path="res://Scenes/gui.tscn" id="1_w257l"]
 [ext_resource type="PackedScene" uid="uid://xcee157fq5ca" path="res://Scenes/player.tscn" id="2_irpq3"]
 [ext_resource type="PackedScene" uid="uid://c1a0jvm3pst4t" path="res://Scenes/straight_shooter_enemy.tscn" id="3_d1hvq"]
 [ext_resource type="PackedScene" uid="uid://oo738ersgkxq" path="res://Scenes/chaser_enemy.tscn" id="4_0taoq"]
+[ext_resource type="PackedScene" uid="uid://b70nfjw7t75e6" path="res://Scenes/life_powerup.tscn" id="4_segf4"]
+[ext_resource type="PackedScene" uid="uid://b25becxymidw0" path="res://Scenes/health_powerup.tscn" id="5_k6fxs"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5v6k")
 enemy_scenes = Array[PackedScene]([ExtResource("4_0taoq"), ExtResource("3_d1hvq")])
+powerups_scenes = Array[PackedScene]([ExtResource("4_segf4"), ExtResource("5_k6fxs")])
 
 [node name="GUI" parent="." instance=ExtResource("1_w257l")]
 
 [node name="Player" parent="." instance=ExtResource("2_irpq3")]
+position = Vector2(552, 324)
 
 [node name="Enemy_Spawner_Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Enemy_Container" type="Node" parent="." groups=["Enemy"]]
 
+[node name="Powerups_Spawner_Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Powerups_Container" type="Node" parent="."]
+
 [connection signal="timeout" from="Enemy_Spawner_Timer" to="." method="_on_enemy_spawner_timer_timeout"]
+[connection signal="timeout" from="Powerups_Spawner_Timer" to="." method="_on_powerups_spawner_timer_timeout"]
