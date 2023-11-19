@@ -10,8 +10,8 @@
 8. Add player health bar (Done)
 9. Add enemy health (Done)
 10. Add Damage taken/given (Done, no visual indicator yet besides player health bar)
-11. Enable player to have multiple lives (Done, but lives pickups have not been created)
+11. Enable player to have multiple lives (Done)
 12. Set a High score and score counter (Done)
-13. Insert different powerups (Life, Armor, Speed, etc)
+13. Insert different powerups (Life done, Health done, Armor still left, Speed still left)
 14. Add multiple gun types
 
