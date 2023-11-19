@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx0ed02rryg76"]
+[gd_scene load_steps=3 format=3 uid="uid://cx0ed02rryg76"]
 
+[ext_resource type="Script" path="res://Scripts/Gui.gd" id="1_7wqhe"]
 [ext_resource type="PackedScene" uid="uid://bnoasihi24wj0" path="res://Scenes/joystick.tscn" id="1_ucnmp"]
 
 [node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_7wqhe")
 
 [node name="directionAnchor" type="Control" parent="."]
 layout_mode = 3
@@ -33,3 +35,43 @@ grow_vertical = 0
 position = Vector2(-89, -89)
 scale = Vector2(2, 2)
 aimStick = true
+
+[node name="healthBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.0
+offset_right = 162.0
+offset_bottom = 27.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+step = 1.0
+
+[node name="lives" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 183.0
+offset_right = 223.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "1"
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 38.0
+offset_right = 24.0
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "Score:"
+
+[node name="HighScore" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 109.0
+offset_bottom = 50.0
+text = "High Score:"
+vertical_alignment = 1

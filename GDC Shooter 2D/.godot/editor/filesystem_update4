@@ -1,12 +1,10 @@
-res://Scenes/joystick.tscn
-res://Scenes/chaser_enemy.tscn
 res://Scenes/main.tscn
-res://Scenes/player.tscn
-res://Scripts/Player.gd
 res://Scenes/defaultBullet.tscn
 res://Scenes/gui.tscn
-res://Scripts/Chaser_Enemy.gd
-res://Scripts/Bullet.gd
+res://Scenes/joystick.tscn
+res://Scenes/chaser_enemy.tscn
+res://Scenes/player.tscn
 res://Scenes/straight_shooter_enemy.tscn
-res://Scripts/Straight_Shooter_Enemy.gd
 res://Scenes/straight_shooter_bullet.tscn
+res://Scripts/Straight_Shooter_Enemy.gd
+res://Scripts/Gui.gd
