@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ojfv2t10qdiw"]
+
+[ext_resource type="Script" path="res://Scripts/asteroid.gd" id="1_trd0r"]
+[ext_resource type="Texture2D" uid="uid://uvimd3kt672m" path="res://Old Assets/Asteroid_1.png" id="1_uju1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vpi5"]
+
+[node name="Asteroid" type="Sprite2D"]
+texture = ExtResource("1_uju1n")
+script = ExtResource("1_trd0r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(2.3848, 2.3848)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_3vpi5")

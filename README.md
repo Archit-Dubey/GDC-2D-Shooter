@@ -14,4 +14,7 @@
 12. Set a High score and score counter (Done)
 13. Insert different powerups (Life done, Health done, Armor done, Speed still left)
 14. Add multiple gun types
+15. Implement complex pathing for enemies to avoid debris
+16. Add debris/asteroids (Kind of done, asteroids should be adjusted with new sprites and accompanying collider shape)
+17. Random asteroid generation at start of level (done, but sometimes asteroids overlap)
 

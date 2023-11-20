@@ -6,6 +6,8 @@ extends Area2D
 @onready var GUI=$"../../GUI"
 @onready var player=$"../../Player"
 
+
+
 func _ready():
 	pass
 
@@ -29,4 +31,5 @@ func _on_body_entered(body):
 		if(body.armor == false):
 			body.health-=damageFactor
 		queue_free()
+	
 		

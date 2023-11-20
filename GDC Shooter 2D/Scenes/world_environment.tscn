@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dcs0vevywculd"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]

@@ -26,3 +26,5 @@ func _on_body_entered(body):
 		if(body.armor == false):
 			body.health-=damage
 		queue_free()
+	elif body.is_in_group("Environment"):
+		queue_free()
