@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b25becxymidw0"]
+[gd_scene load_steps=6 format=3 uid="uid://cj5axjxp2fsf0"]
 
-[ext_resource type="Script" path="res://Scripts/health_powerup.gd" id="1_45eti"]
-[ext_resource type="Texture2D" uid="uid://dk12vk50ovx6j" path="res://Assets/Art/Powerups/Health.png" id="2_sidhb"]
+[ext_resource type="Script" path="res://Scripts/armor_powerup.gd" id="1_jcmrr"]
+[ext_resource type="Texture2D" uid="uid://dbgcc6h2f1b8m" path="res://Assets/Art/Powerups/Armor.png" id="1_pmd1i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ushds"]
-radius = 181.84
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mr63p"]
+radius = 160.0
+height = 480.0
 
 [sub_resource type="Animation" id="Animation_ositd"]
 resource_name = "Idle"
@@ -27,17 +28,17 @@ _data = {
 "Idle": SubResource("Animation_ositd")
 }
 
-[node name="Health_Powerup" type="Area2D"]
+[node name="Armor_Powerup" type="Area2D"]
 scale = Vector2(0.1, 0.1)
-script = ExtResource("1_45eti")
+script = ExtResource("1_jcmrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ushds")
+shape = SubResource("CapsuleShape2D_mr63p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 50)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_sidhb")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_pmd1i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -46,4 +47,4 @@ libraries = {
 "": SubResource("AnimationLibrary_ayqd6")
 }
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

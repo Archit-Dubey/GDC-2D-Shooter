@@ -14,7 +14,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if is_instance_valid(player):
+		if player.lives == player.maxLives:
+			queue_free()
 
 
 func _on_body_entered(body):
@@ -25,8 +27,8 @@ func _on_body_entered(body):
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mr63p"]
-radius = 340.0
-height = 680.0
+radius = 320.0
+height = 960.0
 
 [sub_resource type="Animation" id="Animation_ositd"]
 resource_name = "Idle"
@@ -54,11 +56,11 @@ scale = Vector2(0.05, 0.05)
 script = SubResource("GDScript_57p2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -60)
 shape = SubResource("CapsuleShape2D_mr63p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 50)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_jt4tp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

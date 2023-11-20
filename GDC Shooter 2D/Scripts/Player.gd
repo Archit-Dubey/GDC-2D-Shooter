@@ -15,7 +15,11 @@ extends CharacterBody2D
 @export var maxHealth=100
 @export var maxLives = 3
 @export var lives = 3
+@export var armor = false
+@export var armor_duration = 3
 
+
+var armor_timer : Timer
 var health = maxHealth#current health
 
 func _ready():
@@ -66,13 +70,21 @@ func _physics_process(delta):
 			lives-=1
 		else:
 			print("died")
+			
 	
-	
-		
-
 func rotation_angle(rotation_vector: Vector2) -> float: 
 	#modified function to calculate angle from a given vector, previous one was buggy
 	return atan2(rotation_vector.y, rotation_vector.x)
 	
 
+func activate_armor():
+	# Also, we need to add some animation to signify there is an armor
+	armor_timer = Timer.new()
+	add_child(armor_timer)
+	armor_timer.connect("timeout", _on_Armor_Timer_timeout)
+	armor_timer.start(armor_duration)
+	armor = true
 
+func _on_Armor_Timer_timeout():
+	armor = false
+	remove_child(armor_timer)

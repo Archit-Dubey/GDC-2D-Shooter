@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1700418908
+::res://::1700481021
 export_presets.cfg::TextFile::-1::1700390447::0::1::::<><>::
 icon.svg::CompressedTexture2D::858899324018195348::1700387746::1700387746::1::::<><>::
 ::res://Assets/::1700421823
@@ -16,7 +16,8 @@ joyring.png::CompressedTexture2D::8697860937527974593::1700387746::1700387746::1
 ::res://Assets/Art/Player/::1700387746
 Player Sprites.png::CompressedTexture2D::1350736670973503375::1700387746::1700387746::1::::<><>::
 Player_Projectile.png::CompressedTexture2D::7502782042431653124::1700387746::1700387746::1::::<><>::
-::res://Assets/Art/Powerups/::1700421838
+::res://Assets/Art/Powerups/::1700476371
+Armor.png::CompressedTexture2D::7241963807086984626::1700476200::1700476371::1::::<><>::
 Health.png::CompressedTexture2D::7916501742274959787::1700421815::1700421842::1::::<><>::
 Life.png::CompressedTexture2D::1469633053416997640::1700387746::1700394943::1::::<><>::
 ::res://Old Assets/::1700387746
@@ -82,26 +83,28 @@ UIBackdrop.png::CompressedTexture2D::978073241146201789::1700387746::1700387746:
 UIButton.png::CompressedTexture2D::8224195908218557776::1700387746::1700387746::1::::<><>::
 volumeSlider.png::CompressedTexture2D::6047707684053286985::1700387746::1700387746::1::::<><>::
 Wormhole.png::CompressedTexture2D::7898828591183037050::1700387746::1700387746::1::::<><>::
-::res://Scenes/::1700420014
-chaser_enemy.tscn::PackedScene::1013539785733631030::1700420014::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png<>res://Scripts/Chaser_Enemy.gd
-defaultBullet.tscn::PackedScene::3558923926258882816::1700417748::0::1::::<><>::res://Scripts/Bullet.gd<>uid://de5nyva2bhvls::::res://Assets/Art/Player/Player_Projectile.png
-gui.tscn::PackedScene::6439043795854765991::1700420014::0::1::::<><>::res://Scripts/Gui.gd<>uid://bnoasihi24wj0::::res://Scenes/joystick.tscn
-health_powerup.tscn::PackedScene::4343518796394161489::1700420014::0::1::::<><>::res://Scripts/health_powerup.gd<>uid://dksis2d0m3vt7::::res://Old Assets/Wormhole.png
-joystick.tscn::PackedScene::3327809515235809147::1700420014::0::1::::<><>::res://Scripts/Joystick.gd<>uid://dv6kq7xq4op5j::::res://Assets/Art/Joystick/joyring.png<>uid://bxuyycfoi67p4::::res://Assets/Art/Joystick/joyknobpng.png
-life_powerup.tscn::PackedScene::4684871882013585231::1700420014::0::1::::<><>::uid://u65v21lwx8h5::::res://Assets/Art/Powerups/Life.png
-main.tscn::PackedScene::9106336261695891670::1700420014::0::1::::<><>::res://Scripts/Main.gd<>uid://cx0ed02rryg76::::res://Scenes/gui.tscn<>uid://xcee157fq5ca::::res://Scenes/player.tscn<>uid://c1a0jvm3pst4t::::res://Scenes/straight_shooter_enemy.tscn<>uid://oo738ersgkxq::::res://Scenes/chaser_enemy.tscn<>uid://b70nfjw7t75e6::::res://Scenes/life_powerup.tscn<>uid://b25becxymidw0::::res://Scenes/health_powerup.tscn
-player.tscn::PackedScene::1618723583742064908::1700420014::0::1::::<><>::res://Scripts/Player.gd<>uid://tiko2t3qtqlb::::res://Assets/Art/Player/Player Sprites.png
-straight_shooter_bullet.tscn::PackedScene::502544237863217101::1700420014::0::1::::<><>::uid://dbsyc10yfjg2x::::res://Assets/Art/Enemies/Straight/Enemy_StraightProjectile.png<>res://Scripts/enemy_bullet.gd
-straight_shooter_enemy.tscn::PackedScene::6599286421760323129::1700420014::0::1::::<><>::uid://bs1nv3ld1mkkq::::res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png<>res://Scripts/Straight_Shooter_Enemy.gd
-::res://Scripts/::1700419660
+::res://Scenes/::1700480885
+armor_powerup.tscn::PackedScene::5466513874968582275::1700480761::0::1::::<><>::res://Scripts/armor_powerup.gd<>uid://dbgcc6h2f1b8m::::res://Assets/Art/Powerups/Armor.png
+chaser_enemy.tscn::PackedScene::1013539785733631030::1700480760::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png<>res://Scripts/Chaser_Enemy.gd
+defaultBullet.tscn::PackedScene::3558923926258882816::1700417748::0::1::::<><>::res://Scripts/Bullet.gd<>uid://de5nyva2bhvls
+gui.tscn::PackedScene::6439043795854765991::1700480760::0::1::::<><>::res://Scripts/Gui.gd<>uid://bnoasihi24wj0::::res://Scenes/joystick.tscn
+health_powerup.tscn::PackedScene::4343518796394161489::1700480761::0::1::::<><>::res://Scripts/health_powerup.gd<>uid://dk12vk50ovx6j::::res://Assets/Art/Powerups/Health.png
+joystick.tscn::PackedScene::3327809515235809147::1700480760::0::1::::<><>::res://Scripts/Joystick.gd<>uid://dv6kq7xq4op5j::::res://Assets/Art/Joystick/joyring.png<>uid://bxuyycfoi67p4::::res://Assets/Art/Joystick/joyknobpng.png
+life_powerup.tscn::PackedScene::4684871882013585231::1700480760::0::1::::<><>::uid://u65v21lwx8h5::::res://Assets/Art/Powerups/Life.png
+main.tscn::PackedScene::9106336261695891670::1700480761::0::1::::<><>::res://Scripts/Main.gd<>uid://cx0ed02rryg76::::res://Scenes/gui.tscn<>uid://xcee157fq5ca::::res://Scenes/player.tscn<>uid://c1a0jvm3pst4t::::res://Scenes/straight_shooter_enemy.tscn<>uid://oo738ersgkxq::::res://Scenes/chaser_enemy.tscn<>uid://b70nfjw7t75e6::::res://Scenes/life_powerup.tscn<>uid://b25becxymidw0::::res://Scenes/health_powerup.tscn<>uid://cj5axjxp2fsf0::::res://Scenes/armor_powerup.tscn
+player.tscn::PackedScene::1618723583742064908::1700480885::0::1::::<><>::res://Scripts/Player.gd<>uid://tiko2t3qtqlb::::res://Assets/Art/Player/Player Sprites.png
+straight_shooter_bullet.tscn::PackedScene::502544237863217101::1700480760::0::1::::<><>::uid://dbsyc10yfjg2x::::res://Assets/Art/Enemies/Straight/Enemy_StraightProjectile.png<>res://Scripts/enemy_bullet.gd
+straight_shooter_enemy.tscn::PackedScene::6599286421760323129::1700480760::0::1::::<><>::uid://bs1nv3ld1mkkq::::res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png<>res://Scripts/Straight_Shooter_Enemy.gd
+::res://Scripts/::1700480873
+armor_powerup.gd::GDScript::-1::1700480440::0::1::::<>Area2D<>::
 Bullet.gd::GDScript::-1::1700387746::0::1::::<>Area2D<>::
-Chaser_Enemy.gd::GDScript::-1::1700392440::0::1::::<>Area2D<>::
-enemy_bullet.gd::GDScript::-1::1700387746::0::1::::<>Area2D<>::
+Chaser_Enemy.gd::GDScript::-1::1700480655::0::1::::<>Area2D<>::
+enemy_bullet.gd::GDScript::-1::1700480743::0::1::::<>Area2D<>::
 Gui.gd::GDScript::-1::1700392205::0::1::::<>CanvasLayer<>::
-health_powerup.gd::GDScript::-1::1700418857::0::1::::<>Area2D<>::
+health_powerup.gd::GDScript::-1::1700475340::0::1::::<>Area2D<>::
 Joystick.gd::GDScript::-1::1700387746::0::1::::<>Node2D<>::
 Knob.gd::GDScript::-1::1700387746::0::1::::<>Sprite2D<>::
 life_powerup.gd::GDScript::-1::1700417979::0::1::::<>Area2D<>::
 Main.gd::GDScript::-1::1700419660::0::1::::<>Node2D<>::
-Player.gd::GDScript::-1::1700419098::0::1::::<>CharacterBody2D<>::
-Straight_Shooter_Enemy.gd::GDScript::-1::1700388343::0::1::::<>Area2D<>::
+Player.gd::GDScript::-1::1700480873::0::1::::<>CharacterBody2D<>::
+Straight_Shooter_Enemy.gd::GDScript::-1::1700480730::0::1::::<>Area2D<>::

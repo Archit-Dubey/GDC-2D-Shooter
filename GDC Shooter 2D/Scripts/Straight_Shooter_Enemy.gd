@@ -6,6 +6,7 @@ extends Area2D
 @export var speed = 100  # Adjust this value to control the speed of the enemy
 @export var health=20#health of the enemy
 @export var score=100#score increase on death
+
 @onready var player = $"../../Player"
 @onready var gun = $GunTip
 @onready var GUI=$"../../GUI"
@@ -33,7 +34,8 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	
 	if body.is_in_group("Player"):
-		body.health=bulletDamage/2
+		if(body.armor == false):
+			body.health=bulletDamage/2
 		queue_free()
 
 func _on_timer_timeout():
