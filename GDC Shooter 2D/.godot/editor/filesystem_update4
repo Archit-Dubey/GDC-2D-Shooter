@@ -9,7 +9,4 @@ res://Scenes/asteroid.tscn
 res://Scenes/asteroid_spawner.tscn
 res://Scenes/speed_powerup.tscn
 res://Scripts/Player.gd
-res://Scripts/Chaser_Enemy.gd
-res://Scripts/enemy_bullet.gd
-res://Scripts/Straight_Shooter_Enemy.gd
 res://Scripts/asteroid_spawner.gd

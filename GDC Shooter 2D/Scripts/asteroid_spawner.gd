@@ -7,7 +7,7 @@ extends Node2D
 @export var max_spin=20
 @export var num=10
 @export var asteroids: Array[PackedScene] = []
-@export var minimum_gap=200 #minimum gap between asteroids
+@export var minimum_gap=1000 #minimum gap between asteroids
 
 @onready var level=$".."
 

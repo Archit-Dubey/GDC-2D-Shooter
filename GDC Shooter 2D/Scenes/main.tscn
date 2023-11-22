@@ -33,7 +33,6 @@ autostart = true
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("10_bwhqx")]
 num = 30
-minimum_gap = 1000
 
 [connection signal="timeout" from="Enemy_Spawner_Timer" to="." method="_on_enemy_spawner_timer_timeout"]
 [connection signal="timeout" from="Powerups_Spawner_Timer" to="." method="_on_powerups_spawner_timer_timeout"]

@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var gui=$"../GUI"
 @onready var powerupTimerContainer = $powerupTimerContainer
 
+@export var maxMovespeed=300#to cap the speed when speed powerup is picked up
 @export var movingspeed = 300
 @export var rotation_speed = 5 
 @export var defaultFireRate=0.25 #no of seconds between each bullet
@@ -95,7 +96,7 @@ func activate_armor():
 func activate_speedBoost():
 	# We need to add some animation to signify there is speed boost
 	create_timer(_on_boost_timer_timeout, boost_duration)
-	movingspeed = movingspeed * 2
+	movingspeed = maxMovespeed * 2
 	print("Speed Start")
 
 func _on_armor_timer_timeout():
@@ -104,7 +105,7 @@ func _on_armor_timer_timeout():
 	print("Armor End")
 	
 func _on_boost_timer_timeout():
-	movingspeed = movingspeed / 2
+	movingspeed = maxMovespeed
 	#deleting the first new child added to container
 	powerupTimerContainer.remove_child(powerupTimerContainer.get_children()[0])
 	print("Speed End")
