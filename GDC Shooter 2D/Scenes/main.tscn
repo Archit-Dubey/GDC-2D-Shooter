@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d20ga7d1n8k7w"]
+[gd_scene load_steps=12 format=3 uid="uid://d20ga7d1n8k7w"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_o5v6k"]
 [ext_resource type="PackedScene" uid="uid://cx0ed02rryg76" path="res://Scenes/gui.tscn" id="1_w257l"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cj5axjxp2fsf0" path="res://Scenes/armor_powerup.tscn" id="6_hmer3"]
 [ext_resource type="PackedScene" uid="uid://da58nulge23xs" path="res://Scenes/speed_powerup.tscn" id="7_j3wv3"]
 [ext_resource type="PackedScene" uid="uid://c7tx4xnytakm2" path="res://Scenes/asteroid_spawner.tscn" id="10_bwhqx"]
+[ext_resource type="PackedScene" uid="uid://pmjkr7qslnkj" path="res://Scenes/world_boundary.tscn" id="11_jvwjg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5v6k")
@@ -38,6 +39,9 @@ num = 30
 position = Vector2(1, 25)
 target_position = Vector2(0, 10)
 hit_from_inside = true
+
+[node name="worldBoundary" parent="." instance=ExtResource("11_jvwjg")]
+position = Vector2(0, -43)
 
 [connection signal="timeout" from="Enemy_Spawner_Timer" to="." method="_on_enemy_spawner_timer_timeout"]
 [connection signal="timeout" from="Powerups_Spawner_Timer" to="." method="_on_powerups_spawner_timer_timeout"]

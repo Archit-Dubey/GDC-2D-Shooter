@@ -17,4 +17,5 @@
 15. Implement complex pathing for enemies to avoid debris
 16. Add debris/asteroids (Kind of done, asteroids should be adjusted with new sprites and accompanying collider shape)
 17. Random asteroid generation at start of level (done, but sometimes asteroids overlap)
-
+18. Stop powerups from spawning into asteroids (done)
+19. implement world boundary (must decide between boundary type)
