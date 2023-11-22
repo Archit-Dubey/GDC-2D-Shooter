@@ -35,6 +35,16 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(400, 200)
 script = ExtResource("1_is4dd")
+movingspeed = null
+rotation_speed = null
+defaultFireRate = null
+maxHealth = null
+maxLives = null
+lives = null
+armor_bool = null
+speed_boost = null
+armor_duration = null
+boost_durtion = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
@@ -56,5 +66,3 @@ position = Vector2(23, 0)
 [node name="gunCoolDownTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-
-[node name="powerupTimerContainer" type="Node" parent="."]

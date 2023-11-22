@@ -5,7 +5,7 @@ extends Node2D
 @export var powerups_scenes: Array[PackedScene] = []
 
 @export var max_enemies = 10
-@export var max_powerups = 3
+@export var max_powerups = 30
 
 @export var maxSpawnRange = 1000
 

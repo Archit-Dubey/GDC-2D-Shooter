@@ -35,6 +35,15 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(400, 200)
 script = ExtResource("1_is4dd")
+movingspeed = null
+rotation_speed = null
+defaultFireRate = null
+maxHealth = null
+maxLives = null
+lives = null
+armor_bool = null
+armor_duration = null
+boost_duration = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708

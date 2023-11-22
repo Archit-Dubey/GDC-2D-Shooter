@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var defaultBullet=preload("res://Scenes/defaultBullet.tscn") #basic bullet type
 @onready var bulletType=defaultBullet # the current type of gun/bullet selected
 @onready var gui=$"../GUI"
+@onready var powerupTimerContainer = $powerupTimerContainer
 
 @export var movingspeed = 300
 @export var rotation_speed = 5 
@@ -15,11 +16,11 @@ extends CharacterBody2D
 @export var maxHealth=100
 @export var maxLives = 3
 @export var lives = 3
-@export var armor = false
-@export var armor_duration = 3
+@export var armor_value = 0
+@export var armor_duration = 10
+@export var boost_duration = 10
 
-
-var armor_timer : Timer
+var powerup_timer : Timer
 var health = maxHealth#current health
 
 func _ready():
@@ -77,14 +78,33 @@ func rotation_angle(rotation_vector: Vector2) -> float:
 	return atan2(rotation_vector.y, rotation_vector.x)
 	
 
-func activate_armor():
-	# Also, we need to add some animation to signify there is an armor
-	armor_timer = Timer.new()
-	add_child(armor_timer)
-	armor_timer.connect("timeout", _on_Armor_Timer_timeout)
-	armor_timer.start(armor_duration)
-	armor = true
+func create_timer(function_name, duration):
+	
+	powerup_timer = Timer.new()
+	powerupTimerContainer.add_child(powerup_timer)
+	# To connect the function to the latest added child
+	powerup_timer.connect("timeout", function_name)
+	powerup_timer.start(duration)
 
-func _on_Armor_Timer_timeout():
-	armor = false
-	remove_child(armor_timer)
+func activate_armor():
+	# We need to add some animation to signify there is an armor
+	create_timer(_on_armor_timer_timeout, armor_duration)
+	armor_value += 1
+	print("Armor Start")
+	
+func activate_speedBoost():
+	# We need to add some animation to signify there is speed boost
+	create_timer(_on_boost_timer_timeout, boost_duration)
+	movingspeed = movingspeed * 2
+	print("Speed Start")
+
+func _on_armor_timer_timeout():
+	armor_value -= 1
+	powerupTimerContainer.remove_child(powerupTimerContainer.get_children()[0])
+	print("Armor End")
+	
+func _on_boost_timer_timeout():
+	movingspeed = movingspeed / 2
+	#deleting the first new child added to container
+	powerupTimerContainer.remove_child(powerupTimerContainer.get_children()[0])
+	print("Speed End")

@@ -34,7 +34,7 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	
 	if body.is_in_group("Player"):
-		if(body.armor == false):
+		if(body.armor_value == 0):
 			body.health=bulletDamage/2
 		queue_free()
 

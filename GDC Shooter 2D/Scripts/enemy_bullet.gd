@@ -23,7 +23,7 @@ func set_direction(dir:float): #converts rotation degrees into a vector2d
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		if(body.armor == false):
+		if(body.armor_value == 0):
 			body.health-=damage
 		queue_free()
 	elif body.is_in_group("Environment"):

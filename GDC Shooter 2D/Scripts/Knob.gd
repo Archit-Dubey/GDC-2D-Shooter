@@ -20,7 +20,6 @@ func _physics_process(delta):
 			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
 			global_position.x = parent.global_position.x + cos(angle)*maxLength
 			global_position.y = parent.global_position.y + sin(angle)*maxLength
-			print("outside")
 		calculateVector()
 	else:
 		global_position = lerp(global_position, parent.global_position, delta*50)
