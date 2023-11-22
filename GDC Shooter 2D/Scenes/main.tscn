@@ -34,5 +34,10 @@ autostart = true
 [node name="AsteroidSpawner" parent="." instance=ExtResource("10_bwhqx")]
 num = 30
 
+[node name="powerupSpawnChecker" type="RayCast2D" parent="."]
+position = Vector2(1, 25)
+target_position = Vector2(0, 10)
+hit_from_inside = true
+
 [connection signal="timeout" from="Enemy_Spawner_Timer" to="." method="_on_enemy_spawner_timer_timeout"]
 [connection signal="timeout" from="Powerups_Spawner_Timer" to="." method="_on_powerups_spawner_timer_timeout"]

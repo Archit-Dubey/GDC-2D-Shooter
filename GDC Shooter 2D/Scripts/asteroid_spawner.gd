@@ -21,8 +21,7 @@ func _ready():
 
 
 func possibleOverlap(x,y): # checks if new asteroid overlaps with old
-	print("Possible Overlap")
-	print(placed)
+	
 	for i in placed:
 		var dist=sqrt( ((i[0]-x)**2)+((i[1]-y)**2) ) 
 		if dist<minimum_gap:
@@ -52,4 +51,5 @@ func create_asteroids():
 		a.global_position.y=ypos
 		a.size=random.randi_range(min_size,max_size)
 		a.spin=random.randi_range(-max_spin,max_spin)
+		a.add_to_group("Environment")
 		level.call_deferred("add_child",a) #directly adding children sometimes causes slowdowns

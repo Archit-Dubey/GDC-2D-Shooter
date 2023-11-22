@@ -3,12 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://uvimd3kt672m" path="res://Old Assets/Asteroid_1.png" id="1_r3hcp"]
 [ext_resource type="Script" path="res://Scripts/asteroid.gd" id="2_vwms8"]
 
-[node name="Asteroid1" type="Sprite2D" groups=["Environment"]]
-texture = ExtResource("1_r3hcp")
+[node name="Asteroid1" type="StaticBody2D" groups=["Environment"]]
+scale = Vector2(2.3848, 2.3848)
 script = ExtResource("2_vwms8")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Environment"]]
-scale = Vector2(2.3848, 2.3848)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6.70916, 1.67729, -4.61255, -7.96713, 8.80577, -4.19323, 7.12848, 6.28984, 0.419322, 8.80577)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-6.70916, 1.67729, -4.61255, -7.96713, 8.80577, -4.19323, 6.70916, 6.28984, 0.419323, 8.80577)
+[node name="Asteroid1" type="Sprite2D" parent="." groups=["Environment"]]
+scale = Vector2(0.432517, 0.432517)
+texture = ExtResource("1_r3hcp")

@@ -10,3 +10,9 @@ res://Scenes/asteroid_spawner.tscn
 res://Scenes/speed_powerup.tscn
 res://Scripts/Player.gd
 res://Scripts/asteroid_spawner.gd
+res://Scripts/Main.gd
+res://Scenes/defaultBullet.tscn
+res://Scenes/asteroid1.tscn
+res://Scripts/asteroid.gd
+res://Scenes/joystick.tscn
+res://Scenes/chaser_enemy.tscn

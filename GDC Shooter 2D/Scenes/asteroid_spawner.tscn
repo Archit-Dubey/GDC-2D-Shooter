@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7tx4xnytakm2"]
+[gd_scene load_steps=3 format=3 uid="uid://c7tx4xnytakm2"]
 
 [ext_resource type="Script" path="res://Scripts/asteroid_spawner.gd" id="1_pl4ji"]
 [ext_resource type="PackedScene" uid="uid://dq8bup53sa1lu" path="res://Scenes/asteroid1.tscn" id="2_abslh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dklpy"]
 
 [node name="AsteroidSpawner" type="Node2D"]
 script = ExtResource("1_pl4ji")
@@ -11,8 +9,3 @@ x_extents = 2000
 y_extents = 2000
 max_size = 10
 asteroids = Array[PackedScene]([ExtResource("2_abslh")])
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_dklpy")
