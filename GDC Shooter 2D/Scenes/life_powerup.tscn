@@ -6,6 +6,7 @@
 script/source = "extends Area2D
 
 @onready var player=$\"../Player\"
+@onready var main= get_parent().get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +25,12 @@ func _on_body_entered(body):
 	if(body.is_in_group(\"Player\")):
 		body.lives += 1
 		queue_free()
+		
+	#Temporary solution to the problem of asteroid and powerup overlapping
+	elif(body.is_in_group(\"Environment\")):
+		queue_free()
+		main.spawn_powerup=true
+		
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mr63p"]
