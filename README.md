@@ -1,3 +1,5 @@
+# The branch old1 is the default branch for now, it's from the time u last commited.
+
 # GDC-2D-Shooter TODO List
 
 1. Create a start game page
