@@ -5,7 +5,7 @@ extends Node2D
 @export var powerups_scenes: Array[PackedScene] = []
 
 @export var max_enemies = 10
-@export var max_powerups = 30
+@export var max_powerups = 5
 
 @export var maxSpawnRange = 1000
 
@@ -25,6 +25,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):#physics process because raycast is involved
 	if spawn_powerup:
+		
 		# Start a random number generator to randomize the spawning position
 		var random = RandomNumberGenerator.new()
 		random.randomize()
@@ -42,6 +43,22 @@ func _physics_process(delta):#physics process because raycast is involved
 		var selectPos=Vector2(player.global_position.x + random.randi_range(-maxSpawnRange, maxSpawnRange), player.global_position.x + random.randi_range(-maxSpawnRange, maxSpawnRange))
 			#selects position , seperated to check for asteroids
 		
+		powerups.global_position = selectPos
+		powerups_container.add_child(powerups)
+		spawn_powerup=false
+		
+		#Tried to do lot of things to correct this piece of code below
+		#but i wasn't able to
+		#the main problem is that it doesn't check if the new selectPos position is overlapping or not.
+		#Even if u are able to solve the problem there's still slight overlapping
+		#because it doesn't account for the size of the Powerup
+		#so i have left this as it is.
+		
+		#I have implemented my own method to resolve this problem
+		#if ur method is completely resolved then just delete mine
+		#my method simply involves 2 line change in each of the power up
+			
+		'''
 		
 		spawncheck.global_position=selectPos#move raycast to selected position
 		if spawncheck.is_colliding():#something in the way
@@ -62,6 +79,9 @@ func _physics_process(delta):#physics process because raycast is involved
 			powerups.global_position = selectPos
 			powerups_container.add_child(powerups)
 			spawn_powerup=false
+		
+		
+		'''
 			
 		
 
@@ -84,7 +104,7 @@ func _on_enemy_spawner_timer_timeout():
 
 
 func _on_powerups_spawner_timer_timeout():
-	print("calling")
+
 	powerups_count = powerups_container.get_child_count()
 	
 	if(powerups_count < max_powerups):

@@ -17,9 +17,33 @@ var placed=[]#array of already placed coordinates (to prevent overlap)
 
 func _ready():
 	random.randomize()
-	create_asteroids()
+	
+	for i in range(num):
+		create_asteroids()
 
+# You can delete this function and delete the line that I have highlighted in asteroid.gd 
+# if all bugs are solved in the commented one in this script
+# But I can gurantee this method works perfectly
+func create_asteroids():
+	
+	var xpos=random.randi_range(-x_extents,x_extents)
+	var ypos=random.randi_range(-y_extents,y_extents)
+	
+	
+	var a=asteroids[0].instantiate()
+	a.global_position.x=xpos
+	a.global_position.y=ypos
+	a.size=random.randi_range(min_size,max_size)
+	a.spin=random.randi_range(-max_spin,max_spin)
+	a.add_to_group("Environment")
+	level.call_deferred("add_child",a)
+	
+	
+# Below is the original code
+# The main problem is that it doesn't account for the increased size of asteroid
+# Even if we did that, then rotation will still remain a problem
 
+'''
 func possibleOverlap(x,y): # checks if new asteroid overlaps with old
 	
 	for i in placed:
@@ -28,6 +52,8 @@ func possibleOverlap(x,y): # checks if new asteroid overlaps with old
 			return true
 		else:
 			return false
+	
+	
 		
 		
 #spawns asteroids randomly
@@ -53,3 +79,6 @@ func create_asteroids():
 		a.spin=random.randi_range(-max_spin,max_spin)
 		a.add_to_group("Environment")
 		level.call_deferred("add_child",a) #directly adding children sometimes causes slowdowns
+
+'''
+
