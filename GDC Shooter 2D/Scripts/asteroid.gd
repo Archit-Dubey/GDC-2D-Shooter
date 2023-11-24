@@ -27,7 +27,7 @@ func _physics_process(delta):
 		if collision:
 			if collision.get_collider().is_in_group("Environment"):
 				once = false
-				print("Still")
+				#print("Still")
 				spawner.create_asteroids()
 				queue_free()
 	#Here it ends

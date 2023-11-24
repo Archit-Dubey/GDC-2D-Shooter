@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1leedbtaaoww"]
+
+[ext_resource type="Script" path="res://Scripts/bossShip.gd" id="1_okdef"]
+[ext_resource type="Texture2D" uid="uid://cow2kuo2dtpq4" path="res://Assets/Art/Enemies/BossShip/BossShipPlaceholder.png" id="1_xnbv2"]
+[ext_resource type="Texture2D" uid="uid://bru22mwqoulj2" path="res://Assets/Art/Enemies/BossShip/Gun.png" id="2_bdo0a"]
+[ext_resource type="Texture2D" uid="uid://b051mguqm3qga" path="res://Assets/Art/Enemies/BossShip/lazerPlaceholder.png" id="4_s8t4h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5pa18"]
+radius = 176.4
+height = 1910.53
+
+[node name="BossShip" type="Area2D" groups=["Enemy"]]
+scale = Vector2(0.296252, 0.296252)
+script = ExtResource("1_okdef")
+
+[node name="Body" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_xnbv2")
+
+[node name="GunPivot" type="Node2D" parent="."]
+
+[node name="Gun" type="Sprite2D" parent="GunPivot"]
+position = Vector2(-5, -5)
+rotation = 1.5708
+texture = ExtResource("2_bdo0a")
+
+[node name="RayCast2D" type="RayCast2D" parent="GunPivot"]
+position = Vector2(249.787, -3.3755)
+target_position = Vector2(1500, 0)
+
+[node name="Lazer" type="Sprite2D" parent="GunPivot"]
+position = Vector2(249.787, -3.3755)
+texture = ExtResource("4_s8t4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5pa18")
+
+[node name="FireTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

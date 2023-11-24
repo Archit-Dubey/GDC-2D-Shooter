@@ -109,3 +109,8 @@ func _on_boost_timer_timeout():
 	#deleting the first new child added to container
 	powerupTimerContainer.remove_child(powerupTimerContainer.get_children()[0])
 	print("Speed End")
+
+func instantKill():
+	health=0
+	lives=0
+	
