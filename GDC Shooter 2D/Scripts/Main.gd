@@ -60,9 +60,14 @@ func _physics_process(delta):#physics process because raycast is involved
 			bossTimer.start()
 		
 	else:#player is inside bounds
-		if len(spawnedBosses)>0:
-			pass
 		
+		if len(spawnedBosses)>0:
+			for i in spawnedBosses:
+				if  (i.global_position).distance_to(player.global_position)>3000:
+					print("killing boss")
+					i.queue_free()
+					spawnedBosses.erase(i)
+			
 
 func _on_enemy_spawner_timer_timeout():
 	
