@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1a0jvm3pst4t"]
+[gd_scene load_steps=9 format=3 uid="uid://c1a0jvm3pst4t"]
 
 [ext_resource type="Texture2D" uid="uid://bs1nv3ld1mkkq" path="res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png" id="1_akgwj"]
 [ext_resource type="Script" path="res://Scripts/Straight_Shooter_Enemy.gd" id="1_dqyth"]
@@ -36,11 +36,14 @@ animations = [{
 radius = 24.0
 height = 52.0
 
-[node name="Straight_Shooter_Enemy" type="Area2D" groups=["Enemy"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_idumi"]
+radius = 28.6575
+
+[node name="Straight_Shooter_Enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_dqyth")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 4.71239
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_7xn2v")
 animation = &"Idle"
 autoplay = "Idle"
@@ -54,5 +57,17 @@ autostart = true
 [node name="GunTip" type="Node2D" parent="."]
 position = Vector2(23, 0)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 50.0
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -1.78814e-07)
+rotation = -2.38476
+shape = SubResource("CircleShape2D_idumi")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
