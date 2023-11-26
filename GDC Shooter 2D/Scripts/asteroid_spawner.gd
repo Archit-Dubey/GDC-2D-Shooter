@@ -7,13 +7,11 @@ extends Node2D
 @export var max_spin=20
 @export var num=10
 @export var asteroids: Array[PackedScene] = []
-@export var minimum_gap=1000 #minimum gap between asteroids
-
-@onready var level=$".."
-
 
 var random = RandomNumberGenerator.new()
 var placed=[]#array of already placed coordinates (to prevent overlap)		
+
+var count = 0
 
 func _ready():
 	random.randomize()
@@ -25,7 +23,6 @@ func _ready():
 # if all bugs are solved in the commented one in this script
 # But I can gurantee this method works perfectly
 func create_asteroids():
-	
 	var xpos=random.randi_range(-x_extents,x_extents)
 	var ypos=random.randi_range(-y_extents,y_extents)
 	
@@ -36,6 +33,6 @@ func create_asteroids():
 	a.size=random.randi_range(min_size,max_size)
 	a.spin=random.randi_range(-max_spin,max_spin)
 	a.add_to_group("Environment")
-	level.call_deferred("add_child",a)
+	call_deferred("add_child",a)
 	
 

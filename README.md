@@ -1,3 +1,5 @@
+I think one of the reasons the game lags is because the asteroids keeps rotating, I think we should only rotate the CollsionBody2D and Sprite2D, that way we can avoid rotating the navigation area.
+
 # GDC-2D-Shooter TODO List
 
 1. Create a start game page
@@ -12,10 +14,10 @@
 10. Add Damage taken/given (Done, no visual indicator yet besides player health bar)
 11. Enable player to have multiple lives (Done)
 12. Set a High score and score counter (Done)
-13. Insert different powerups (Life done, Health done, Armor done, Speed still left)
+13. Insert different powerups (Life done, Health done, Armor done, Speed done)
 14. Add multiple gun types
-15. Implement complex pathing for enemies to avoid debris
+15. Implement complex pathing for enemies to avoid debris (Started, need some more work)
 16. Add debris/asteroids (Kind of done, asteroids should be adjusted with new sprites and accompanying collider shape)
-17. Random asteroid generation at start of level (done, but sometimes asteroids overlap)
+17. Random asteroid generation at start of level (done, but need some time to before user can start game so asteroid can arrange themselves)
 18. Stop powerups from spawning into asteroids (done)
 19. implement world boundary (done)

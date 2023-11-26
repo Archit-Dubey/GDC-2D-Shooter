@@ -5,11 +5,17 @@ extends Area2D
 @export var speed = 200  # Adjust this value to control the speed of the enemy
 @onready var GUI=$"../../GUI"
 @onready var player=$"../../Player"
+@onready var spawner=$"../.."
 
 
 
 func _ready():
-	pass
+	var collision = get_overlapping_bodies()
+	if collision:
+		print(collision)
+		if collision[0].get_collider().is_in_group("Environment"):
+			spawner._on_powerups_spawner_timer_timeout()
+			queue_free()
 
 func _process(delta):
 	if health<0:
@@ -32,4 +38,4 @@ func _on_body_entered(body):
 			body.health-=damageFactor
 		queue_free()
 	
-		
+

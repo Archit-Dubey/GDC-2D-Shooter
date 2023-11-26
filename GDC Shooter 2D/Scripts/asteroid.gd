@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var spawner = $"../AsteroidSpawner"
+@onready var spawner = $".."
 
 @export var size =1
 @export var spin=10
@@ -27,7 +27,6 @@ func _physics_process(delta):
 		if collision:
 			if collision.get_collider().is_in_group("Environment"):
 				once = false
-				#print("Still")
 				spawner.create_asteroids()
 				queue_free()
 	#Here it ends

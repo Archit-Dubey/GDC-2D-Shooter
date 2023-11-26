@@ -10,7 +10,6 @@ extends Node2D
 @export var boundary_y=5000
 @export var maxSpawnRange = 1000
 
-@onready var spawncheck=$powerupSpawnChecker
 @onready var player = $Player
 @onready var enemy_container = $Enemy_Container
 @onready var powerups_container = $Powerups_Container
@@ -29,6 +28,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):#physics process because raycast is involved
+	
 	if spawn_powerup:
 		
 		# Start a random number generator to randomize the spawning position

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1x5hmb0jwkmo"]
+
+[ext_resource type="Texture2D" uid="uid://c4tvg4j8dfywu" path="res://Assets/Art/Enemies/Chaser/Chaser Sprites.png" id="1_j021e"]
+[ext_resource type="Script" path="res://chaser_enemy_trial.gd" id="1_yifjd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rwsg"]
+atlas = ExtResource("1_j021e")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5xtw"]
+atlas = ExtResource("1_j021e")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ompr"]
+atlas = ExtResource("1_j021e")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7y8ky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rwsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5xtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ompr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Chaser_Enemy_Trial" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_yifjd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_7y8ky")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = -1.5708
+polygon = PackedVector2Array(1, -24, -9, -14, -3, -7, -15, 4, 0, 23, 18, 6, 9, -3, 13, -12)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -1.5708
+polygon = PackedVector2Array(1.00009, -25, -9.99995, -14, -3.99997, -7.00001, -16, 3.99994, -8.68798e-05, 24, 19, 6.00007, 10, -2.99996, 13, -13)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 50.0
+path_postprocessing = 1
+debug_enabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

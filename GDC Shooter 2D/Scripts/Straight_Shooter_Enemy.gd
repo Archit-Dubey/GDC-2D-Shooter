@@ -11,10 +11,15 @@ extends Area2D
 @onready var gun = $GunTip
 @onready var GUI=$"../../GUI"
 @onready var bullet = preload("res://Scenes/straight_shooter_bullet.tscn")
-
+@onready var spawner=$"../.."
 
 func _ready():
-		pass
+	
+	var collision = get_overlapping_bodies()
+	if collision:
+		if collision[0].get_collider().is_in_group("Environment"):
+			spawner._on_enemy_spawner_timer_timeout()
+			queue_free()
 
 func _physics_process(delta):
 	if health<0:
