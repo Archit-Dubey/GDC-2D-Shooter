@@ -2,6 +2,9 @@ extends StaticBody2D
 
 @onready var spawner = $".."
 
+@onready var nav_region = $NavigationRegion2D
+
+
 @export var size =1
 @export var spin=10
 
@@ -15,6 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	rotation_degrees+=spin*delta
+	nav_region.rotation_degrees-=spin*delta
 	
 	#This one is what i have written for the collision problem
 	#This basically allows each asteroid to detect collision with another only one time

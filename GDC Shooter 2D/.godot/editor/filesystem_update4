@@ -7,8 +7,9 @@ res://Scenes/asteroid_spawner.tscn
 res://Scenes/asteroid1.tscn
 res://Scenes/bossShip.tscn
 res://Scenes/straight_shooter_enemy.tscn
-res://Scenes/chaser_enemy.tscn
-res://Scenes/defaultBullet.tscn
 res://chaser_enemy_trial.tscn
 res://asteroid_2.tscn
+res://chaser_enemy_trial.gd
+res://Scripts/asteroid.gd
+res://navigation_region_2d.tscn
 res://Scripts/Straight_Shooter_Enemy.gd

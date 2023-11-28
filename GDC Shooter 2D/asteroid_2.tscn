@@ -6,10 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5065"]
 size = Vector2(128.313, 128.732)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_p02sh"]
-vertices = PackedVector2Array(-240, -240, 260, -240, 66.2529, -65.8336, -65.4143, -64.995, -250, 250, -64.5757, 64.995, 250, 250, 65.4143, 64.1563)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(1, 6, 7, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(66.2529, -65.8336, 65.4143, 64.1563, -64.5757, 64.995, -65.4143, -64.995), PackedVector2Array(260, -240, 250, 250, -250, 250, -240, -240)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ea5iw"]
+vertices = PackedVector2Array(70, 70, 280, 200, -270, 200, -70, 70, -270, -190, -70, -70, 280, -190, 70, -70)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(6, 1, 0, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-70, -70, 70, -70, 70, 70, -70, 70), PackedVector2Array(280, -190, 280, 200, -270, 200, -270, -190)])
 
 [node name="Asteroid2" type="StaticBody2D" groups=["Environment"]]
 scale = Vector2(0.1, 0.1)
@@ -23,4 +23,5 @@ position = Vector2(-0.419323, 0.209665)
 shape = SubResource("RectangleShape2D_y5065")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_p02sh")
+navigation_polygon = SubResource("NavigationPolygon_ea5iw")
+constrain_avoidance = true

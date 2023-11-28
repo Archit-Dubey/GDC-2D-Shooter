@@ -23,6 +23,7 @@ func _ready():
 		if collision.get_collider().is_in_group("Environment"):
 			spawner._on_enemy_spawner_timer_timeout()
 			queue_free()
+	
 			
 
 func _physics_process(delta):

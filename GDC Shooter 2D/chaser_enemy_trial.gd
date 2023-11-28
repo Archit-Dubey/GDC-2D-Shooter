@@ -6,12 +6,15 @@ extends CharacterBody2D
 @export var speed = 200  # Adjust this value to control the speed of the enemy
 
 @onready var navigation_agent = $NavigationAgent2D
+@onready var timer = $Timer
+
 
 @onready var GUI=$"../../GUI"
 @onready var player=$"../../Player"
 @onready var spawner=$"../.."
 
 var nav_target = null # The target of every navigation
+var next_path = null
 
 func _ready():
 	
@@ -20,8 +23,8 @@ func _ready():
 		if collision.get_collider().is_in_group("Environment"):
 			spawner._on_enemy_spawner_timer_timeout()
 			queue_free()
-			
-	
+
+
 
 func _physics_process(delta):
 	if(health < 0):
@@ -30,25 +33,16 @@ func _physics_process(delta):
 	
 	if nav_target != null : # Do not use navigation unti a target is found
 		
-		navigation_agent.target_position = nav_target.position # Set the position of the target
-		
-		if navigation_agent.is_navigation_finished(): # Check if the destination is reached
+		if navigation_agent.is_navigation_finished(): # Check if the destination is reached	
 			nav_target = null #Make the target null again
-		
-		else:
-			# calculate velocity to reach the next point of the path
-			var new_velocity = (navigation_agent.get_next_path_position() - global_position).normalized()
-			
-			look_at(navigation_agent.target_position)
-			new_velocity = new_velocity * speed
-			velocity = new_velocity
-			move_and_slide()
+			timer.stop()
 	
 	elif player:
 		look_at(player.global_position)
 		var dir = (player.global_position - global_position).normalized()
 		velocity = dir * speed
-		move_and_slide()
+	
+	move_and_slide()
 		
 
 func player_collision():
@@ -68,4 +62,17 @@ func _on_area_2d_body_entered(body):
 		
 	elif body.is_in_group("Environment"):
 		nav_target = player # set the navigation target as player
+		timer.start()
+		_on_timer_timeout()
 		
+
+func _on_timer_timeout():
+	
+	navigation_agent.target_position = nav_target.position
+					
+	# calculate velocity to reach the next point of the path
+	next_path = navigation_agent.get_next_path_position()
+	var new_velocity = (next_path - global_position).normalized()
+	look_at(next_path)
+	new_velocity = new_velocity * speed
+	velocity = new_velocity

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxrmyehl4yplk"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_72xpy"]
+vertices = PackedVector2Array(100, -120, 100, 120, 60, 70, 60, -70, -100, -120, -70, -70, -100, 120, -70, 70)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 1, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(100, -120, 100, 120, -100, 120, -100, -120), PackedVector2Array(60, -70, 60, 70, -70, 70, -70, -70)])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_72xpy")
+constrain_avoidance = true
