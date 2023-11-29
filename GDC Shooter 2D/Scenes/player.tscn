@@ -74,7 +74,7 @@ rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_pc2h0")
 animation = &"Death"
 autoplay = "Idle"
-frame_progress = 0.153988
+frame_progress = 0.847678
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
 rotation = 1.5708
@@ -117,4 +117,5 @@ position = Vector2(394, 202)
 shape = SubResource("CircleShape2D_0dyq3")
 
 [connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]
+[connection signal="area_exited" from="bounds" to="." method="_on_bounds_area_exited"]
 [connection signal="body_exited" from="bounds" to="." method="_on_bounds_body_exited"]

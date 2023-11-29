@@ -132,3 +132,11 @@ func _on_anim_timer_timeout():
 func _on_bounds_body_exited(body): # removes enemies that are too far away
 	if body.is_in_group("Enemy"):
 		body.queue_free()
+
+
+
+func _on_bounds_area_exited(area):
+	if area.is_in_group("EnemyBullet"):
+		area.queue_free()
+	elif area.is_in_group("PlayerBullet"):
+		area.queue_free()
