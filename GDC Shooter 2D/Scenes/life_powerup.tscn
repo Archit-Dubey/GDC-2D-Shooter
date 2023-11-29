@@ -5,7 +5,7 @@
 [sub_resource type="GDScript" id="GDScript_57p2m"]
 script/source = "extends Area2D
 
-@onready var player=$\"../Player\"
+@onready var player=$\"../../Player\"
 @onready var main= get_parent().get_parent()
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +24,7 @@ func _on_body_entered(body):
 	
 	if(body.is_in_group(\"Player\")):
 		body.lives += 1
+		body.powerupSound.play()
 		queue_free()
 		
 	#Temporary solution to the problem of asteroid and powerup overlapping

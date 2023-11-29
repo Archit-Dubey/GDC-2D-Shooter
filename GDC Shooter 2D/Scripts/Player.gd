@@ -9,6 +9,9 @@ extends CharacterBody2D
 @onready var bulletType=defaultBullet # the current type of gun/bullet selected
 @onready var gui=$"../GUI"
 @onready var powerupTimerContainer = $powerupTimerContainer
+@onready var deathSound=$death
+@onready var fireSound=$fireSound
+@onready var powerupSound=$powerup
 
 @export var maxMovespeed=300#to cap the speed when speed powerup is picked up
 @export var movingspeed = 300
@@ -58,7 +61,7 @@ func _physics_process(delta):
 			
 		if firePressed and gunCoolDown.is_stopped(): 
 			#if joystick knob is outside and gun is ready to fire
-			
+			fireSound.play()
 			var newBullet=bulletType.instantiate()
 			newBullet.global_position=gun.global_position
 			newBullet.set_direction(rotation)
@@ -72,7 +75,10 @@ func _physics_process(delta):
 			lives-=1
 		else:
 			print("died")
-			
+			deathSound.play()
+			$AnimatedSprite2D.play("Death")
+			$animTimer.start()
+			set_physics_process(false)#stops this
 	
 func rotation_angle(rotation_vector: Vector2) -> float: 
 	#modified function to calculate angle from a given vector, previous one was buggy
@@ -88,12 +94,14 @@ func create_timer(function_name, duration):
 	powerup_timer.start(duration)
 
 func activate_armor():
+	powerupSound.play()
 	# We need to add some animation to signify there is an armor
 	create_timer(_on_armor_timer_timeout, armor_duration)
 	armor_value += 1
 	print("Armor Start")
 	
 func activate_speedBoost():
+	powerupSound.play()
 	# We need to add some animation to signify there is speed boost
 	create_timer(_on_boost_timer_timeout, boost_duration)
 	movingspeed = maxMovespeed * 2
@@ -114,3 +122,13 @@ func instantKill():
 	health=0
 	lives=0
 	
+
+
+func _on_anim_timer_timeout():
+	print("pausing game,player died")
+	get_tree().paused=true
+
+
+func _on_bounds_body_exited(body): # removes enemies that are too far away
+	if body.is_in_group("Enemy"):
+		body.queue_free()

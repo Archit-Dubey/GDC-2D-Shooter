@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var navigation_agent = $NavigationAgent2D
 @onready var timer = $Timer
 
-
+@onready var sprite=$AnimatedSprite2D
 @onready var GUI=$"../../GUI"
 @onready var player=$"../../Player"
 @onready var spawner=$"../.."
@@ -29,7 +29,10 @@ func _ready():
 func _physics_process(delta):
 	if(health < 0):
 		GUI.incScore(score)
-		queue_free()
+		$animTimer.start()
+		$death.play()
+		sprite.play("Death")
+		set_physics_process(false)
 	
 	if nav_target != null : # Do not use navigation unti a target is found
 		
@@ -49,8 +52,10 @@ func player_collision():
 	
 	if(player.armor_value == 0):
 			player.health-=damageFactor
-			
-	queue_free()
+	
+	sprite.play("Death")
+	$animTimer.start()
+	$death.play()
 	
 
 func _on_area_2d_body_entered(body):
@@ -58,7 +63,10 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		if(body.armor_value == 0):
 			body.health-=damageFactor
-		queue_free()
+		sprite.play("Death")
+		$animTimer.start()
+		$death.play()
+		set_physics_process(false)
 		
 	elif body.is_in_group("Environment"):
 		nav_target = player # set the navigation target as player
@@ -76,3 +84,7 @@ func _on_timer_timeout():
 	look_at(next_path)
 	new_velocity = new_velocity * speed
 	velocity = new_velocity
+
+
+func _on_anim_timer_timeout():
+	queue_free()

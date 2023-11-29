@@ -1,7 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1a0jvm3pst4t"]
+[gd_scene load_steps=15 format=3 uid="uid://c1a0jvm3pst4t"]
 
 [ext_resource type="Texture2D" uid="uid://bs1nv3ld1mkkq" path="res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png" id="1_akgwj"]
 [ext_resource type="Script" path="res://Scripts/Straight_Shooter_Enemy.gd" id="1_dqyth"]
+[ext_resource type="Texture2D" uid="uid://cr71y5wtmk6gw" path="res://Assets/Art/Enemies/Straight/Straight Shoot death.png" id="2_ip7sq"]
+[ext_resource type="AudioStream" uid="uid://bfy3trkx4bmbb" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyFire.wav" id="3_ja8og"]
+[ext_resource type="AudioStream" uid="uid://buw3iaf3fg0n7" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav" id="4_wpnpl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lht7r"]
+atlas = ExtResource("2_ip7sq")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eijy7"]
+atlas = ExtResource("2_ip7sq")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o683m"]
+atlas = ExtResource("2_ip7sq")
+region = Rect2(100, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6xrm"]
 atlas = ExtResource("1_akgwj")
@@ -17,6 +32,20 @@ region = Rect2(100, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xn2v"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lht7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eijy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o683m")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k6xrm")
@@ -40,13 +69,16 @@ height = 52.0
 radius = 28.6575
 
 [node name="Straight_Shooter_Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_dqyth")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_7xn2v")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
+frame_progress = 0.408641
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ls6an")
@@ -73,5 +105,18 @@ position = Vector2(0.5, -1.78814e-07)
 rotation = -2.38476
 shape = SubResource("CircleShape2D_idumi")
 
+[node name="fireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ja8og")
+volume_db = -20.0
+max_distance = 1000.0
+
+[node name="animTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wpnpl")
+volume_db = -15.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]

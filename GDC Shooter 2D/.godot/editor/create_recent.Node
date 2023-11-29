@@ -1,12 +1,14 @@
-Timer
 CollisionShape2D
+Area2D
+AudioStreamPlayer
+Timer
+AudioStreamPlayer2D
 NavigationRegion2D
 NavigationAgent2D
 TileMap
 Node
 NavigationLink2D
 NavigationObstacle2D
-Area2D
 CharacterBody2D
 Marker2D
 Sprite2D

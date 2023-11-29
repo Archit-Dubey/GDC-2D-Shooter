@@ -1,7 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://xcee157fq5ca"]
+[gd_scene load_steps=15 format=3 uid="uid://xcee157fq5ca"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_is4dd"]
+[ext_resource type="Texture2D" uid="uid://b85jnsbrm7wj6" path="res://Assets/Art/Player/Player death.png" id="2_1q65a"]
 [ext_resource type="Texture2D" uid="uid://tiko2t3qtqlb" path="res://Assets/Art/Player/Player Sprites.png" id="2_81p4u"]
+[ext_resource type="AudioStream" uid="uid://vmqey78kv06w" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerFire.wav" id="3_4a50l"]
+[ext_resource type="AudioStream" uid="uid://koho0vn1aup6" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerExplode.wav" id="4_pek3k"]
+[ext_resource type="AudioStream" uid="uid://bfpmkm28g5tu4" path="res://Assets/Audio/Sound Effects/Sound Effects/LifeGain.wav" id="5_066n1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma1t2"]
+atlas = ExtResource("2_1q65a")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cdhn"]
+atlas = ExtResource("2_1q65a")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeuhn"]
+atlas = ExtResource("2_1q65a")
+region = Rect2(100, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppgtp"]
 atlas = ExtResource("2_81p4u")
@@ -19,6 +35,20 @@ region = Rect2(100, 0, 50, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ma1t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cdhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeuhn")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ppgtp")
 }, {
 "duration": 1.0,
@@ -32,6 +62,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dyq3"]
+radius = 1200.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(400, 200)
 script = ExtResource("1_is4dd")
@@ -39,8 +72,9 @@ script = ExtResource("1_is4dd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_pc2h0")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
+frame_progress = 0.754927
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
 rotation = 1.5708
@@ -58,3 +92,29 @@ wait_time = 0.5
 one_shot = true
 
 [node name="powerupTimerContainer" type="Node" parent="."]
+
+[node name="fireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4a50l")
+volume_db = -12.0
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pek3k")
+volume_db = -5.0
+
+[node name="powerup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_066n1")
+volume_db = -15.0
+
+[node name="animTimer" type="Timer" parent="."]
+
+[node name="bounds" type="Area2D" parent="."]
+position = Vector2(-400, -200)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds"]
+position = Vector2(394, 202)
+shape = SubResource("CircleShape2D_0dyq3")
+
+[connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]
+[connection signal="body_exited" from="bounds" to="." method="_on_bounds_body_exited"]

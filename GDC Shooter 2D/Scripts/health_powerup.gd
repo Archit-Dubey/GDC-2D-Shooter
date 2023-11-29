@@ -15,6 +15,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if(body.is_in_group("Player")):
 		body.health = body.maxHealth
+		body.powerupSound.play()
 		queue_free()
 	
 	#Temporary solution to the problem of asteroid and powerup overlapping

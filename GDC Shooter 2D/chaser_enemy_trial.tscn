@@ -1,7 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1x5hmb0jwkmo"]
+[gd_scene load_steps=12 format=3 uid="uid://c1x5hmb0jwkmo"]
 
 [ext_resource type="Texture2D" uid="uid://c4tvg4j8dfywu" path="res://Assets/Art/Enemies/Chaser/Chaser Sprites.png" id="1_j021e"]
 [ext_resource type="Script" path="res://chaser_enemy_trial.gd" id="1_yifjd"]
+[ext_resource type="Texture2D" uid="uid://dnbhlo1ed1v6n" path="res://Assets/Art/Enemies/Chaser/Chaser death.png" id="2_l41dg"]
+[ext_resource type="AudioStream" uid="uid://buw3iaf3fg0n7" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav" id="3_vmjak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eirgw"]
+atlas = ExtResource("2_l41dg")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tmu4"]
+atlas = ExtResource("2_l41dg")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abh0k"]
+atlas = ExtResource("2_l41dg")
+region = Rect2(100, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rwsg"]
 atlas = ExtResource("1_j021e")
@@ -19,6 +33,20 @@ region = Rect2(100, 0, 50, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eirgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tmu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abh0k")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6rwsg")
 }, {
 "duration": 1.0,
@@ -33,13 +61,16 @@ animations = [{
 }]
 
 [node name="Chaser_Enemy_Trial" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_yifjd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_7y8ky")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
+frame_progress = 0.803934
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = -1.5708
@@ -63,5 +94,13 @@ debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="animTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vmjak")
+volume_db = -15.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]

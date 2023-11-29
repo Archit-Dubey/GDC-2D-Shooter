@@ -7,12 +7,15 @@ extends CharacterBody2D
 @export var health=20#health of the enemy
 @export var score=100#score increase on death
 
+@onready var sprite=$AnimatedSprite2D
 @onready var navigation_agent = $NavigationAgent2D
 @onready var player = $"../../Player"
 @onready var gun = $GunTip
 @onready var GUI=$"../../GUI"
 @onready var bullet = preload("res://Scenes/straight_shooter_bullet.tscn")
 @onready var spawner=$"../.."
+@onready var deathSound=$death
+@onready var fireSound=$fireSound
 
 var nav_target = null # The target of every navigation
 
@@ -29,8 +32,11 @@ func _ready():
 func _physics_process(delta):
 	if health<0:
 		GUI.incScore(score)
-		queue_free()
-	
+		deathSound.play()
+		$animTimer.start()#to give some time for animations and stuff to finish
+		sprite.play("Death")
+		set_physics_process(false)
+		
 	if nav_target != null : # Do not use navigation unti a target is found
 		
 		navigation_agent.target_position = nav_target.position # Set the position of the target
@@ -66,6 +72,7 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	if global_position.distance_to(player.global_position)<maxRange:
+		fireSound.play()
 		var newBullet=bullet.instantiate()
 		newBullet.global_position=gun.global_position
 		newBullet.set_direction(rotation)
@@ -78,7 +85,14 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		if(body.armor_value == 0):
 			body.health-=bulletDamage*2
-		queue_free()
+		deathSound.play()
+		$animTimer.start()#to give some time for animations and stuff to finish
+		set_physics_process(false)
+		sprite.play("Death")
 		
 	elif body.is_in_group("Environment"):
 		nav_target = player # set the navigation target as player
+
+
+func _on_anim_timer_timeout():
+	queue_free()
