@@ -1,3 +1,4 @@
+CollisionPolygon2D
 Sprite2D
 ParallaxLayer
 ParallaxBackground
@@ -19,7 +20,6 @@ RayCast2D
 Node2D
 StaticBody2D
 WorldEnvironment
-CollisionPolygon2D
 AnimatableBody2D
 AnimationPlayer
 AnimatedSprite2D
