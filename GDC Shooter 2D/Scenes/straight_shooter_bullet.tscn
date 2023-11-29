@@ -1,7 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://hfo3hxgx8ws0"]
+[gd_scene load_steps=12 format=3 uid="uid://hfo3hxgx8ws0"]
 
 [ext_resource type="Texture2D" uid="uid://dbsyc10yfjg2x" path="res://Assets/Art/Enemies/Straight/Enemy_StraightProjectile.png" id="1_aj3b3"]
 [ext_resource type="Script" path="res://Scripts/enemy_bullet.gd" id="1_qqyyu"]
+[ext_resource type="Texture2D" uid="uid://b6tq1cnrxlhl5" path="res://Assets/Art/Enemies/Straight/Enemy_StraightProjectile_hit.png" id="2_mv3tr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlnoh"]
+atlas = ExtResource("2_mv3tr")
+region = Rect2(0, 0, 9, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gae1y"]
+atlas = ExtResource("2_mv3tr")
+region = Rect2(9, 0, 9, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rbgo"]
+atlas = ExtResource("2_mv3tr")
+region = Rect2(18, 0, 9, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gueu"]
 atlas = ExtResource("1_aj3b3")
@@ -17,6 +30,20 @@ region = Rect2(18, 0, 9, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qo3xr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlnoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gae1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rbgo")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4gueu")
@@ -42,11 +69,14 @@ script = ExtResource("1_qqyyu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_qo3xr")
-animation = &"Idle"
-frame_progress = 0.380242
+animation = &"Hit"
+autoplay = "Idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5icju")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

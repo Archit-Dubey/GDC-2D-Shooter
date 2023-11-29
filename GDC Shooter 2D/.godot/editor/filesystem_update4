@@ -11,3 +11,7 @@ res://Scenes/life_powerup.tscn
 res://Scripts/Straight_Shooter_Enemy.gd
 res://chaser_enemy_trial.gd
 res://Scripts/Player.gd
+res://Scenes/defaultBullet.tscn
+res://Scripts/Bullet.gd
+res://Scenes/straight_shooter_bullet.tscn
+res://Scripts/enemy_bullet.gd

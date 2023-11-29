@@ -18,6 +18,7 @@ extends CharacterBody2D
 @onready var fireSound=$fireSound
 
 var nav_target = null # The target of every navigation
+var destroy=false
 
 func _ready():
 	
@@ -33,8 +34,9 @@ func _physics_process(delta):
 	if health<0:
 		GUI.incScore(score)
 		deathSound.play()
-		$animTimer.start()#to give some time for animations and stuff to finish
+		
 		sprite.play("Death")
+		destroy=true
 		set_physics_process(false)
 		
 	if nav_target != null : # Do not use navigation unti a target is found
@@ -86,13 +88,18 @@ func _on_area_2d_body_entered(body):
 		if(body.armor_value == 0):
 			body.health-=bulletDamage*2
 		deathSound.play()
-		$animTimer.start()#to give some time for animations and stuff to finish
+		
 		set_physics_process(false)
 		sprite.play("Death")
-		
+		destroy=true
 	elif body.is_in_group("Environment"):
 		nav_target = player # set the navigation target as player
 
 
-func _on_anim_timer_timeout():
-	queue_free()
+
+
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if destroy:
+		queue_free()

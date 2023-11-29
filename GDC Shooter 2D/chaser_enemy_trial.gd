@@ -15,6 +15,7 @@ extends CharacterBody2D
 
 var nav_target = null # The target of every navigation
 var next_path = null
+var destroy=false
 
 func _ready():
 	
@@ -29,9 +30,10 @@ func _ready():
 func _physics_process(delta):
 	if(health < 0):
 		GUI.incScore(score)
-		$animTimer.start()
+		
 		$death.play()
 		sprite.play("Death")
+		destroy=true
 		set_physics_process(false)
 	
 	if nav_target != null : # Do not use navigation unti a target is found
@@ -54,8 +56,9 @@ func player_collision():
 			player.health-=damageFactor
 	
 	sprite.play("Death")
-	$animTimer.start()
+	
 	$death.play()
+	destroy=true
 	
 
 func _on_area_2d_body_entered(body):
@@ -64,8 +67,9 @@ func _on_area_2d_body_entered(body):
 		if(body.armor_value == 0):
 			body.health-=damageFactor
 		sprite.play("Death")
-		$animTimer.start()
+		
 		$death.play()
+		destroy=true
 		set_physics_process(false)
 		
 	elif body.is_in_group("Environment"):
@@ -86,5 +90,9 @@ func _on_timer_timeout():
 	velocity = new_velocity
 
 
-func _on_anim_timer_timeout():
-	queue_free()
+
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if destroy:
+		queue_free()

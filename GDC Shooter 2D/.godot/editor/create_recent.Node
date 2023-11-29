@@ -1,7 +1,8 @@
+Sprite2D
+Timer
 CollisionShape2D
 Area2D
 AudioStreamPlayer
-Timer
 AudioStreamPlayer2D
 NavigationRegion2D
 NavigationAgent2D
@@ -11,7 +12,6 @@ NavigationLink2D
 NavigationObstacle2D
 CharacterBody2D
 Marker2D
-Sprite2D
 GPUParticles2D
 RayCast2D
 Node2D

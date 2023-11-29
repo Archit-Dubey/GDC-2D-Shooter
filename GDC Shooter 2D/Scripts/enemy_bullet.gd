@@ -7,6 +7,8 @@ extends Area2D
 
 @onready var direction:Vector2
 
+var destroy=false
+
 func _ready():
 	top_level=true
 
@@ -23,8 +25,18 @@ func set_direction(dir:float): #converts rotation degrees into a vector2d
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
+		set_physics_process(false)
+		$AnimatedSprite2D.play("Hit")
+		destroy=true
 		if(body.armor_value == 0):
 			body.health-=damage
-		queue_free()
+		
 	elif body.is_in_group("Environment"):
+		set_physics_process(false)
+		$AnimatedSprite2D.play("Hit")
+		destroy=true
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if destroy:
 		queue_free()

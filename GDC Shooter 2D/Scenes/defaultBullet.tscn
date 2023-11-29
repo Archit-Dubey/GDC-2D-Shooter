@@ -1,11 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqx77sn4o8ktk"]
+[gd_scene load_steps=14 format=3 uid="uid://bqx77sn4o8ktk"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_lfkgq"]
+[ext_resource type="Texture2D" uid="uid://cs10m7as3vp4s" path="res://Assets/Art/Player/Player_Projectile_hit.png" id="2_6v7bs"]
 [ext_resource type="Texture2D" uid="uid://de5nyva2bhvls" path="res://Assets/Art/Player/Player_Projectile.png" id="3_up40l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b4n6q"]
 radius = 8.0
 height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jpxa"]
+atlas = ExtResource("2_6v7bs")
+region = Rect2(0, 0, 11, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ups"]
+atlas = ExtResource("2_6v7bs")
+region = Rect2(11, 0, 11, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xlbl"]
+atlas = ExtResource("2_6v7bs")
+region = Rect2(22, 0, 11, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vu2g"]
+atlas = ExtResource("2_6v7bs")
+region = Rect2(33, 0, 11, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_suj8e"]
 atlas = ExtResource("3_up40l")
@@ -25,6 +42,23 @@ region = Rect2(33, 0, 11, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1qih2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jpxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ups")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xlbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vu2g")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_suj8e")
@@ -52,7 +86,9 @@ shape = SubResource("CapsuleShape2D_b4n6q")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_1qih2")
-animation = &"Idle"
+animation = &"Hit"
+autoplay = "Idle"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

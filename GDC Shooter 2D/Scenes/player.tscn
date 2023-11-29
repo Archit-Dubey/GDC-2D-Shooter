@@ -74,7 +74,7 @@ rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_pc2h0")
 animation = &"Death"
 autoplay = "Idle"
-frame_progress = 0.754927
+frame_progress = 0.153988
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
 rotation = 1.5708
