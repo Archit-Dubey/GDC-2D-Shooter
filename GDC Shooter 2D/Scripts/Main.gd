@@ -10,6 +10,7 @@ extends Node2D
 @export var boundary_y=5000
 @export var maxSpawnRange = 1000
 
+@onready var arrow_navigation_area = $Arrow_Navigation_Area #Reserved for layer 8
 @onready var player = $Player
 @onready var enemy_container = $Enemy_Container
 @onready var powerups_container = $Powerups_Container
@@ -21,13 +22,48 @@ var spawnedBosses=[]
 var enemy_count = 0
 var powerups_count = 0
 var spawn_powerup=false
+
+var org_screenX = null
+var org_screenY = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	
+	# To adjust the size of the navigation area according to screen
+	
+	org_screenX = get_viewport().get_visible_rect().size.x
+	org_screenY = get_viewport().get_visible_rect().size.y
+	
+	#print(get_tree().get_root().size) # Use this to print the original X and Y
+	
+	arrow_navigation_area.scale.x = org_screenX / 1152 * 0.9 # 1152 is original X
+	arrow_navigation_area.scale.y = org_screenY / 648 * 0.9 # 648 is original Y
+	
+	# till here screen adjusting
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):#physics process because raycast is involved
+	
+	# To adjust the size of the navigation area according to screen
+	# Remove this part before final deployment
+	# This for testing purpose of desktop mode
+	
+	var screenX = get_viewport().get_visible_rect().size.x
+	var screenY = get_viewport().get_visible_rect().size.y
+	
+	#print(get_tree().get_root().size) # Use this to print the original X and Y
+	if screenX != org_screenX or screenY != org_screenY:
+		arrow_navigation_area.scale.x = screenX / 1152 * 0.9 # 1152 is original X
+		arrow_navigation_area.scale.y = screenY / 648 * 0.9 # 648 is original Y
+	
+	# till here screen adjusting
+	
+	if player:  # To keep the navigation area over the player always
+		arrow_navigation_area.global_position = player.global_position
+	
+	# Spawning powerup code from here
 	
 	if spawn_powerup:
 		
@@ -51,6 +87,8 @@ func _physics_process(delta):#physics process because raycast is involved
 		powerups.global_position = selectPos
 		powerups_container.add_child(powerups)
 		spawn_powerup=false
+		
+	# Spawn powerup code ends here
 		
 	var player_pos=player.global_position
 	

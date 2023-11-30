@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm2hwr7nd85iy"]
+
+[ext_resource type="Script" path="res://arrow.gd" id="1_0fgye"]
+[ext_resource type="Texture2D" uid="uid://b7gn371p84em0" path="res://Assets/Art/Environment/arrow.png" id="2_1rqyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsld4"]
+
+[node name="Arrow" type="Area2D"]
+scale = Vector2(0.08, 0.08)
+script = ExtResource("1_0fgye")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_1rqyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bsld4")
+disabled = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 128

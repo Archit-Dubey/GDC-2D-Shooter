@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var speed = 200  # Adjust this value to control the speed of the enemy
 
 @onready var navigation_agent = $NavigationAgent2D
-@onready var timer = $Timer
+
 
 @onready var sprite=$AnimatedSprite2D
 @onready var GUI=$"../../GUI"
@@ -36,11 +36,22 @@ func _physics_process(delta):
 		destroy=true
 		set_physics_process(false)
 	
-	if nav_target != null : # Do not use navigation unti a target is found
+	if nav_target != null : # Do not use navigation until a target is found
+		
+		navigation_agent.target_position = nav_target.position
 		
 		if navigation_agent.is_navigation_finished(): # Check if the destination is reached	
+			print("yep")
 			nav_target = null #Make the target null again
-			timer.stop()
+		
+		else:	
+			# calculate velocity to reach the next point of the path
+			next_path = navigation_agent.get_next_path_position()
+			var new_velocity = (next_path - global_position).normalized()
+			look_at(next_path)
+			new_velocity = new_velocity * speed
+			velocity = new_velocity
+			
 	
 	elif player:
 		look_at(player.global_position)
@@ -74,23 +85,6 @@ func _on_area_2d_body_entered(body):
 		
 	elif body.is_in_group("Environment"):
 		nav_target = player # set the navigation target as player
-		timer.start()
-		_on_timer_timeout()
-		
-
-func _on_timer_timeout():
-	
-	navigation_agent.target_position = nav_target.position
-					
-	# calculate velocity to reach the next point of the path
-	next_path = navigation_agent.get_next_path_position()
-	var new_velocity = (next_path - global_position).normalized()
-	look_at(next_path)
-	new_velocity = new_velocity * speed
-	velocity = new_velocity
-
-
-
 
 
 func _on_animated_sprite_2d_animation_finished():

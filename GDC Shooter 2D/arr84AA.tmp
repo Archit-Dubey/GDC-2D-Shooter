@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm2hwr7nd85iy"]
+
+[ext_resource type="Script" path="res://arrow.gd" id="1_0fgye"]
+[ext_resource type="Texture2D" uid="uid://b7gn371p84em0" path="res://Assets/Art/Joystick/arrow.png" id="1_mmbut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsld4"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_0fgye")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_mmbut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bsld4")
+disabled = true

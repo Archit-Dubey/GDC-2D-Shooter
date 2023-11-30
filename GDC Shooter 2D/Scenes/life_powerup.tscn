@@ -5,15 +5,17 @@
 [sub_resource type="GDScript" id="GDScript_57p2m"]
 script/source = "extends Area2D
 
+@onready var arrow = preload(\"res://arrow.tscn\")
+
 @onready var player=$\"../../Player\"
-@onready var main= get_parent().get_parent()
+@onready var main= $\"../..\"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var spawned_arrow = null
+
+func _ready(): 
+	add_arrow() # add a navigation arrow on spawning
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_instance_valid(player):
 		if player.lives == player.maxLives:
@@ -31,7 +33,25 @@ func _on_body_entered(body):
 	elif(body.is_in_group(\"Environment\")):
 		queue_free()
 		main.spawn_powerup=true
-		
+
+func add_arrow(): # Add a navigation arrow
+	spawned_arrow = arrow.instantiate()
+	spawned_arrow.global_position = player.global_position
+	spawned_arrow.target = self
+	main.add_child(spawned_arrow)
+
+func remove_arrow(): # remove the navigation arrow
+	spawned_arrow.queue_free()
+	spawned_arrow = null
+
+func _on_visible_on_screen_notifier_2d_screen_entered(): # if powerup is visible in screen
+	if spawned_arrow != null:
+		remove_arrow()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited(): # if powerup is not visible in screen
+	add_arrow()
+	
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mr63p"]
@@ -78,4 +98,8 @@ libraries = {
 "": SubResource("AnimationLibrary_ayqd6")
 }
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

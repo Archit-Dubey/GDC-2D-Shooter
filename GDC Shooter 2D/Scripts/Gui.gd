@@ -30,8 +30,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 
-func _process(delta):
+func _physics_process(delta):
 	pass
+	
 
 func updatePlayerHealth(num): #updates gui bar (does not affect player, this is just visual)
 	health.value=num
