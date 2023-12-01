@@ -81,6 +81,7 @@ func _physics_process(delta):
 			deathSound.play()
 			$AnimatedSprite2D.play("Death")
 			$animTimer.start()
+			
 			set_physics_process(false)#stops this
 	
 func rotation_angle(rotation_vector: Vector2) -> float: 
@@ -131,8 +132,8 @@ func instantKill():
 
 
 func _on_anim_timer_timeout():
-	print("pausing game,player died")
-	get_tree().paused=true
+	gui.showDeathScreen()
+	
 
 
 func _on_bounds_body_exited(body): # removes enemies that are too far away

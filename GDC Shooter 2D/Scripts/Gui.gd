@@ -8,6 +8,7 @@ var save_path = "user://userdata.save"
 @onready var scoreboard=$Score
 @onready var highscore=$HighScore
 @onready var pauseAnim=$PauseScreen/PauseAnim
+@onready var deathAnim=$DeathScreen/DeathAnim
 
 var currScore=0
 var currHighscore=0
@@ -81,3 +82,10 @@ func _on_menu_pressed():
 func _on_quit_pressed():
 	save_high_score()
 	get_tree().quit()
+
+
+func _on_retry_pressed():
+	get_tree().reload_current_scene()
+
+func showDeathScreen():
+	deathAnim.play("Pause")

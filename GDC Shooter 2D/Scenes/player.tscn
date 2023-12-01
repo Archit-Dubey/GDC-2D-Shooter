@@ -107,6 +107,7 @@ stream = ExtResource("5_066n1")
 volume_db = -15.0
 
 [node name="animTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="bounds" type="Area2D" parent="."]
 position = Vector2(-400, -200)

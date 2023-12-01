@@ -12,3 +12,4 @@ res://Scenes/straight_shooter_enemy.tscn
 res://chaser_enemy_trial.tscn
 res://Scenes/MainMenu.tscn
 res://Scripts/Gui.gd
+res://Scripts/Player.gd
