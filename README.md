@@ -3,7 +3,7 @@ I think one of the reasons the game lags is because the asteroids keeps rotating
 # GDC-2D-Shooter TODO List
 
 1. Create a start game page
-2. Enforce an area as the playable region
+2. Enforce an area as the playable region (Done)
 3. Player (Done)
 4. Joystick to move and rotate the player (Done)
 5. Set Shooting Controls for Player (Done)

@@ -1,3 +1,11 @@
+CanvasLayer
+Camera2D
+ParallaxBackground
+ParallaxLayer
+Button
+Label
+VBoxContainer
+TextEdit
 NavigationAgent2D
 NavigationRegion2D
 CenterContainer
@@ -8,8 +16,6 @@ Sprite2D
 Area2D
 Node
 CollisionPolygon2D
-ParallaxLayer
-ParallaxBackground
 Timer
 AudioStreamPlayer
 AudioStreamPlayer2D
@@ -25,6 +31,3 @@ StaticBody2D
 WorldEnvironment
 AnimatableBody2D
 AnimationPlayer
-AnimatedSprite2D
-Label
-ProgressBar

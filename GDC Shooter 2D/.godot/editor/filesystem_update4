@@ -1,10 +1,6 @@
-res://Scenes/straight_shooter_enemy.tscn
+res://Scenes/player.tscn
 res://Scripts/bossShip.gd
 res://Scripts/health_powerup.gd
-res://Scripts/Straight_Shooter_Enemy.gd
-res://chaser_enemy_trial.tscn
-res://chaser_enemy_trial.gd
-res://Scenes/player.tscn
 res://Scenes/gui.tscn
 res://Scenes/main.tscn
 res://Scenes/bossShip.tscn
@@ -12,3 +8,9 @@ res://asteroid_2.tscn
 res://arrow.tscn
 res://Scenes/speed_powerup.tscn
 res://Scenes/defaultBullet.tscn
+res://Scenes/straight_shooter_enemy.tscn
+res://chaser_enemy_trial.tscn
+res://Scripts/Player.gd
+res://Scenes/MainMenu.tscn
+res://Themes/MainTheme.tres
+res://Scripts/MainMenu.gd

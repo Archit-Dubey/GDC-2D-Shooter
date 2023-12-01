@@ -28,6 +28,8 @@ var powerup_timer : Timer
 var health = maxHealth#current health
 var speed_count = 0 # To check if additional speed powerup was collected
 
+
+
 func _ready():
 	gunCoolDown.wait_time=defaultFireRate
 
