@@ -1,10 +1,13 @@
+Button
+VBoxContainer
+AnimationPlayer
+ColorRect
+Control
 CanvasLayer
 Camera2D
 ParallaxBackground
 ParallaxLayer
-Button
 Label
-VBoxContainer
 TextEdit
 NavigationAgent2D
 NavigationRegion2D
@@ -27,7 +30,3 @@ Marker2D
 GPUParticles2D
 RayCast2D
 Node2D
-StaticBody2D
-WorldEnvironment
-AnimatableBody2D
-AnimationPlayer

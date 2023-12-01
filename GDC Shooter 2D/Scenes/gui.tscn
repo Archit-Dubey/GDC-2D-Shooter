@@ -1,10 +1,127 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx0ed02rryg76"]
+[gd_scene load_steps=13 format=3 uid="uid://cx0ed02rryg76"]
 
 [ext_resource type="Script" path="res://Scripts/Gui.gd" id="1_7wqhe"]
 [ext_resource type="PackedScene" uid="uid://bnoasihi24wj0" path="res://Scenes/joystick.tscn" id="1_ucnmp"]
+[ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="3_en4o1"]
+[ext_resource type="Texture2D" uid="uid://b278yfa4taqdw" path="res://Assets/Art/UI/Pause.png" id="4_sw5cf"]
+
+[sub_resource type="Animation" id="Animation_yc63l"]
+resource_name = "Pause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5o2d6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_63uqi"]
+_data = {
+"Pause": SubResource("Animation_yc63l"),
+"RESET": SubResource("Animation_5o2d6")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5f3np"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5242"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t76pd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ujegu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6v28"]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_7wqhe")
+
+[node name="PauseScreen" type="Control" parent="."]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.713726)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -30.5
+offset_right = 106.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_en4o1")
+text = " Resume"
+alignment = 0
+
+[node name="Settings" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_en4o1")
+text = " Settings"
+alignment = 0
+
+[node name="Menu" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_en4o1")
+text = " Menu"
+alignment = 0
+
+[node name="Quit" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_en4o1")
+text = " Quit"
+alignment = 0
+
+[node name="PauseAnim" type="AnimationPlayer" parent="PauseScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_63uqi")
+}
 
 [node name="directionAnchor" type="Control" parent="."]
 layout_mode = 3
@@ -75,3 +192,26 @@ offset_right = 109.0
 offset_bottom = 50.0
 text = "High Score:"
 vertical_alignment = 1
+
+[node name="Pause" type="Button" parent="."]
+process_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 96.0
+grow_horizontal = 0
+mouse_filter = 1
+theme = ExtResource("3_en4o1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5f3np")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j5242")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t76pd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ujegu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r6v28")
+icon = ExtResource("4_sw5cf")
+expand_icon = true
+
+[connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
