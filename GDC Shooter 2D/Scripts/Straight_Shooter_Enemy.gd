@@ -30,8 +30,8 @@ func _ready():
 	
 			
 
-func _physics_process(delta):
-	if health<0:
+func _physics_process(_delta):
+	if health<=0:
 		GUI.incScore(score)
 		deathSound.play()
 		
@@ -87,11 +87,9 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		if(body.armor_value == 0):
 			body.health-=bulletDamage*2
-		deathSound.play()
+		health = -1
 		
-		set_physics_process(false)
-		sprite.play("Death")
-		destroy=true
+		
 	elif body.is_in_group("Environment"):
 		nav_target = player # set the navigation target as player
 

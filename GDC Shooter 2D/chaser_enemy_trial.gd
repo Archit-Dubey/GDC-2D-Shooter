@@ -27,8 +27,8 @@ func _ready():
 
 
 
-func _physics_process(delta):
-	if(health < 0):
+func _physics_process(_delta):
+	if(health <= 0):
 		GUI.incScore(score)
 		
 		$death.play()
@@ -77,11 +77,7 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		if(body.armor_value == 0):
 			body.health-=damageFactor
-		sprite.play("Death")
-		
-		$death.play()
-		destroy=true
-		set_physics_process(false)
+		health = -1
 		
 	elif body.is_in_group("Environment"):
 		nav_target = player # set the navigation target as player

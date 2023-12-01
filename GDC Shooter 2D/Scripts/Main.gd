@@ -37,7 +37,7 @@ func _ready():
 	#print(get_tree().get_root().size) # Use this to print the original X and Y
 	
 	arrow_navigation_area.scale.x = org_screenX / 1152 * 0.9 # 1152 is original X
-	arrow_navigation_area.scale.y = org_screenY / 648 * 0.9 # 648 is original Y
+	arrow_navigation_area.scale.y = org_screenY / 648 * 0.82 # 648 is original Y
 	
 	# till here screen adjusting
 
@@ -56,12 +56,13 @@ func _physics_process(delta):#physics process because raycast is involved
 	#print(get_tree().get_root().size) # Use this to print the original X and Y
 	if screenX != org_screenX or screenY != org_screenY:
 		arrow_navigation_area.scale.x = screenX / 1152 * 0.9 # 1152 is original X
-		arrow_navigation_area.scale.y = screenY / 648 * 0.9 # 648 is original Y
-	
+		arrow_navigation_area.scale.y = screenY / 648 * 0.82 # 648 is original Y
+			
 	# till here screen adjusting
 	
 	if player:  # To keep the navigation area over the player always
 		arrow_navigation_area.global_position = player.global_position
+		#arrow_navigation_area.global_position = arrow_navigation_area.global_position.move_toward(player.global_position,delta * player.movingspeed)
 	
 	# Spawning powerup code from here
 	

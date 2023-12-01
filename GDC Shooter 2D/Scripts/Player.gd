@@ -26,6 +26,7 @@ extends CharacterBody2D
 
 var powerup_timer : Timer
 var health = maxHealth#current health
+var speed_count = 0 # To check if additional speed powerup was collected
 
 func _ready():
 	gunCoolDown.wait_time=defaultFireRate
@@ -105,6 +106,7 @@ func activate_speedBoost():
 	# We need to add some animation to signify there is speed boost
 	create_timer(_on_boost_timer_timeout, boost_duration)
 	movingspeed = maxMovespeed * 2
+	speed_count += 1
 	print("Speed Start")
 
 func _on_armor_timer_timeout():
@@ -113,7 +115,9 @@ func _on_armor_timer_timeout():
 	print("Armor End")
 	
 func _on_boost_timer_timeout():
-	movingspeed = maxMovespeed
+	speed_count -= 1
+	if(speed_count == 0): # To only decrease speed if there's no additional powerup taken
+		movingspeed = maxMovespeed
 	#deleting the first new child added to container
 	powerupTimerContainer.remove_child(powerupTimerContainer.get_children()[0])
 	print("Speed End")

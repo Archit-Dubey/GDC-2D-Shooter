@@ -1,10 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1701369309
-arrow.gd::GDScript::-1::1701365353::0::1::::<>Area2D<>::
-arrow.tscn::PackedScene::3284890256051071864::1701369309::0::1::::<><>::res://arrow.gd<>uid://b7gn371p84em0::::res://Assets/Art/Environment/arrow.png
-asteroid_2.tscn::PackedScene::6503795357091350002::1701340783::0::1::::<><>::res://Scripts/asteroid.gd<>uid://uvimd3kt672m
-chaser_enemy_trial.gd::GDScript::-1::1701344566::0::1::::<>CharacterBody2D<>::
-chaser_enemy_trial.tscn::PackedScene::6647066633632542574::1701369142::0::1::::<><>::uid://c4tvg4j8dfywu
+::res://::1701418952
+arrow.gd::GDScript::-1::1701411727::0::1::::<>Area2D<>::
+arrow.tscn::PackedScene::3284890256051071864::1701418646::0::1::::<><>::res://arrow.gd<>uid://b7gn371p84em0::::res://Assets/Art/Environment/arrow.png
+asteroid_2.tscn::PackedScene::6503795357091350002::1701418721::0::1::::<><>::res://Scripts/asteroid.gd<>uid://uvimd3kt672m::::res://Old Assets/Asteroid_1.png
+chaser_enemy_trial.gd::GDScript::-1::1701418609::0::1::::<>CharacterBody2D<>::
+chaser_enemy_trial.tscn::PackedScene::6647066633632542574::1701418646::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png<>res://chaser_enemy_trial.gd<>uid://dnbhlo1ed1v6n::::res://Assets/Art/Enemies/Chaser/Chaser death.png<>uid://buw3iaf3fg0n7::::res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav
 export_presets.cfg::TextFile::-1::1701174976::0::1::::<><>::
 icon.svg::CompressedTexture2D::858899324018195348::1700387746::1700387746::1::::<><>::
 navigation_region_2d.tscn::PackedScene::6423050877293414124::1701167276::0::1::::<><>::
@@ -23,7 +23,7 @@ Enemy_StraightProjectile.png::CompressedTexture2D::7268071879029324061::17003877
 Enemy_StraightProjectile_hit.png::CompressedTexture2D::4602516042257767896::1701339988::1701339988::1::::<><>::
 Straight Shoot death.png::CompressedTexture2D::6033734908794250702::1701339988::1701339988::1::::<><>::
 Straight Shoot Sprites.png::CompressedTexture2D::3704322001179392172::1700387746::1700387746::1::::<><>::
-::res://Assets/Art/Environment/::1701369309
+::res://Assets/Art/Environment/::1701369310
 arrow.png::CompressedTexture2D::4645690991408691865::1701341461::1701369310::1::::<><>::
 Asteroid_1.png::CompressedTexture2D::1447636172370468490::1700387746::1700976641::1::::<><>::
 BlackBackground.png::CompressedTexture2D::202028824886637566::1700387746::1700973785::1::::<><>::
@@ -122,40 +122,40 @@ UIBackdrop.png::CompressedTexture2D::978073241146201789::1700387746::1700387746:
 UIButton.png::CompressedTexture2D::8224195908218557776::1700387746::1700387746::1::::<><>::
 volumeSlider.png::CompressedTexture2D::6047707684053286985::1700387746::1700387746::1::::<><>::
 Wormhole.png::CompressedTexture2D::7898828591183037050::1700387746::1700387746::1::::<><>::
-::res://Scenes/::1701369234
-armor_powerup.tscn::PackedScene::5466513874968582275::1701369142::0::1::::<><>::res://Scripts/armor_powerup.gd<>uid://dbgcc6h2f1b8m
+::res://Scenes/::1701418646
+armor_powerup.tscn::PackedScene::5466513874968582275::1701411895::0::1::::<><>::res://Scripts/armor_powerup.gd<>uid://dbgcc6h2f1b8m::::res://Assets/Art/Powerups/Armor.png
 asteroid1.tscn::PackedScene::8350505283533319314::1701166686::0::1::::<><>::uid://uvimd3kt672m
 asteroid.tscn::PackedScene::4150525059016454082::1700978040::0::1::::<><>::res://Scripts/asteroid.gd<>uid://uvimd3kt672m
 asteroid_spawner.tscn::PackedScene::7059557049222608075::1701340783::0::1::::<><>::res://Scripts/asteroid_spawner.gd<>uid://cywqtatkvw31o
-bossShip.tscn::PackedScene::9007130312087632986::1701363064::0::1::::<><>::res://Scripts/bossShip.gd<>uid://cow2kuo2dtpq4
-chaser_enemy.tscn::PackedScene::1013539785733631030::1701363065::0::1::::<><>::uid://c4tvg4j8dfywu
-defaultBullet.tscn::PackedScene::3558923926258882816::1701340783::0::1::::<><>::res://Scripts/Bullet.gd<>uid://cs10m7as3vp4s
-gui.tscn::PackedScene::6439043795854765991::1701369142::0::1::::<><>::res://Scripts/Gui.gd<>uid://bnoasihi24wj0
-health_powerup.tscn::PackedScene::4343518796394161489::1701369142::0::1::::<><>::res://Scripts/health_powerup.gd<>uid://dk12vk50ovx6j
+bossShip.tscn::PackedScene::9007130312087632986::1701418645::0::1::::<><>::res://Scripts/bossShip.gd<>uid://cow2kuo2dtpq4::::res://Assets/Art/Enemies/BossShip/BossShipPlaceholder.png<>uid://bru22mwqoulj2::::res://Assets/Art/Enemies/BossShip/Gun.png<>uid://b051mguqm3qga::::res://Assets/Art/Enemies/BossShip/lazerPlaceholder.png
+chaser_enemy.tscn::PackedScene::1013539785733631030::1701418645::0::1::::<><>::uid://c4tvg4j8dfywu::::res://Assets/Art/Enemies/Chaser/Chaser Sprites.png<>res://Scripts/Chaser_Enemy.gd
+defaultBullet.tscn::PackedScene::3558923926258882816::1701418646::0::1::::<><>::res://Scripts/Bullet.gd<>uid://cs10m7as3vp4s::::res://Assets/Art/Player/Player_Projectile_hit.png<>uid://de5nyva2bhvls::::res://Assets/Art/Player/Player_Projectile.png
+gui.tscn::PackedScene::6439043795854765991::1701418645::0::1::::<><>::res://Scripts/Gui.gd<>uid://bnoasihi24wj0::::res://Scenes/joystick.tscn
+health_powerup.tscn::PackedScene::4343518796394161489::1701411895::0::1::::<><>::res://Scripts/health_powerup.gd<>uid://dk12vk50ovx6j::::res://Assets/Art/Powerups/Health.png
 joystick.tscn::PackedScene::3327809515235809147::1700480760::0::1::::<><>::res://Scripts/Joystick.gd<>uid://dv6kq7xq4op5j
-life_powerup.tscn::PackedScene::4684871882013585231::1701369142::0::1::::<><>::uid://u65v21lwx8h5
-main.tscn::PackedScene::9106336261695891670::1701369234::0::1::::<><>::res://Scripts/Main.gd<>uid://cx0ed02rryg76
-player.tscn::PackedScene::1618723583742064908::1701369142::0::1::::<><>::res://Scripts/Player.gd<>uid://b85jnsbrm7wj6
-speed_powerup.tscn::PackedScene::7223221327522057128::1701369142::0::1::::<><>::res://Scripts/speed_powerup.gd<>uid://daqjpbqg2ukc2
+life_powerup.tscn::PackedScene::4684871882013585231::1701411895::0::1::::<><>::uid://u65v21lwx8h5::::res://Assets/Art/Powerups/Life.png
+main.tscn::PackedScene::9106336261695891670::1701418645::0::1::::<><>::res://Scripts/Main.gd<>uid://cx0ed02rryg76::::res://Scenes/gui.tscn<>uid://xcee157fq5ca::::res://Scenes/player.tscn<>uid://c1x5hmb0jwkmo::::res://chaser_enemy_trial.tscn<>uid://c1a0jvm3pst4t::::res://Scenes/straight_shooter_enemy.tscn<>uid://b70nfjw7t75e6::::res://Scenes/life_powerup.tscn<>uid://b25becxymidw0::::res://Scenes/health_powerup.tscn<>uid://cj5axjxp2fsf0::::res://Scenes/armor_powerup.tscn<>uid://da58nulge23xs::::res://Scenes/speed_powerup.tscn<>uid://c7tx4xnytakm2::::res://Scenes/asteroid_spawner.tscn<>uid://pmjkr7qslnkj::::res://Scenes/world_boundary.tscn<>uid://b3lw8pjmulcam::::res://Assets/Audio/Music/SongA.wav<>uid://ca08cv28k8t7w::::res://Old Assets/BlackSpace1.png
+player.tscn::PackedScene::1618723583742064908::1701418645::0::1::::<><>::res://Scripts/Player.gd<>uid://b85jnsbrm7wj6::::res://Assets/Art/Player/Player death.png<>uid://tiko2t3qtqlb::::res://Assets/Art/Player/Player Sprites.png<>uid://vmqey78kv06w::::res://Assets/Audio/Sound Effects/Sound Effects/PlayerFire.wav<>uid://koho0vn1aup6::::res://Assets/Audio/Sound Effects/Sound Effects/PlayerExplode.wav<>uid://bfpmkm28g5tu4::::res://Assets/Audio/Sound Effects/Sound Effects/LifeGain.wav
+speed_powerup.tscn::PackedScene::7223221327522057128::1701418646::0::1::::<><>::res://Scripts/speed_powerup.gd<>uid://daqjpbqg2ukc2::::res://Assets/Art/Powerups/Speed.png
 straight_shooter_bullet.tscn::PackedScene::502544237863217101::1701340783::0::1::::<><>::uid://dbsyc10yfjg2x
-straight_shooter_enemy.tscn::PackedScene::6599286421760323129::1701363065::0::1::::<><>::uid://bs1nv3ld1mkkq
+straight_shooter_enemy.tscn::PackedScene::6599286421760323129::1701418646::0::1::::<><>::uid://bs1nv3ld1mkkq::::res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png<>res://Scripts/Straight_Shooter_Enemy.gd<>uid://cr71y5wtmk6gw::::res://Assets/Art/Enemies/Straight/Straight Shoot death.png<>uid://bfy3trkx4bmbb::::res://Assets/Audio/Sound Effects/Sound Effects/EnemyFire.wav<>uid://buw3iaf3fg0n7::::res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav
 world_boundary.tscn::PackedScene::1078170441575312521::1700978041::0::1::::<><>::res://Scripts/world_boundary.gd
 world_environment.tscn::PackedScene::7338354208073853305::1700978041::0::1::::<><>::
-::res://Scripts/::1701369309
-armor_powerup.gd::GDScript::-1::1701365846::0::1::::<>Area2D<>::
+::res://Scripts/::1701418589
+armor_powerup.gd::GDScript::-1::1701411775::0::1::::<>Area2D<>::
 asteroid.gd::GDScript::-1::1701172823::0::1::::<>StaticBody2D<>::
 asteroid_spawner.gd::GDScript::-1::1701003061::0::1::::<>Node2D<>::
-bossShip.gd::GDScript::-1::1701369309::0::1::::<>Area2D<>::
+bossShip.gd::GDScript::-1::1701412254::0::1::::<>Area2D<>::
 Bullet.gd::GDScript::-1::1701339988::0::1::::<>Area2D<>::
 Chaser_Enemy.gd::GDScript::-1::1700998625::0::1::::<>Area2D<>::
 enemy_bullet.gd::GDScript::-1::1701339988::0::1::::<>Area2D<>::
 Gui.gd::GDScript::-1::1701367981::0::1::::<>CanvasLayer<>::
-health_powerup.gd::GDScript::-1::1701369309::0::1::::<>Area2D<>::
+health_powerup.gd::GDScript::-1::1701411775::0::1::::<>Area2D<>::
 Joystick.gd::GDScript::-1::1700387746::0::1::::<>Node2D<>::
 Knob.gd::GDScript::-1::1700556308::0::1::::<>Sprite2D<>::
 life_powerup.gd::GDScript::-1::1700417979::0::1::::<>Area2D<>::
-Main.gd::GDScript::-1::1701369115::0::1::::<>Node2D<>::
-Player.gd::GDScript::-1::1701365439::0::1::::<>CharacterBody2D<>::
-speed_powerup.gd::GDScript::-1::1701366082::0::1::::<>Area2D<>::
-Straight_Shooter_Enemy.gd::GDScript::-1::1701340437::0::1::::<>CharacterBody2D<>::
-world_boundary.gd::GDScript::-1::1700772833::0::1::::<>Node2D<>::
+Main.gd::GDScript::-1::1701418366::0::1::::<>Node2D<>::
+Player.gd::GDScript::-1::1701417459::0::1::::<>CharacterBody2D<>::
+speed_powerup.gd::GDScript::-1::1701411775::0::1::::<>Area2D<>::
+Straight_Shooter_Enemy.gd::GDScript::-1::1701418589::0::1::::<>CharacterBody2D<>::
+world_boundary.gd::GDScript::-1::1701411775::0::1::::<>Node2D<>::

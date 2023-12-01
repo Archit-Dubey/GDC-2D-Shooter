@@ -39,7 +39,7 @@ func _physics_process(delta):
 		
 		if lazerRay.is_colliding():
 			lazerBeam.visible=true
-			lazerBeam.position.x=249+lazerRange/2 #249 is the gun tip
+			lazerBeam.position.x= 249 + lazerRange/2 #249 is the gun tip
 			lazerBeam.scale.x=lazerRange
 			lazerBeam.scale.y=15
 			

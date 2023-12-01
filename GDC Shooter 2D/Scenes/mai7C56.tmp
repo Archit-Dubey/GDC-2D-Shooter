@@ -1,0 +1,72 @@
+[gd_scene load_steps=15 format=3 uid="uid://d20ga7d1n8k7w"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_o5v6k"]
+[ext_resource type="PackedScene" uid="uid://cx0ed02rryg76" path="res://Scenes/gui.tscn" id="1_w257l"]
+[ext_resource type="PackedScene" uid="uid://xcee157fq5ca" path="res://Scenes/player.tscn" id="2_irpq3"]
+[ext_resource type="PackedScene" uid="uid://c1x5hmb0jwkmo" path="res://chaser_enemy_trial.tscn" id="2_su0qw"]
+[ext_resource type="PackedScene" uid="uid://c1a0jvm3pst4t" path="res://Scenes/straight_shooter_enemy.tscn" id="3_vgjpi"]
+[ext_resource type="PackedScene" uid="uid://b70nfjw7t75e6" path="res://Scenes/life_powerup.tscn" id="4_segf4"]
+[ext_resource type="PackedScene" uid="uid://b25becxymidw0" path="res://Scenes/health_powerup.tscn" id="5_k6fxs"]
+[ext_resource type="PackedScene" uid="uid://cj5axjxp2fsf0" path="res://Scenes/armor_powerup.tscn" id="6_hmer3"]
+[ext_resource type="PackedScene" uid="uid://da58nulge23xs" path="res://Scenes/speed_powerup.tscn" id="7_j3wv3"]
+[ext_resource type="PackedScene" uid="uid://c7tx4xnytakm2" path="res://Scenes/asteroid_spawner.tscn" id="10_bwhqx"]
+[ext_resource type="PackedScene" uid="uid://pmjkr7qslnkj" path="res://Scenes/world_boundary.tscn" id="11_jvwjg"]
+[ext_resource type="AudioStream" uid="uid://b3lw8pjmulcam" path="res://Assets/Audio/Music/SongA.wav" id="12_tpkvd"]
+[ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Old Assets/BlackSpace1.png" id="13_7b10k"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_h56db"]
+vertices = PackedVector2Array(-544, -320, 600, -320, 600, 320, -544, 320)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-544, -320, 600, -320, 600, 320, -544, 320)])
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o5v6k")
+enemy_scenes = Array[PackedScene]([ExtResource("2_su0qw"), ExtResource("3_vgjpi")])
+powerups_scenes = Array[PackedScene]([ExtResource("4_segf4"), ExtResource("5_k6fxs"), ExtResource("6_hmer3"), ExtResource("7_j3wv3")])
+
+[node name="GUI" parent="." instance=ExtResource("1_w257l")]
+
+[node name="Player" parent="." instance=ExtResource("2_irpq3")]
+position = Vector2(1, 2)
+
+[node name="Enemy_Spawner_Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Enemy_Container" type="Node" parent="." groups=["Enemy"]]
+
+[node name="Powerups_Spawner_Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Powerups_Container" type="Node" parent="."]
+
+[node name="AsteroidSpawner" parent="." instance=ExtResource("10_bwhqx")]
+num = 50
+
+[node name="worldBoundary" parent="." instance=ExtResource("11_jvwjg")]
+position = Vector2(0, -43)
+
+[node name="BossTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="levelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_tpkvd")
+volume_db = -12.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1350, 679)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("13_7b10k")
+centered = false
+
+[node name="Arrow_Navigation_Area" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_h56db")
+navigation_layers = 128
+
+[connection signal="timeout" from="Enemy_Spawner_Timer" to="." method="_on_enemy_spawner_timer_timeout"]
+[connection signal="timeout" from="Powerups_Spawner_Timer" to="." method="_on_powerups_spawner_timer_timeout"]
+[connection signal="timeout" from="BossTimer" to="." method="_on_boss_timer_timeout"]

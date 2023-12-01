@@ -83,6 +83,7 @@ polygon = PackedVector2Array(-9.15527e-05, -25, -3.00008, -22, -8.00005, -12, -2
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(24, 0)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="GunTip" type="Node2D" parent="."]
 position = Vector2(23, 0)

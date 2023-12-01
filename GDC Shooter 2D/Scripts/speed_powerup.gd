@@ -10,7 +10,7 @@ var spawned_arrow = null
 func _ready(): 
 	add_arrow() # add a navigation arrow on spawning
 
-func _process(delta):
+func _process(_delta):
 	
 	pass
 
