@@ -17,7 +17,7 @@ func _ready():
 	
 	incScore(0)
 	health.max_value=player.maxHealth #set the max to the players max health
-	lives.text=str(player.lives)
+	lives.text="Lives: "+str(player.lives)
 	
 	# Load high score from local storage
 	if FileAccess.file_exists(save_path):
