@@ -61,8 +61,8 @@ func _physics_process(delta):#physics process because raycast is involved
 	# till here screen adjusting
 	
 	if player:  # To keep the navigation area over the player always
-		arrow_navigation_area.global_position = player.global_position
-		#arrow_navigation_area.global_position = arrow_navigation_area.global_position.move_toward(player.global_position,delta * player.movingspeed)
+		#arrow_navigation_area.global_position = player.global_position
+		arrow_navigation_area.global_position = arrow_navigation_area.global_position.move_toward(player.global_position,delta * player.movingspeed)
 	
 	# Spawning powerup code from here
 	

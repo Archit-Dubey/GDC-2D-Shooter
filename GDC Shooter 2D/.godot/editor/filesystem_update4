@@ -1,5 +1,6 @@
 res://Scenes/player.tscn
 res://Scripts/bossShip.gd
+res://Scripts/Gui.gd
 res://Scripts/health_powerup.gd
 res://Themes/MainTheme.tres
 res://Scenes/gui.tscn
@@ -11,5 +12,7 @@ res://Scenes/defaultBullet.tscn
 res://Scenes/straight_shooter_enemy.tscn
 res://chaser_enemy_trial.tscn
 res://Scenes/MainMenu.tscn
-res://Scripts/Gui.gd
+res://Scripts/Main.gd
 res://Scripts/Player.gd
+res://Scenes/joystick.tscn
+res://arrow.gd

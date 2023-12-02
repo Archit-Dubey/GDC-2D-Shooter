@@ -21,5 +21,6 @@ func _process(_delta):
 		global_position = next_path
 		
 	else:
-		pass
+		# To resolve the bug regarding few arrows lingering in the screen
+		queue_free()
 		

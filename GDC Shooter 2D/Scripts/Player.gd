@@ -36,10 +36,15 @@ func _ready():
 func _physics_process(delta):
 	gui.updatePlayerHealth(health)
 	if health>0:
-		var direction = joystick_direction.posVector	
+		var direction = joystick_direction.posVector
 		
-		if direction:
-			velocity = direction * movingspeed
+		if direction != Vector2(0,0):
+			
+			# To make the player motion smoother with joystick
+			if (velocity < direction * movingspeed):
+				velocity += direction * movingspeed * delta
+			else:
+				velocity = direction * movingspeed
 			
 		else:
 			velocity = Vector2(0,0)
@@ -50,10 +55,11 @@ func _physics_process(delta):
 			var debug_key_y=Input.get_action_raw_strength("down")-Input.get_action_raw_strength("up")
 			direction=Vector2(debug_key_x,debug_key_y)
 			velocity = direction.normalized() * movingspeed
-			
 			#remove till above
-			
+		
+		velocity = velocity.limit_length(movingspeed)
 		move_and_slide()
+		
 		var rotation_input = joystick_rotation.posVector
 		var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
 		
