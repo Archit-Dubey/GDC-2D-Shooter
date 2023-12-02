@@ -1,4 +1,4 @@
-I think one of the reasons the game lags is because the asteroids keeps rotating, I think we should only rotate the CollsionBody2D and Sprite2D, that way we can avoid rotating the navigation area.
+I am working on the settings menu, will upload it in my next commit by tomorrow noon.
 
 # GDC-2D-Shooter TODO List
 
