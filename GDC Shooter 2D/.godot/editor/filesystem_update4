@@ -1,13 +1,12 @@
-res://Scenes/player.tscn
+res://Scenes/MainMenu.tscn
 res://Scripts/bossShip.gd
 res://Scripts/Gui.gd
 res://Scripts/health_powerup.gd
 res://Themes/MainTheme.tres
-res://Scripts/Player.gd
-res://Scenes/strongBullet.tscn
+res://Themes/roundedFlatStyleBox.tres
 res://Scenes/gui.tscn
 res://Scenes/main.tscn
 res://arrow.tscn
+res://Scenes/player.tscn
+res://Scenes/strongBullet.tscn
 res://Scenes/gunPickUp.tscn
-res://Scripts/gunPickUp.gd
-res://arrow.gd
