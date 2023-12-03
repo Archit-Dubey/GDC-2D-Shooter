@@ -34,6 +34,13 @@ func _ready():
 		highscore.text = "High Score: " + str(currHighscore)
 	else:
 		print("No data saved")
+		
+	if FileAccess.file_exists("user://joystickdata.save"):
+		var file = FileAccess.open("user://joystickdata.save", FileAccess.READ)
+		var positions = file.get_var()
+		$directionAnchor/Joystick_Direction.global_position = positions[0]
+		$rotationAnchor/Joystick_Rotation.global_position = positions[2]
+		$WeaponSelect.global_position = positions[1]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

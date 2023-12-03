@@ -1,4 +1,7 @@
+Node2D
 Button
+Control
+CanvasLayer
 HBoxContainer
 VSplitContainer
 HSplitContainer
@@ -8,14 +11,11 @@ HSlider
 CheckButton
 VBoxContainer
 Label
-Node2D
 Node
 Sprite2D
 AnimatedSprite2D
 AnimationPlayer
 ColorRect
-Control
-CanvasLayer
 Camera2D
 ParallaxBackground
 ParallaxLayer
