@@ -2,7 +2,7 @@ I am working on the settings menu, will upload it in my next commit by tomorrow 
 
 # GDC-2D-Shooter TODO List
 
-1. Create a start game page
+1. Create a start game page (Done)
 2. Enforce an area as the playable region (Done)
 3. Player (Done)
 4. Joystick to move and rotate the player (Done)
@@ -15,7 +15,7 @@ I am working on the settings menu, will upload it in my next commit by tomorrow 
 11. Enable player to have multiple lives (Done)
 12. Set a High score and score counter (Done)
 13. Insert different powerups (Life done, Health done, Armor done, Speed done)
-14. Add multiple gun types
+14. Add multiple gun types (Done)
 15. Implement complex pathing for enemies to avoid debris (Mostly Done, need to check for bugs)
 16. Add debris/asteroids (Kind of done, asteroids should be adjusted with new sprites and accompanying collider shape)
 17. Random asteroid generation at start of level (done, but need some time to before user can start game so asteroid can arrange themselves)
