@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d20ga7d1n8k7w"]
+[gd_scene load_steps=15 format=3 uid="uid://d20ga7d1n8k7w"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_o5v6k"]
 [ext_resource type="PackedScene" uid="uid://cx0ed02rryg76" path="res://Scenes/gui.tscn" id="1_w257l"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://da58nulge23xs" path="res://Scenes/speed_powerup.tscn" id="7_j3wv3"]
 [ext_resource type="PackedScene" uid="uid://c7tx4xnytakm2" path="res://Scenes/asteroid_spawner.tscn" id="10_bwhqx"]
 [ext_resource type="PackedScene" uid="uid://pmjkr7qslnkj" path="res://Scenes/world_boundary.tscn" id="11_jvwjg"]
-[ext_resource type="AudioStream" uid="uid://b3lw8pjmulcam" path="res://Assets/Audio/Music/SongA.wav" id="12_tpkvd"]
 [ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Old Assets/BlackSpace1.png" id="13_7b10k"]
 [ext_resource type="PackedScene" uid="uid://bf6q18icepntw" path="res://Scenes/gunPickUp.tscn" id="14_h7dvq"]
 
@@ -49,10 +48,6 @@ position = Vector2(0, -43)
 [node name="BossTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
-
-[node name="levelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_tpkvd")
-volume_db = -12.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

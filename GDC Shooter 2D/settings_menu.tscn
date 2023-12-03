@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=3 uid="uid://cneeg56atf3bf"]
+
+[ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_4r4ym"]
+[ext_resource type="Script" path="res://settings_menu.gd" id="1_gntcm"]
+[ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="3_28q64"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eihdu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmbd0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apbl8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rdtj"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SettingsMenu" type="CanvasLayer"]
+script = ExtResource("1_gntcm")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_4r4ym")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -232.0
+offset_right = 385.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer1"]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="VBoxContainer1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("3_28q64")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
+text = " Reset Game Stats "
+
+[node name="JoystickButton" type="Button" parent="VBoxContainer1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_28q64")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
+text = " Joystick Settings "
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("3_28q64")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
+text = "Main Menu
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -132.0
+offset_right = 320.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SoundFXLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_4r4ym")
+theme_override_font_sizes/font_size = 40
+text = "Sound FX"
+
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer2/SoundFXLabel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_4r4ym")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer2/MusicLabel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="pressed" from="VBoxContainer1/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="VBoxContainer1/HBoxContainer/JoystickButton" to="." method="_on_joystick_button_pressed"]
+[connection signal="pressed" from="VBoxContainer1/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer2/SoundFXLabel/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/MusicLabel/MusicSlider" to="." method="_on_music_slider_value_changed"]

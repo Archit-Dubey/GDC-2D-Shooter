@@ -97,15 +97,18 @@ one_shot = true
 
 [node name="fireSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_4a50l")
-volume_db = -12.0
+volume_db = -80.0
+bus = &"SoundFX"
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_pek3k")
-volume_db = -5.0
+volume_db = -80.0
+bus = &"SoundFX"
 
 [node name="powerup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_066n1")
-volume_db = -15.0
+volume_db = -80.0
+bus = &"SoundFX"
 
 [node name="animTimer" type="Timer" parent="."]
 one_shot = true

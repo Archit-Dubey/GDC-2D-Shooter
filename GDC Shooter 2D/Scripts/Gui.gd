@@ -34,8 +34,6 @@ func _ready():
 		highscore.text = "High Score: " + str(currHighscore)
 	else:
 		print("No data saved")
-		
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

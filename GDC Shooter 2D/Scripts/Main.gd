@@ -29,6 +29,10 @@ var org_screenY = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	if FileAccess.file_exists("user://sounddata.save"):
+		var file = FileAccess.open("user://sounddata.save", FileAccess.READ)
+		AudioServer.set_bus_volume_db(1,file.get_var())
+	
 	# To adjust the size of the navigation area according to screen
 	
 	org_screenX = get_viewport().get_visible_rect().size.x

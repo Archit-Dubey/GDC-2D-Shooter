@@ -40,6 +40,7 @@ var speed_count = 0 # To check if additional speed powerup was collected
 func _ready():
 	gunCoolDown.wait_time=weaponStats[bulletType][1]
 
+
 func _physics_process(delta):
 	gui.updatePlayerHealth(health)
 	if health>0:
