@@ -9,13 +9,20 @@ var save_path = "user://userdata.save"
 @onready var highscore=$HighScore
 @onready var pauseAnim=$PauseScreen/PauseAnim
 @onready var deathAnim=$DeathScreen/DeathAnim
+@onready var weaponSelect=$WeaponSelect
+@onready var weaponTypes=[
+	["allowed","None",0],#noweapon
+	["allowed","default",1],#allowed, name/image of weapon, weapon code
+	["allowed","strong",2]
+]
 
 var currScore=0
 var currHighscore=0
+var currWeapon=0
 
 func _ready():
 	
-	
+	weaponSelect.text=weaponTypes[currWeapon][1]
 	incScore(0)
 	health.max_value=player.maxHealth #set the max to the players max health
 	lives.text="Lives: "+str(player.lives)
@@ -89,3 +96,16 @@ func _on_retry_pressed():
 
 func showDeathScreen():
 	deathAnim.play("Pause")
+
+
+func _on_weapon_select_pressed():
+	var next=(currWeapon+1)%len(weaponTypes)
+	
+	while true:
+		if weaponTypes[next][0]=="allowed":
+			currWeapon=next
+			player.setWeaponType(weaponTypes[currWeapon][2])
+			weaponSelect.text=weaponTypes[currWeapon][1]
+			break
+		else:
+			next=(next+1)%len(weaponTypes)

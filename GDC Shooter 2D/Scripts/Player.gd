@@ -6,7 +6,8 @@ extends CharacterBody2D
 @onready var gun=$GunTip # the tip of the gun from which projectiles will be spawned
 @onready var gunCoolDown=$gunCoolDownTimer # timer to cap fire rate
 @onready var defaultBullet=preload("res://Scenes/defaultBullet.tscn") #basic bullet type
-@onready var bulletType=defaultBullet # the current type of gun/bullet selected
+@onready var strongBullet=preload("res://Scenes/strongBullet.tscn")
+@onready var bulletType=0 # the current type of gun/bullet selected
 @onready var gui=$"../GUI"
 @onready var powerupTimerContainer = $powerupTimerContainer
 @onready var deathSound=$death
@@ -24,6 +25,12 @@ extends CharacterBody2D
 @export var armor_duration = 10
 @export var boost_duration = 10
 
+@onready var weaponStats=[
+	[null,0],#noWeapon
+	[defaultBullet,defaultFireRate],#default gun
+	[strongBullet,defaultFireRate*2],#Slow and Strong Gun
+]
+
 var powerup_timer : Timer
 var health = maxHealth#current health
 var speed_count = 0 # To check if additional speed powerup was collected
@@ -31,7 +38,7 @@ var speed_count = 0 # To check if additional speed powerup was collected
 
 
 func _ready():
-	gunCoolDown.wait_time=defaultFireRate
+	gunCoolDown.wait_time=weaponStats[bulletType][1]
 
 func _physics_process(delta):
 	gui.updatePlayerHealth(health)
@@ -70,13 +77,17 @@ func _physics_process(delta):
 			
 		if firePressed and gunCoolDown.is_stopped(): 
 			#if joystick knob is outside and gun is ready to fire
-			fireSound.play()
-			var newBullet=bulletType.instantiate()
-			newBullet.global_position=gun.global_position
-			newBullet.set_direction(rotation)
-			newBullet.global_rotation_degrees = global_rotation_degrees
-			gun.add_child(newBullet)
-			gunCoolDown.start()
+			
+			
+			var currBullet=weaponStats[bulletType][0]
+			if currBullet!=null:
+				fireSound.play()
+				var newBullet=currBullet.instantiate()
+				newBullet.global_position=gun.global_position
+				newBullet.set_direction(rotation)
+				newBullet.global_rotation_degrees = global_rotation_degrees
+				gun.add_child(newBullet)
+				gunCoolDown.start()
 	else:#put explosion animation here
 		if lives>0:
 			print("new life")
@@ -153,3 +164,7 @@ func _on_bounds_area_exited(area):
 		area.queue_free()
 	elif area.is_in_group("PlayerBullet"):
 		area.queue_free()
+
+func setWeaponType(val:int):
+	bulletType=val
+	gunCoolDown.wait_time=weaponStats[bulletType][1]

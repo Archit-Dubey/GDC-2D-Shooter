@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx0ed02rryg76"]
+[gd_scene load_steps=15 format=3 uid="uid://cx0ed02rryg76"]
 
 [ext_resource type="Script" path="res://Scripts/Gui.gd" id="1_7wqhe"]
 [ext_resource type="PackedScene" uid="uid://bnoasihi24wj0" path="res://Scenes/joystick.tscn" id="1_ucnmp"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="3_en4o1"]
 [ext_resource type="Texture2D" uid="uid://b278yfa4taqdw" path="res://Assets/Art/UI/Pause.png" id="4_sw5cf"]
+[ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="5_cp2g3"]
 
 [sub_resource type="Animation" id="Animation_yc63l"]
 resource_name = "Pause"
@@ -51,6 +52,13 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ujegu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6v28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bjg6"]
+bg_color = Color(1, 1, 1, 0.556863)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_7wqhe")
@@ -285,6 +293,26 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_r6v28")
 icon = ExtResource("4_sw5cf")
 expand_icon = true
 
+[node name="WeaponSelect" type="Button" parent="."]
+process_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -630.0
+offset_top = 519.0
+offset_right = -530.0
+offset_bottom = 615.0
+grow_horizontal = 0
+mouse_filter = 1
+theme = ExtResource("3_en4o1")
+theme_override_styles/normal = ExtResource("5_cp2g3")
+theme_override_styles/hover = ExtResource("5_cp2g3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8bjg6")
+theme_override_styles/disabled = ExtResource("5_cp2g3")
+theme_override_styles/focus = ExtResource("5_cp2g3")
+text = "testing"
+expand_icon = true
+
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
@@ -292,3 +320,4 @@ expand_icon = true
 [connection signal="pressed" from="DeathScreen/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="DeathScreen/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="WeaponSelect" to="." method="_on_weapon_select_pressed"]
