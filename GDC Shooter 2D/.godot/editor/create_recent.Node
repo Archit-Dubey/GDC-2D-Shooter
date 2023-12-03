@@ -1,3 +1,5 @@
+Sprite2D
+AnimatedSprite2D
 Label
 Button
 VBoxContainer
@@ -15,7 +17,6 @@ CenterContainer
 PanelContainer
 VisibleOnScreenNotifier2D
 CollisionShape2D
-Sprite2D
 Area2D
 Node
 CollisionPolygon2D
@@ -29,4 +30,3 @@ CharacterBody2D
 Marker2D
 GPUParticles2D
 RayCast2D
-Node2D

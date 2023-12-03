@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d20ga7d1n8k7w"]
+[gd_scene load_steps=16 format=3 uid="uid://d20ga7d1n8k7w"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_o5v6k"]
 [ext_resource type="PackedScene" uid="uid://cx0ed02rryg76" path="res://Scenes/gui.tscn" id="1_w257l"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://pmjkr7qslnkj" path="res://Scenes/world_boundary.tscn" id="11_jvwjg"]
 [ext_resource type="AudioStream" uid="uid://b3lw8pjmulcam" path="res://Assets/Audio/Music/SongA.wav" id="12_tpkvd"]
 [ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Old Assets/BlackSpace1.png" id="13_7b10k"]
+[ext_resource type="PackedScene" uid="uid://bf6q18icepntw" path="res://Scenes/gunPickUp.tscn" id="14_h7dvq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h56db"]
 vertices = PackedVector2Array(-544, -320, 600, -320, 600, 320, -544, 320)
@@ -66,6 +67,13 @@ centered = false
 [node name="Arrow_Navigation_Area" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_h56db")
 navigation_layers = 128
+
+[node name="GunPickUp" parent="." instance=ExtResource("14_h7dvq")]
+position = Vector2(80, -72)
+
+[node name="GunPickUp2" parent="." instance=ExtResource("14_h7dvq")]
+position = Vector2(-144, -64)
+type = 1
 
 [connection signal="timeout" from="Enemy_Spawner_Timer" to="." method="_on_enemy_spawner_timer_timeout"]
 [connection signal="timeout" from="Powerups_Spawner_Timer" to="." method="_on_powerups_spawner_timer_timeout"]

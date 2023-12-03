@@ -11,9 +11,9 @@ var save_path = "user://userdata.save"
 @onready var deathAnim=$DeathScreen/DeathAnim
 @onready var weaponSelect=$WeaponSelect
 @onready var weaponTypes=[
-	["allowed","None",0],#noweapon
-	["allowed","default",1],#allowed, name/image of weapon, weapon code
-	["allowed","strong",2]
+	[true,"None",0],#noweapon #ALWAYS make sure that atleast one of them is true
+	[false,"default",1],#allowed, name/image of weapon, weapon code
+	[false,"strong",2]
 ]
 
 var currScore=0
@@ -67,10 +67,12 @@ func save_high_score():
 		highscore.text = "High Score: " + str(currHighscore)
 
 func _on_pause_pressed():
+	
 	if get_tree().paused:
 		get_tree().paused=false
 		pauseAnim.play_backwards("Pause")
 	else:
+		$PauseScreen.visible=true
 		get_tree().paused=true
 		pauseAnim.play("Pause")
 
@@ -95,6 +97,7 @@ func _on_retry_pressed():
 	get_tree().reload_current_scene()
 
 func showDeathScreen():
+	$DeathScreen.visible=true
 	deathAnim.play("Pause")
 
 
@@ -102,10 +105,18 @@ func _on_weapon_select_pressed():
 	var next=(currWeapon+1)%len(weaponTypes)
 	
 	while true:
-		if weaponTypes[next][0]=="allowed":
+		if weaponTypes[next][0]==true:
 			currWeapon=next
 			player.setWeaponType(weaponTypes[currWeapon][2])
 			weaponSelect.text=weaponTypes[currWeapon][1]
 			break
 		else:
 			next=(next+1)%len(weaponTypes)
+
+func allowWeapon(index):
+	weaponTypes[index][0]=true
+
+
+func _on_pause_anim_animation_finished(anim_name):
+	if !get_tree().paused:
+		$PauseScreen.visible=false

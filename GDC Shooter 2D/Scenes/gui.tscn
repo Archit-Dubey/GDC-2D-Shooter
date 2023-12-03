@@ -65,6 +65,7 @@ script = ExtResource("1_7wqhe")
 
 [node name="PauseScreen" type="Control" parent="."]
 process_mode = 3
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
@@ -133,6 +134,7 @@ libraries = {
 
 [node name="DeathScreen" type="Control" parent="."]
 process_mode = 3
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
@@ -316,6 +318,7 @@ expand_icon = true
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="PauseScreen/PauseAnim" to="." method="_on_pause_anim_animation_finished"]
 [connection signal="pressed" from="DeathScreen/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="DeathScreen/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="DeathScreen/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

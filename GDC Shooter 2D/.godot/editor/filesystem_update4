@@ -8,3 +8,6 @@ res://Scenes/strongBullet.tscn
 res://Scenes/gui.tscn
 res://Scenes/main.tscn
 res://arrow.tscn
+res://Scenes/gunPickUp.tscn
+res://Scripts/gunPickUp.gd
+res://arrow.gd

@@ -25,7 +25,7 @@ extends CharacterBody2D
 @export var armor_duration = 10
 @export var boost_duration = 10
 
-@onready var weaponStats=[
+@onready var weaponStats=[ #the gui is responsible for controlling which weapon the player has
 	[null,0],#noWeapon
 	[defaultBullet,defaultFireRate],#default gun
 	[strongBullet,defaultFireRate*2],#Slow and Strong Gun

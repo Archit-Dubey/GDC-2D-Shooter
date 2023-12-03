@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf6q18icepntw"]
+
+[ext_resource type="Script" path="res://Scripts/gunPickUp.gd" id="1_2gs2r"]
+[ext_resource type="Texture2D" uid="uid://dv1r01ff2oier" path="res://Assets/Art/Guns/defaultGun.png" id="2_ux4ih"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ushds"]
+radius = 181.84
+
+[sub_resource type="Animation" id="Animation_ositd"]
+resource_name = "Idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 50), Vector2(0, -50), Vector2(0, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayqd6"]
+_data = {
+"Idle": SubResource("Animation_ositd")
+}
+
+[node name="GunPickUp" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_2gs2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ushds")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(80, 0)
+scale = Vector2(0.98619, 0.98619)
+texture = ExtResource("2_ux4ih")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_ayqd6")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
