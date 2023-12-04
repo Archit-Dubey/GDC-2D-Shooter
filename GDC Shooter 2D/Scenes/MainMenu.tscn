@@ -56,9 +56,6 @@ theme = ExtResource("1_t2kru")
 text = " Quit"
 alignment = 0
 
-[node name="SettingsMenu" parent="." instance=ExtResource("4_xk2vm")]
-visible = false
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -76,6 +73,9 @@ stream = ExtResource("5_soqeb")
 volume_db = -80.0
 autoplay = true
 bus = &"Music"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("4_xk2vm")]
+visible = false
 
 [connection signal="pressed" from="MainMenu/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

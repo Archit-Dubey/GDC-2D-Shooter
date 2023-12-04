@@ -1,11 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cneeg56atf3bf"]
+[gd_scene load_steps=8 format=3 uid="uid://cneeg56atf3bf"]
 
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_4r4ym"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="1_gntcm"]
 [ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="3_28q64"]
-[ext_resource type="Texture2D" uid="uid://dv6kq7xq4op5j" path="res://Assets/Art/Joystick/joyring.png" id="4_hobfx"]
-[ext_resource type="Texture2D" uid="uid://bxuyycfoi67p4" path="res://Assets/Art/Joystick/joyknobpng.png" id="5_5yub0"]
-[ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="6_g6mc2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eihdu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -54,53 +51,43 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcn8n"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkkgr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g5xw"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_johv7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="SettingsMenu" type="CanvasLayer"]
 script = ExtResource("1_gntcm")
 
-[node name="Title" type="Label" parent="."]
+[node name="OtherSettings" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="OtherSettings"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = 382.5
+offset_right = 769.5
+offset_bottom = 124.0
 grow_horizontal = 2
 theme = ExtResource("1_4r4ym")
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="."]
+[node name="VBoxContainer1" type="VBoxContainer" parent="OtherSettings"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -384.0
-offset_top = -232.0
-offset_right = 385.0
-offset_bottom = -37.0
+offset_left = 192.0
+offset_top = 416.0
+offset_right = 961.0
+offset_bottom = 611.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OtherSettings/VBoxContainer1"]
 layout_mode = 2
 
-[node name="ResetButton" type="Button" parent="VBoxContainer1/HBoxContainer"]
+[node name="ResetButton" type="Button" parent="OtherSettings/VBoxContainer1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("3_28q64")
@@ -111,7 +98,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
 text = " Reset Game Stats "
 
-[node name="JoystickButton" type="Button" parent="VBoxContainer1/HBoxContainer"]
+[node name="JoystickButton" type="Button" parent="OtherSettings/VBoxContainer1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("3_28q64")
@@ -122,7 +109,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
 text = " Joystick Settings "
 
-[node name="MainMenuButton" type="Button" parent="VBoxContainer1"]
+[node name="MainMenuButton" type="Button" parent="OtherSettings/VBoxContainer1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
@@ -135,29 +122,29 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
 text = "Main Menu
 "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="OtherSettings"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -132.0
-offset_right = 320.0
-offset_bottom = 44.0
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 896.0
+offset_bottom = 368.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SoundFXLabel" type="Label" parent="VBoxContainer2"]
+[node name="SoundFXLabel" type="Label" parent="OtherSettings/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_4r4ym")
 theme_override_font_sizes/font_size = 40
 text = "Sound FX"
 
-[node name="SoundSlider" type="HSlider" parent="VBoxContainer2/SoundFXLabel"]
+[node name="SoundSlider" type="HSlider" parent="OtherSettings/VBoxContainer2/SoundFXLabel"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -170,14 +157,14 @@ offset_bottom = 8.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="MusicLabel" type="Label" parent="VBoxContainer2"]
+[node name="MusicLabel" type="Label" parent="OtherSettings/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_4r4ym")
 theme_override_font_sizes/font_size = 40
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="VBoxContainer2/MusicLabel"]
+[node name="MusicSlider" type="HSlider" parent="OtherSettings/VBoxContainer2/MusicLabel"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -190,94 +177,8 @@ offset_bottom = 8.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="JoystickSettings" type="Node2D" parent="."]
-visible = false
-
-[node name="Joystick1" type="Node2D" parent="JoystickSettings"]
-position = Vector2(128, 504)
-scale = Vector2(2, 2)
-
-[node name="Ring" type="Sprite2D" parent="JoystickSettings/Joystick1"]
-scale = Vector2(0.055, 0.055)
-texture = ExtResource("4_hobfx")
-
-[node name="Joystick1" type="Button" parent="JoystickSettings/Joystick1/Ring"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -960.0
-offset_top = -960.0
-offset_right = -960.0
-offset_bottom = -960.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_hcn8n")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nkkgr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1g5xw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_johv7")
-
-[node name="Knob" type="Sprite2D" parent="JoystickSettings/Joystick1"]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("5_5yub0")
-
-[node name="Joystick2" type="Node2D" parent="JoystickSettings"]
-position = Vector2(1024, 504)
-scale = Vector2(2, 2)
-
-[node name="Ring" type="Sprite2D" parent="JoystickSettings/Joystick2"]
-scale = Vector2(0.055, 0.055)
-texture = ExtResource("4_hobfx")
-
-[node name="Joystick2" type="Button" parent="JoystickSettings/Joystick2/Ring"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -960.0
-offset_top = -960.0
-offset_right = -960.0
-offset_bottom = -960.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_hcn8n")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nkkgr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1g5xw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_johv7")
-
-[node name="Knob" type="Sprite2D" parent="JoystickSettings/Joystick2"]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("5_5yub0")
-
-[node name="WeaponSelect" type="Button" parent="JoystickSettings"]
-process_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 514.5
-offset_top = 448.0
-offset_right = 677.5
-offset_bottom = 509.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 1
-theme = ExtResource("1_4r4ym")
-theme_override_styles/normal = ExtResource("6_g6mc2")
-theme_override_styles/hover = ExtResource("6_g6mc2")
-theme_override_styles/pressed = ExtResource("6_g6mc2")
-theme_override_styles/disabled = ExtResource("6_g6mc2")
-theme_override_styles/focus = ExtResource("6_g6mc2")
-text = "testing"
-expand_icon = true
-
-[connection signal="pressed" from="VBoxContainer1/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="VBoxContainer1/HBoxContainer/JoystickButton" to="." method="_on_joystick_button_pressed"]
-[connection signal="pressed" from="VBoxContainer1/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer2/SoundFXLabel/SoundSlider" to="." method="_on_sound_slider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer2/MusicLabel/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="button_down" from="JoystickSettings/Joystick1/Ring/Joystick1" to="." method="_on_joystick_1_button_down"]
-[connection signal="button_up" from="JoystickSettings/Joystick1/Ring/Joystick1" to="." method="_on_joystick_1_button_up"]
-[connection signal="button_down" from="JoystickSettings/Joystick2/Ring/Joystick2" to="." method="_on_joystick_2_button_down"]
-[connection signal="button_up" from="JoystickSettings/Joystick2/Ring/Joystick2" to="." method="_on_joystick_2_button_up"]
-[connection signal="button_down" from="JoystickSettings/WeaponSelect" to="." method="_on_weapon_select_button_down"]
-[connection signal="button_up" from="JoystickSettings/WeaponSelect" to="." method="_on_weapon_select_button_up"]
+[connection signal="pressed" from="OtherSettings/VBoxContainer1/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="OtherSettings/VBoxContainer1/HBoxContainer/JoystickButton" to="." method="_on_joystick_button_pressed"]
+[connection signal="pressed" from="OtherSettings/VBoxContainer1/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="value_changed" from="OtherSettings/VBoxContainer2/SoundFXLabel/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="OtherSettings/VBoxContainer2/MusicLabel/MusicSlider" to="." method="_on_music_slider_value_changed"]
