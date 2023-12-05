@@ -4,6 +4,7 @@ extends Node2D
 @export var aimStick=false
 @export var maxLength = 50
 @onready var knob=$Knob
+@onready var button = $TouchScreenButton
 
 var posVector: Vector2
 var shoot=false # to tell if the gun should be fired
@@ -14,6 +15,9 @@ func _ready():
 	maxLength *= scale.x
 
 func _physics_process(delta):
+	
+
+	
 	if aimStick == true:
 				shoot=false
 	if pressing: 
@@ -38,9 +42,10 @@ func calculateVector():
 	if abs((knob.global_position.y - global_position.y)) >= deadzone:
 		posVector.y = (knob.global_position.y - global_position.y)/maxLength
 		
-func _on_button_button_down():
+func _on_touch_screen_button_pressed():
+	print("Touching")
 	pressing = true
 
 
-func _on_button_button_up():
+func _on_touch_screen_button_released():
 	pressing = false

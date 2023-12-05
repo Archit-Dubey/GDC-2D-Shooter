@@ -1,0 +1,137 @@
+[gd_scene load_steps=15 format=3 uid="uid://xcee157fq5ca"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_is4dd"]
+[ext_resource type="Texture2D" uid="uid://b85jnsbrm7wj6" path="res://Assets/Art/Player/Player death.png" id="2_1q65a"]
+[ext_resource type="Texture2D" uid="uid://tiko2t3qtqlb" path="res://Assets/Art/Player/Player Sprites.png" id="2_81p4u"]
+[ext_resource type="AudioStream" uid="uid://vmqey78kv06w" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerFire.wav" id="3_4a50l"]
+[ext_resource type="AudioStream" uid="uid://koho0vn1aup6" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerExplode.wav" id="4_pek3k"]
+[ext_resource type="AudioStream" uid="uid://bfpmkm28g5tu4" path="res://Assets/Audio/Sound Effects/Sound Effects/LifeGain.wav" id="5_066n1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma1t2"]
+atlas = ExtResource("2_1q65a")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cdhn"]
+atlas = ExtResource("2_1q65a")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeuhn"]
+atlas = ExtResource("2_1q65a")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppgtp"]
+atlas = ExtResource("2_81p4u")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h1rg"]
+atlas = ExtResource("2_81p4u")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e72hr"]
+atlas = ExtResource("2_81p4u")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pc2h0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma1t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cdhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeuhn")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppgtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h1rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e72hr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dyq3"]
+radius = 1200.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(400, 200)
+script = ExtResource("1_is4dd")
+maxMovespeed = null
+movingspeed = null
+rotation_speed = null
+defaultFireRate = null
+maxHealth = null
+maxLives = null
+lives = null
+armor_value = null
+armor_duration = null
+boost_duration = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_pc2h0")
+animation = &"Death"
+autoplay = "Idle"
+frame_progress = 0.592345
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(-9.15527e-05, -25, -3.00008, -22, -8.00005, -12, -25, 24, 25, 24, 7.99995, -12, 2.99992, -22)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(24, 0)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
+
+[node name="GunTip" type="Node2D" parent="."]
+position = Vector2(23, 0)
+
+[node name="gunCoolDownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="powerupTimerContainer" type="Node" parent="."]
+
+[node name="fireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4a50l")
+volume_db = -80.0
+bus = &"SoundFX"
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pek3k")
+volume_db = -80.0
+bus = &"SoundFX"
+
+[node name="powerup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_066n1")
+volume_db = -80.0
+bus = &"SoundFX"
+
+[node name="animTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="bounds" type="Area2D" parent="."]
+position = Vector2(-400, -200)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds"]
+position = Vector2(394, 202)
+shape = SubResource("CircleShape2D_0dyq3")
+
+[connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]
+[connection signal="area_exited" from="bounds" to="." method="_on_bounds_area_exited"]
+[connection signal="body_exited" from="bounds" to="." method="_on_bounds_body_exited"]

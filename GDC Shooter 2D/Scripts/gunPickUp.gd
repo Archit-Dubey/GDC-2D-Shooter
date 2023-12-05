@@ -36,7 +36,7 @@ func add_arrow(): # Add a navigation arrow
 	spawned_arrow.global_position = player.global_position
 	spawned_arrow.target = self
 	spawned_arrow.modulate=Color(1,0,0)
-	main.add_child(spawned_arrow)
+	main.call_deferred("add_child",spawned_arrow)
 	
 
 func remove_arrow(): # remove the navigation arrow

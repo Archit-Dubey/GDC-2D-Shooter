@@ -25,6 +25,8 @@ extends CharacterBody2D
 @export var armor_duration = 10
 @export var boost_duration = 10
 
+@onready var joystick_right = $"../GUI/Virtual Joystick2"
+
 @onready var weaponStats=[ #the gui is responsible for controlling which weapon the player has
 	[null,0],#noWeapon
 	[defaultBullet,defaultFireRate],#default gun
@@ -44,6 +46,11 @@ func _ready():
 func _physics_process(delta):
 	gui.updatePlayerHealth(health)
 	if health>0:
+		
+		var direction = Vector2(Input.get_axis("ui_left", "ui_right"),Input.get_axis("ui_up", "ui_down"))
+		position += direction * movingspeed * delta
+		
+		'''
 		var direction = joystick_direction.posVector
 		
 		if direction != Vector2(0,0):
@@ -67,13 +74,21 @@ func _physics_process(delta):
 		
 		velocity = velocity.limit_length(movingspeed)
 		move_and_slide()
+		'''
 		
-		var rotation_input = joystick_rotation.posVector
 		var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
+		
+		'''
+		var rotation_input = joystick_rotation.posVector 
 		
 		if rotation_input.length() > 0.01:
 			rotation=rotation_angle(rotation_input)
 			rotate(rotation * rotation_speed * delta)
+		'''
+		
+		if joystick_right and joystick_right.is_pressed:
+			rotation = joystick_right.output.angle()
+
 		
 			
 		if firePressed and gunCoolDown.is_stopped(): 
