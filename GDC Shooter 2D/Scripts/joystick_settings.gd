@@ -3,7 +3,6 @@ extends CanvasLayer
 @onready var joystick1 = $Joystick1
 @onready var joystick2 = $Joystick2
 @onready var weaponButton = $WeaponSelect
-@onready var joystickSettings = preload("res://Scenes/joystick_settings.tscn")
 
 var checkPos = 0
 
@@ -11,6 +10,8 @@ var positions = [Vector2(0,0),Vector2(0,0),Vector2(0,0)]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	ResourceLoader.load_threaded_request("Scenes/JoystickSettings.tscn")
 	
 	if FileAccess.file_exists("user://joystickdata.save"):
 
@@ -66,7 +67,7 @@ func _on_weapon_select_button_up():
 func _on_reset_button_pressed():
 	checkPos = 0
 	DirAccess.remove_absolute("user://joystickdata.save")
-	joystickSettings.instantiate()
+	var joystickSettings = ResourceLoader.load_threaded_get("Scenes/JoystickSettings.tscn")
 	get_parent().add_child(joystickSettings.instantiate())
 	queue_free()
 

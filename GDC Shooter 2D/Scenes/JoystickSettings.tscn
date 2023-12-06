@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3dcqlusuck1o"]
+[gd_scene load_steps=19 format=3 uid="uid://cocwm3qg016c7"]
 
-[ext_resource type="Script" path="res://Scripts/joystick_settings.gd" id="1_k88yi"]
-[ext_resource type="Texture2D" uid="uid://dsuvsfd10x7el" path="res://Assets/Art/Joystick/joystick_base_outline.png" id="2_vebqa"]
-[ext_resource type="Texture2D" uid="uid://dhfi0b2414spu" path="res://Assets/Art/Joystick/joystick_tip.png" id="3_7gfoc"]
-[ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="4_ub2qh"]
-[ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="5_b6x0b"]
-[ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="6_id8ir"]
+[ext_resource type="Script" path="res://Scripts/joystick_settings.gd" id="1_5oejq"]
+[ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="2_dpcde"]
+[ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="3_uhi05"]
+[ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="4_dr8iv"]
+[ext_resource type="Texture2D" uid="uid://dsuvsfd10x7el" path="res://Assets/Art/Joystick/joystick_base_outline.png" id="5_vgw3r"]
+[ext_resource type="Texture2D" uid="uid://dhfi0b2414spu" path="res://Assets/Art/Joystick/joystick_tip.png" id="6_p4e5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_red0b"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -79,7 +79,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="JoystickSettings" type="CanvasLayer"]
-script = ExtResource("1_k88yi")
+script = ExtResource("1_5oejq")
 
 [node name="WeaponSelect" type="Button" parent="."]
 process_mode = 3
@@ -95,12 +95,12 @@ offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
-theme = ExtResource("4_ub2qh")
-theme_override_styles/normal = ExtResource("5_b6x0b")
-theme_override_styles/hover = ExtResource("5_b6x0b")
-theme_override_styles/pressed = ExtResource("5_b6x0b")
-theme_override_styles/disabled = ExtResource("5_b6x0b")
-theme_override_styles/focus = ExtResource("5_b6x0b")
+theme = ExtResource("2_dpcde")
+theme_override_styles/normal = ExtResource("3_uhi05")
+theme_override_styles/hover = ExtResource("3_uhi05")
+theme_override_styles/pressed = ExtResource("3_uhi05")
+theme_override_styles/disabled = ExtResource("3_uhi05")
+theme_override_styles/focus = ExtResource("3_uhi05")
 text = "testing"
 expand_icon = true
 
@@ -111,7 +111,7 @@ offset_right = 290.0
 offset_bottom = 91.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("6_id8ir")
+theme_override_fonts/font = ExtResource("4_dr8iv")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_red0b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uwsor")
@@ -130,7 +130,7 @@ offset_bottom = 91.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("6_id8ir")
+theme_override_fonts/font = ExtResource("4_dr8iv")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_red0b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uwsor")
@@ -163,7 +163,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
 mouse_force_pass_scroll_events = false
-texture = ExtResource("2_vebqa")
+texture = ExtResource("5_vgw3r")
 stretch_mode = 5
 
 [node name="Tip" type="TextureRect" parent="Joystick1/Base"]
@@ -180,7 +180,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(50, 50)
-texture = ExtResource("3_7gfoc")
+texture = ExtResource("6_p4e5y")
 stretch_mode = 5
 
 [node name="Joystick1" type="Button" parent="Joystick1/Base"]
@@ -223,7 +223,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
 mouse_force_pass_scroll_events = false
-texture = ExtResource("2_vebqa")
+texture = ExtResource("5_vgw3r")
 stretch_mode = 5
 
 [node name="Tip" type="TextureRect" parent="Joystick2/Base"]
@@ -240,7 +240,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(50, 50)
-texture = ExtResource("3_7gfoc")
+texture = ExtResource("6_p4e5y")
 stretch_mode = 5
 
 [node name="Joystick2" type="Button" parent="Joystick2/Base"]

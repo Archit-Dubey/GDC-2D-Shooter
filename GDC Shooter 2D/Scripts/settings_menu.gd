@@ -4,11 +4,17 @@ var musicLevel = 0
 var soundLevel = 0
 
 @onready var mainMenu = $"../MainMenu"
-@onready var soundSlider = $OtherSettings/VBoxContainer2/SoundFXLabel/SoundSlider
-@onready var musicSlider = $OtherSettings/VBoxContainer2/MusicLabel/MusicSlider
-@onready var joystickSettings = preload("res://Scenes/joystick_settings.tscn")
 
+@onready var soundSlider = $OtherSettings/VBoxContainer2/HBoxContainer/Sprite2D/SoundSlider
+@onready var musicSlider = $OtherSettings/VBoxContainer2/HBoxContainer2/MusicSlider
+@onready var joystickSettings = preload("res://Scenes/JoystickSettings.tscn")
+@onready var soundSliderImage = $OtherSettings/VBoxContainer2/HBoxContainer/Sprite2D
 
+@onready var volumeSlider0 = preload("res://Assets/Art/UI/VolumeSlider/volumeSlider0.png")
+@onready var volumeSlider1 = preload("res://Assets/Art/UI/VolumeSlider/volumeSlider1.png")
+@onready var volumeSlider2 = preload("res://Assets/Art/UI/VolumeSlider/volumeSlider2.png")
+@onready var volumeSlider3 = preload("res://Assets/Art/UI/VolumeSlider/volumeSlider3.png")
+@onready var volumeSlider4 = preload("res://Assets/Art/UI/VolumeSlider/volumeSlider4.png")
 
 func _ready():
 	
@@ -46,6 +52,23 @@ func _on_sound_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(1,value)
 	var file = FileAccess.open("user://sounddata.save", FileAccess.WRITE)
 	file.store_var(value)
+	
+	print(value)
+	
+	if(value <= 3):
+		soundSliderImage.texture = volumeSlider0
+	
+	elif(value <= 30):
+		soundSliderImage.texture = volumeSlider1
+	
+	elif(value <= 55):
+		soundSliderImage.texture = volumeSlider2
+	
+	elif(value <= 80):
+		soundSliderImage.texture = volumeSlider3
+		
+	elif(value <= 90):
+		soundSliderImage.texture = volumeSlider4
 
 
 func _on_music_slider_value_changed(value):
