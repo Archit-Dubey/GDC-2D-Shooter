@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bm2hwr7nd85iy"]
 
-[ext_resource type="Script" path="res://arrow.gd" id="1_0fgye"]
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_0fgye"]
 [ext_resource type="Texture2D" uid="uid://b7gn371p84em0" path="res://Assets/Art/Environment/arrow.png" id="2_1rqyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsld4"]

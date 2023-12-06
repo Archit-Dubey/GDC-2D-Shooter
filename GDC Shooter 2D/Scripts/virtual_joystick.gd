@@ -2,11 +2,6 @@ class_name VirtualJoystick
 
 extends Control
 
-## A simple virtual joystick for touchscreens, with useful options.
-## Github: https://github.com/MarcoFazioRandom/Virtual-Joystick-Godot
-
-# EXPORTED VARIABLE
-
 ## The color of the button when the joystick is pressed.
 @export var pressed_color := Color.GRAY
 
@@ -40,13 +35,24 @@ enum Visibility_mode {
 @export var action_up := "ui_up"
 @export var action_down := "ui_down"
 
+enum Action_mode {
+	Direction, # For movement of the player
+	Rotation # For rotation and shooting
+}
+
+## If the joystick is for direction or rotation
+@export var action_mode := Action_mode.Direction
+
 # PUBLIC VARIABLES
 
 ## If the joystick is receiving inputs.
 var is_pressed := false
 
-# The joystick output.
+## The joystick output.
 var output := Vector2.ZERO
+
+## To tell if the gun should be fired
+var shoot := false 
 
 # PRIVATE VARIABLES
 
@@ -109,6 +115,13 @@ func _is_point_inside_base(point: Vector2) -> bool:
 func _update_joystick(touch_position: Vector2) -> void:
 	var center : Vector2 = _base.global_position + _base_radius
 	var vector : Vector2 = touch_position - center
+	
+	if action_mode == Action_mode.Rotation:
+		if(vector != vector.limit_length(clampzone_size)):
+			shoot = true
+		else:
+			shoot = false
+	
 	vector = vector.limit_length(clampzone_size)
 	
 	_move_tip(center + vector)
@@ -138,6 +151,7 @@ func _update_input_action(action:String, value:float):
 		Input.action_release(action)
 
 func _reset():
+	shoot = false
 	is_pressed = false
 	output = Vector2.ZERO
 	_touch_index = -1

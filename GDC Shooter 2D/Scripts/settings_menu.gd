@@ -6,7 +6,7 @@ var soundLevel = 0
 @onready var mainMenu = $"../MainMenu"
 @onready var soundSlider = $OtherSettings/VBoxContainer2/SoundFXLabel/SoundSlider
 @onready var musicSlider = $OtherSettings/VBoxContainer2/MusicLabel/MusicSlider
-@onready var joystickSettings = preload("res://joystick_settings.tscn")
+@onready var joystickSettings = preload("res://Scenes/joystick_settings.tscn")
 
 
 

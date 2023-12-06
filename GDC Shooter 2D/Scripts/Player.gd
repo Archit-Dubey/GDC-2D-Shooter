@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
 
-@onready var joystick_direction = $"../GUI/directionAnchor/Joystick_Direction" #movement joystick
-@onready var joystick_rotation = $"../GUI/rotationAnchor/Joystick_Rotation" #aiming joystick
 @onready var gun=$GunTip # the tip of the gun from which projectiles will be spawned
 @onready var gunCoolDown=$gunCoolDownTimer # timer to cap fire rate
 @onready var defaultBullet=preload("res://Scenes/defaultBullet.tscn") #basic bullet type
@@ -13,6 +11,8 @@ extends CharacterBody2D
 @onready var deathSound=$death
 @onready var fireSound=$fireSound
 @onready var powerupSound=$powerup
+@onready var joystick_right = $"../GUI/joystick_right"
+@onready var joystick_left = $"../GUI/joystick_left"
 
 @export var maxMovespeed=300#to cap the speed when speed powerup is picked up
 @export var movingspeed = 300
@@ -25,7 +25,6 @@ extends CharacterBody2D
 @export var armor_duration = 10
 @export var boost_duration = 10
 
-@onready var joystick_right = $"../GUI/Virtual Joystick2"
 
 @onready var weaponStats=[ #the gui is responsible for controlling which weapon the player has
 	[null,0],#noWeapon
@@ -45,25 +44,18 @@ func _ready():
 
 func _physics_process(delta):
 	gui.updatePlayerHealth(health)
+	
 	if health>0:
 		
 		var direction = Vector2(Input.get_axis("ui_left", "ui_right"),Input.get_axis("ui_up", "ui_down"))
-		position += direction * movingspeed * delta
-		
-		'''
-		var direction = joystick_direction.posVector
 		
 		if direction != Vector2(0,0):
 			
 			# To make the player motion smoother with joystick
-			if (velocity < direction * movingspeed):
-				velocity += direction * movingspeed * delta
-			else:
-				velocity = direction * movingspeed
+			velocity += direction * movingspeed * delta
 			
 		else:
 			velocity = Vector2(0,0)
-			
 			#remove from below before publishing
 			#it is just for easier playtesting with keyboard in the future
 			var debug_key_x=Input.get_action_raw_strength("right")-Input.get_action_raw_strength("left")
@@ -74,27 +66,16 @@ func _physics_process(delta):
 		
 		velocity = velocity.limit_length(movingspeed)
 		move_and_slide()
-		'''
 		
-		var firePressed=joystick_rotation.shoot #checks if aim joystick goes out of limit
-		
-		'''
-		var rotation_input = joystick_rotation.posVector 
-		
-		if rotation_input.length() > 0.01:
-			rotation=rotation_angle(rotation_input)
-			rotate(rotation * rotation_speed * delta)
-		'''
-		
+		var firePressed=joystick_right.shoot #checks if aim joystick goes out of limit
+
+
 		if joystick_right and joystick_right.is_pressed:
 			rotation = joystick_right.output.angle()
 
-		
 			
 		if firePressed and gunCoolDown.is_stopped(): 
 			#if joystick knob is outside and gun is ready to fire
-			
-			
 			var currBullet=weaponStats[bulletType][0]
 			if currBullet!=null:
 				fireSound.play()
@@ -104,7 +85,10 @@ func _physics_process(delta):
 				newBullet.global_rotation_degrees = global_rotation_degrees
 				gun.add_child(newBullet)
 				gunCoolDown.start()
+				
+				
 	else:#put explosion animation here
+		
 		if lives>0:
 			print("new life")
 			health=maxHealth
@@ -116,10 +100,6 @@ func _physics_process(delta):
 			$animTimer.start()
 			
 			set_physics_process(false)#stops this
-	
-func rotation_angle(rotation_vector: Vector2) -> float: 
-	#modified function to calculate angle from a given vector, previous one was buggy
-	return atan2(rotation_vector.y, rotation_vector.x)
 	
 
 func create_timer(function_name, duration):
@@ -163,17 +143,13 @@ func instantKill():
 	lives=0
 	
 
-
 func _on_anim_timer_timeout():
 	gui.showDeathScreen()
 	
 
-
 func _on_bounds_body_exited(body): # removes enemies that are too far away
 	if body.is_in_group("Enemy"):
 		body.queue_free()
-
-
 
 func _on_bounds_area_exited(area):
 	if area.is_in_group("EnemyBullet"):

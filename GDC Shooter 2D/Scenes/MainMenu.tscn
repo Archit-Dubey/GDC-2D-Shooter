@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_no32d"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_t2kru"]
 [ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Old Assets/BlackSpace1.png" id="3_yhb55"]
-[ext_resource type="PackedScene" uid="uid://cneeg56atf3bf" path="res://settings_menu.tscn" id="4_xk2vm"]
+[ext_resource type="PackedScene" uid="uid://cneeg56atf3bf" path="res://Scenes/settings_menu.tscn" id="4_xk2vm"]
 [ext_resource type="AudioStream" uid="uid://b3lw8pjmulcam" path="res://Assets/Audio/Music/SongA.wav" id="5_soqeb"]
 
 [node name="Menu" type="CanvasLayer"]

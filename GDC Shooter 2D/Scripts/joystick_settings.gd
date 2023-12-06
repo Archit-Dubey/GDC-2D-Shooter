@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var joystick1 = $Joystick1
 @onready var joystick2 = $Joystick2
 @onready var weaponButton = $WeaponSelect
-@onready var joystickSettings = preload("res://joystick_settings.tscn")
+@onready var joystickSettings = preload("res://Scenes/joystick_settings.tscn")
 
 var checkPos = 0
 
@@ -11,6 +11,7 @@ var positions = [Vector2(0,0),Vector2(0,0),Vector2(0,0)]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	if FileAccess.file_exists("user://joystickdata.save"):
 
 		var file = FileAccess.open("user://joystickdata.save", FileAccess.READ)
@@ -22,10 +23,10 @@ func _ready():
 
 func _process(delta):
 	if checkPos == 1:
-		joystick1.position = joystick1.get_global_mouse_position()
-	
+		joystick1.position = joystick1.get_global_mouse_position() - joystick1.pivot_offset
+
 	elif checkPos == 2:
-		joystick2.position = joystick2.get_global_mouse_position()
+		joystick2.position = joystick2.get_global_mouse_position() - joystick2.pivot_offset
 		
 	elif checkPos == 3:
 		weaponButton.position = weaponButton.get_global_mouse_position()
@@ -63,6 +64,7 @@ func _on_weapon_select_button_up():
 
 
 func _on_reset_button_pressed():
+	checkPos = 0
 	DirAccess.remove_absolute("user://joystickdata.save")
 	joystickSettings.instantiate()
 	get_parent().add_child(joystickSettings.instantiate())

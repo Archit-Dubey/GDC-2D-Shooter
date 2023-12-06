@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var arrow = preload("res://arrow.tscn")
+@onready var arrow = preload("res://Scenes/arrow.tscn")
 
 @onready var player=$"../../Player"
 @onready var main= $"../.."

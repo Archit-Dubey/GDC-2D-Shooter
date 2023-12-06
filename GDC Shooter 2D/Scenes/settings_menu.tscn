@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cneeg56atf3bf"]
 
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_4r4ym"]
-[ext_resource type="Script" path="res://settings_menu.gd" id="1_gntcm"]
+[ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_gntcm"]
 [ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="3_28q64"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eihdu"]

@@ -1,8 +1,8 @@
+Control
+Node2D
 TouchScreenButton
 CanvasLayer
-Node2D
 Button
-Control
 HBoxContainer
 VSplitContainer
 HSplitContainer
@@ -30,4 +30,3 @@ CollisionShape2D
 Area2D
 CollisionPolygon2D
 Timer
-AudioStreamPlayer

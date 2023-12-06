@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://c1x5hmb0jwkmo"]
 
 [ext_resource type="Texture2D" uid="uid://c4tvg4j8dfywu" path="res://Assets/Art/Enemies/Chaser/Chaser Sprites.png" id="1_j021e"]
-[ext_resource type="Script" path="res://chaser_enemy_trial.gd" id="1_yifjd"]
+[ext_resource type="Script" path="res://Scripts/chaser_enemy_trial.gd" id="1_o43x2"]
 [ext_resource type="Texture2D" uid="uid://dnbhlo1ed1v6n" path="res://Assets/Art/Enemies/Chaser/Chaser death.png" id="2_l41dg"]
-[ext_resource type="AudioStream" uid="uid://buw3iaf3fg0n7" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav" id="3_vmjak"]
+[ext_resource type="AudioStream" uid="uid://buw3iaf3fg0n7" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav" id="4_iq4dg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eirgw"]
 atlas = ExtResource("2_l41dg")
@@ -63,7 +63,7 @@ animations = [{
 [node name="Chaser_Enemy_Trial" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_yifjd")
+script = ExtResource("1_o43x2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
@@ -93,7 +93,7 @@ radius = 100.0
 max_speed = 200.0
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_vmjak")
+stream = ExtResource("4_iq4dg")
 volume_db = -80.0
 bus = &"SoundFX"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7tx4xnytakm2"]
 
 [ext_resource type="Script" path="res://Scripts/asteroid_spawner.gd" id="1_pl4ji"]
-[ext_resource type="PackedScene" uid="uid://cywqtatkvw31o" path="res://asteroid_2.tscn" id="2_diet6"]
+[ext_resource type="PackedScene" uid="uid://cywqtatkvw31o" path="res://Scenes/asteroid_2.tscn" id="2_diet6"]
 
 [node name="AsteroidSpawner" type="Node2D"]
 script = ExtResource("1_pl4ji")
