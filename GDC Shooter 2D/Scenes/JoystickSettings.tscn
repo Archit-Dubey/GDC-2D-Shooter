@@ -88,12 +88,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -136.0
-offset_right = 83.0
-offset_bottom = -75.0
+offset_left = -81.5
+offset_top = -150.0
+offset_right = 88.5
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset = Vector2(85, 50)
 mouse_filter = 1
 theme = ExtResource("2_dpcde")
 theme_override_styles/normal = ExtResource("3_uhi05")
@@ -102,6 +103,7 @@ theme_override_styles/pressed = ExtResource("3_uhi05")
 theme_override_styles/disabled = ExtResource("3_uhi05")
 theme_override_styles/focus = ExtResource("3_uhi05")
 text = "testing"
+icon_alignment = 1
 expand_icon = true
 
 [node name="ResetButton" type="Button" parent="."]

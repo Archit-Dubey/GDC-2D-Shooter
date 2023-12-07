@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://da58nulge23xs" path="res://Scenes/speed_powerup.tscn" id="7_j3wv3"]
 [ext_resource type="PackedScene" uid="uid://c7tx4xnytakm2" path="res://Scenes/asteroid_spawner.tscn" id="10_bwhqx"]
 [ext_resource type="PackedScene" uid="uid://pmjkr7qslnkj" path="res://Scenes/world_boundary.tscn" id="11_jvwjg"]
-[ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Old Assets/BlackSpace1.png" id="13_7b10k"]
+[ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Assets/Art/Environment/BlackSpace1.png" id="13_7b10k"]
 [ext_resource type="PackedScene" uid="uid://bf6q18icepntw" path="res://Scenes/gunPickUp.tscn" id="14_h7dvq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h56db"]
@@ -49,16 +49,6 @@ position = Vector2(0, -43)
 wait_time = 10.0
 one_shot = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(1350, 679)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("13_7b10k")
-centered = false
-
 [node name="Arrow_Navigation_Area" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_h56db")
 navigation_layers = 128
@@ -69,6 +59,16 @@ position = Vector2(80, -72)
 [node name="GunPickUp2" parent="." instance=ExtResource("14_h7dvq")]
 position = Vector2(-144, -64)
 type = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.434, 1.591)
+texture = ExtResource("13_7b10k")
+centered = false
 
 [connection signal="timeout" from="Enemy_Spawner_Timer" to="." method="_on_enemy_spawner_timer_timeout"]
 [connection signal="timeout" from="Powerups_Spawner_Timer" to="." method="_on_powerups_spawner_timer_timeout"]

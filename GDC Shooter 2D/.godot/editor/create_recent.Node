@@ -1,9 +1,11 @@
-Label
-TextureRect
-HBoxContainer
-Control
-HSplitContainer
 Sprite2D
+TextureRect
+ParallaxLayer
+ParallaxBackground
+Control
+Label
+HBoxContainer
+HSplitContainer
 Node
 Node2D
 TouchScreenButton
@@ -19,8 +21,6 @@ AnimatedSprite2D
 AnimationPlayer
 ColorRect
 Camera2D
-ParallaxBackground
-ParallaxLayer
 TextEdit
 NavigationAgent2D
 NavigationRegion2D

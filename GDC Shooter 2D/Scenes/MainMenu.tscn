@@ -2,71 +2,15 @@
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_no32d"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_t2kru"]
-[ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Old Assets/BlackSpace1.png" id="3_yhb55"]
 [ext_resource type="PackedScene" uid="uid://cneeg56atf3bf" path="res://Scenes/settings_menu.tscn" id="4_xk2vm"]
+[ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Assets/Art/Environment/BlackSpace1.png" id="5_haetb"]
 [ext_resource type="AudioStream" uid="uid://b3lw8pjmulcam" path="res://Assets/Audio/Music/SongA.wav" id="5_soqeb"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_no32d")
 
-[node name="MainMenu" type="Node2D" parent="."]
-
-[node name="Title" type="Label" parent="MainMenu"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 37.0
-offset_right = 1115.0
-offset_bottom = 124.0
-grow_horizontal = 2
-theme = ExtResource("1_t2kru")
-text = "GDC 2D Shooter Game"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 419.0
-offset_top = 269.0
-offset_right = 750.0
-offset_bottom = 556.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Play" type="Button" parent="MainMenu/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("1_t2kru")
-text = " Play"
-alignment = 0
-
-[node name="Settings" type="Button" parent="MainMenu/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("1_t2kru")
-text = " Settings"
-alignment = 0
-
-[node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("1_t2kru")
-text = " Quit"
-alignment = 0
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(1350, 679)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("3_yhb55")
-centered = false
-
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="levelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_soqeb")
@@ -76,6 +20,76 @@ bus = &"Music"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("4_xk2vm")]
 visible = false
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -539.0
+offset_right = 539.0
+offset_bottom = 124.0
+grow_horizontal = 2
+theme = ExtResource("1_t2kru")
+text = "GDC 2D Shooter Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_right = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_filter = 1
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 80
+text = " Play"
+alignment = 0
+
+[node name="Settings" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+mouse_filter = 1
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 80
+text = " Settings"
+alignment = 0
+
+[node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 80
+text = " Quit"
+alignment = 0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.434, 1.591)
+texture = ExtResource("5_haetb")
+centered = false
 
 [connection signal="pressed" from="MainMenu/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

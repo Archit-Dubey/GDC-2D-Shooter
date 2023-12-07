@@ -8,7 +8,7 @@
 default_font = ExtResource("1_i36d4")
 default_font_size = 100
 Button/font_sizes/font_size = 50
-Button/styles/focus = ExtResource("1_krie1")
+Button/styles/focus = ExtResource("2_tmsx0")
 Button/styles/hover = ExtResource("2_tmsx0")
 Button/styles/normal = ExtResource("1_krie1")
-Button/styles/pressed = ExtResource("2_tmsx0")
+Button/styles/pressed = ExtResource("1_krie1")

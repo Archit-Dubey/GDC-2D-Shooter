@@ -30,7 +30,7 @@ func _process(delta):
 		joystick2.position = joystick2.get_global_mouse_position() - joystick2.pivot_offset
 		
 	elif checkPos == 3:
-		weaponButton.position = weaponButton.get_global_mouse_position()
+		weaponButton.position = weaponButton.get_global_mouse_position() - weaponButton.pivot_offset
 		
 
 func _on_joystick_1_button_down():

@@ -40,8 +40,8 @@ func _ready():
 	
 	#print(get_tree().get_root().size) # Use this to print the original X and Y
 	
-	arrow_navigation_area.scale.x = org_screenX / 1152 * 0.9 # 1152 is original X
-	arrow_navigation_area.scale.y = org_screenY / 648 * 0.82 # 648 is original Y
+	arrow_navigation_area.scale.x = org_screenX / 1920 * 1.5 # 1920 is original X
+	arrow_navigation_area.scale.y = org_screenY / 1080 * 1.4 # 1080 is original Y
 	
 	# till here screen adjusting
 
