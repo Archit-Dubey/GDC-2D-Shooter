@@ -3,7 +3,21 @@
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_4r4ym"]
 [ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_gntcm"]
 [ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="3_28q64"]
-[ext_resource type="Texture2D" uid="uid://nmy4bsc6dvvc" path="res://Assets/Art/UI/VolumeSlider/volumeSlider0.png" id="4_jkkqi"]
+[ext_resource type="Texture2D" uid="uid://lugoxjmhnhs4" path="res://Assets/Art/UI/VolumeSlider/volumeSlider0.png" id="4_jkkqi"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_kk1a0"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_wc3ah"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ji24m"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_mfyjr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b46ep"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1voac"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bcmwt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eihdu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -52,20 +66,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="ImageTexture" id="ImageTexture_kk1a0"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_wc3ah"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_ji24m"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_mfyjr"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b46ep"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1voac"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bcmwt"]
-
 [node name="SettingsMenu" type="CanvasLayer"]
 script = ExtResource("1_gntcm")
 
@@ -89,105 +89,49 @@ offset_right = 193.5
 offset_bottom = 124.0
 grow_horizontal = 2
 theme = ExtResource("1_4r4ym")
+theme_override_font_sizes/font_size = 100
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="OtherSettings"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -384.0
-offset_top = -232.0
-offset_right = 385.0
-offset_bottom = -37.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="OtherSettings/VBoxContainer1"]
-layout_mode = 2
-
-[node name="ResetButton" type="Button" parent="OtherSettings/VBoxContainer1/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_fonts/font = ExtResource("3_28q64")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
-text = " Reset Game Stats "
-
-[node name="JoystickButton" type="Button" parent="OtherSettings/VBoxContainer1/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_fonts/font = ExtResource("3_28q64")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
-text = " Joystick Settings "
-
-[node name="MainMenuButton" type="Button" parent="OtherSettings/VBoxContainer1"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-theme_override_fonts/font = ExtResource("3_28q64")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
-text = "Main Menu
-"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="OtherSettings"]
+[node name="TopContainer" type="VBoxContainer" parent="OtherSettings"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -124.0
-offset_right = 576.0
-offset_bottom = 126.0
+offset_left = 532.0
+offset_top = -400.0
+offset_right = -532.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="OtherSettings/VBoxContainer2"]
+[node name="SoundContainer" type="HBoxContainer" parent="OtherSettings/TopContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
-[node name="SoundFXLabel" type="Label" parent="OtherSettings/VBoxContainer2/HBoxContainer"]
+[node name="SoundFXLabel" type="Label" parent="OtherSettings/TopContainer/SoundContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 8
 theme = ExtResource("1_4r4ym")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 70
 text = "Sound FX"
 
-[node name="Sprite2D" type="Sprite2D" parent="OtherSettings/VBoxContainer2/HBoxContainer"]
-position = Vector2(1000, 0)
-scale = Vector2(0.25, 0.25)
+[node name="SliderTexture" type="TextureRect" parent="OtherSettings/TopContainer/SoundContainer"]
+layout_mode = 2
 texture = ExtResource("4_jkkqi")
+expand_mode = 3
 
-[node name="SoundSlider" type="HSlider" parent="OtherSettings/VBoxContainer2/HBoxContainer/Sprite2D"]
+[node name="SoundSlider" type="HSlider" parent="OtherSettings/TopContainer/SoundContainer/SliderTexture"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -480.0
-offset_top = -398.0
-offset_right = -480.0
-offset_bottom = -398.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -200,25 +144,103 @@ theme_override_styles/slider = SubResource("StyleBoxTexture_b46ep")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_1voac")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_bcmwt")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="OtherSettings/VBoxContainer2"]
+[node name="MusicContainer" type="HBoxContainer" parent="OtherSettings/TopContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MusicLabel" type="Label" parent="OtherSettings/TopContainer/MusicContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme = ExtResource("1_4r4ym")
+theme_override_font_sizes/font_size = 70
+text = "Music"
+
+[node name="SliderTexture" type="TextureRect" parent="OtherSettings/TopContainer/MusicContainer"]
+layout_mode = 2
+texture = ExtResource("4_jkkqi")
+expand_mode = 3
+
+[node name="MusicSlider" type="HSlider" parent="OtherSettings/TopContainer/MusicContainer/SliderTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_icons/grabber = SubResource("ImageTexture_kk1a0")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_wc3ah")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_ji24m")
+theme_override_icons/tick = SubResource("ImageTexture_mfyjr")
+theme_override_styles/slider = SubResource("StyleBoxTexture_b46ep")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_1voac")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_bcmwt")
+max_value = 78.0
+
+[node name="BottomContainer" type="VBoxContainer" parent="OtherSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = -260.0
+offset_right = -512.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OtherSettings/BottomContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MusicLabel" type="Label" parent="OtherSettings/VBoxContainer2/HBoxContainer2"]
+[node name="ResetButton" type="Button" parent="OtherSettings/BottomContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("1_4r4ym")
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.5
+theme_override_fonts/font = ExtResource("3_28q64")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
+text = " Reset Game Stats "
+
+[node name="JoystickButton" type="Button" parent="OtherSettings/BottomContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_28q64")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
+text = " Joystick Settings "
+
+[node name="Label" type="Label" parent="OtherSettings/BottomContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="OtherSettings/VBoxContainer2/HBoxContainer2"]
+[node name="MainMenuButton" type="Button" parent="OtherSettings/BottomContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_28q64")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_eihdu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rmbd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apbl8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1rdtj")
+text = " Main Menu "
+alignment = 0
 
-[connection signal="pressed" from="OtherSettings/VBoxContainer1/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="OtherSettings/VBoxContainer1/HBoxContainer/JoystickButton" to="." method="_on_joystick_button_pressed"]
-[connection signal="pressed" from="OtherSettings/VBoxContainer1/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="value_changed" from="OtherSettings/VBoxContainer2/HBoxContainer/Sprite2D/SoundSlider" to="." method="_on_sound_slider_value_changed"]
-[connection signal="value_changed" from="OtherSettings/VBoxContainer2/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="OtherSettings/TopContainer/SoundContainer/SliderTexture/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="OtherSettings/TopContainer/MusicContainer/SliderTexture/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="OtherSettings/BottomContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="OtherSettings/BottomContainer/HBoxContainer/JoystickButton" to="." method="_on_joystick_button_pressed"]
+[connection signal="pressed" from="OtherSettings/BottomContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

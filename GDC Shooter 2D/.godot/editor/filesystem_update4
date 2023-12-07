@@ -6,5 +6,4 @@ res://Themes/MainTheme.tres
 res://Themes/roundedFlatStyleBox.tres
 res://Scenes/MainMenu.tscn
 res://Scenes/settings_menu.tscn
-res://Scenes/JoystickSettings.tscn
 res://Scripts/settings_menu.gd
