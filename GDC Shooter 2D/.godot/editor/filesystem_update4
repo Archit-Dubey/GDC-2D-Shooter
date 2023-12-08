@@ -1,13 +1,10 @@
-res://Scenes/virtual_joystick.tscn
+res://Scenes/gui.tscn
 res://Scripts/bossShip.gd
 res://Scripts/Gui.gd
 res://Scripts/health_powerup.gd
 res://Themes/MainTheme.tres
 res://Themes/roundedFlatStyleBox.tres
+res://Scenes/virtual_joystick.tscn
 res://Scenes/MainMenu.tscn
 res://Scenes/settings_menu.tscn
-res://Scenes/JoystickSettings.tscn
-res://Scenes/gui.tscn
-res://Scripts/joystick_settings.gd
 res://Scenes/main.tscn
-res://Scripts/Main.gd

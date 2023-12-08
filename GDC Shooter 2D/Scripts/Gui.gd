@@ -72,19 +72,15 @@ func save_high_score():
 		highscore.text = "High Score: " + str(currHighscore)
 
 func _on_pause_pressed():
-	
-	if get_tree().paused:
-		get_tree().paused=false
-		pauseAnim.play_backwards("Pause")
-	else:
-		$PauseScreen.visible=true
-		get_tree().paused=true
-		pauseAnim.play("Pause")
+	$PauseScreen.visible = true
+	get_tree().paused = true
+	pauseAnim.play("Pause")
+	_toggle_visibility_to(false)
 
 
 func _on_resume_pressed():
-	get_tree().paused=false
 	pauseAnim.play_backwards("Pause")
+	_toggle_visibility_to(true)
 
 
 func _on_menu_pressed():
@@ -97,6 +93,12 @@ func _on_quit_pressed():
 	save_high_score()
 	get_tree().quit()
 
+func _toggle_visibility_to(value : bool):
+	$Pause.visible = value
+	$WeaponSelect.visible = value
+	$joystick_left.visible = value
+	$joystick_right.visible = value
+
 
 func _on_retry_pressed():
 	get_tree().reload_current_scene()
@@ -104,6 +106,7 @@ func _on_retry_pressed():
 func showDeathScreen():
 	$DeathScreen.visible=true
 	deathAnim.play("Pause")
+	_toggle_visibility_to(false)
 
 
 func _on_weapon_select_pressed():
@@ -123,5 +126,8 @@ func allowWeapon(index):
 
 
 func _on_pause_anim_animation_finished(anim_name):
-	if !get_tree().paused:
-		$PauseScreen.visible=false
+	if $Pause.visible == true:
+		$PauseScreen.visible = false
+		get_tree().paused = false
+	
+	
