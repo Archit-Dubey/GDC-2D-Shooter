@@ -10,6 +10,7 @@ var save_path = "user://userdata.save"
 @onready var pauseAnim=$PauseScreen/PauseAnim
 @onready var deathAnim=$DeathScreen/DeathAnim
 @onready var weaponSelect=$WeaponSelect
+@onready var settingsMenu=$SettingsMenu
 @onready var weaponTypes=[
 	[true,"None",0],#noweapon #ALWAYS make sure that atleast one of them is true
 	[false,"default",1],#allowed, name/image of weapon, weapon code
@@ -22,6 +23,7 @@ var currWeapon=0
 
 func _ready():
 	
+	settingsMenu.visible=false
 	weaponSelect.text=weaponTypes[currWeapon][1]
 	incScore(0)
 	health.max_value=player.maxHealth #set the max to the players max health
@@ -35,6 +37,13 @@ func _ready():
 	else:
 		print("No data saved")
 		
+	set_joystick()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
+
+func set_joystick():
 	if FileAccess.file_exists("user://joystickdata.save"):
 		var file = FileAccess.open("user://joystickdata.save", FileAccess.READ)
 		var positions = file.get_var()
@@ -42,12 +51,10 @@ func _ready():
 		$joystick_right.global_position = positions[2]
 		$WeaponSelect.global_position = positions[1]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-@warning_ignore("unused_parameter")
-
-func _physics_process(delta):
-	pass
+func _process(delta):
+	if settingsMenu.updateJoystick==true:
+		settingsMenu.updateJoystick=false
+		set_joystick()
 	
 
 func updatePlayerHealth(num): #updates gui bar (does not affect player, this is just visual)
@@ -130,4 +137,11 @@ func _on_pause_anim_animation_finished(anim_name):
 		$PauseScreen.visible = false
 		get_tree().paused = false
 	
+	
+
+
+func _on_settings_pressed():
+	settingsMenu.visible = true
+	visible=false
+
 	

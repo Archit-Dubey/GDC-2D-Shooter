@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cx0ed02rryg76"]
+[gd_scene load_steps=16 format=3 uid="uid://cx0ed02rryg76"]
 
 [ext_resource type="Script" path="res://Scripts/Gui.gd" id="1_7wqhe"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="3_en4o1"]
 [ext_resource type="Texture2D" uid="uid://b278yfa4taqdw" path="res://Assets/Art/UI/Pause.png" id="4_sw5cf"]
 [ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="5_cp2g3"]
+[ext_resource type="PackedScene" uid="uid://cneeg56atf3bf" path="res://Scenes/settings_menu.tscn" id="6_j58cu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://Scenes/virtual_joystick.tscn" id="6_l3ahn"]
 
 [sub_resource type="Animation" id="Animation_yc63l"]
@@ -332,7 +333,11 @@ offset_top = -200.0
 offset_bottom = 0.0
 grow_vertical = 0
 
+[node name="SettingsMenu" parent="." instance=ExtResource("6_j58cu")]
+process_mode = 3
+
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="animation_finished" from="PauseScreen/PauseAnim" to="." method="_on_pause_anim_animation_finished"]

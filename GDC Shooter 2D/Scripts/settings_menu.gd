@@ -2,8 +2,10 @@ extends CanvasLayer
 
 var musicLevel = 0
 var soundLevel = 0
+var updateJoystick=false
+var isInLevel=false
 
-@onready var mainMenu = $"../MainMenu"
+@onready var mainMenu = null
 @onready var soundSlider = $OtherSettings/TopContainer/SoundContainer/SliderTexture/SoundSlider
 @onready var musicSlider = $OtherSettings/TopContainer/MusicContainer/SliderTexture/MusicSlider
 @onready var joystickSettings = preload("res://Scenes/JoystickSettings.tscn")
@@ -17,7 +19,15 @@ var soundLevel = 0
 @onready var volumeSlider4 = preload("res://Assets/Art/UI/VolumeSlider/volumeSlider4.png")
 
 func _ready():
+	mainMenu=get_node_or_null("../MainMenu")
+	if mainMenu== null:
+		isInLevel=true
+	if isInLevel:#if settings is opened in a level and not main menu
+		
+		$OtherSettings/BottomContainer/HBoxContainer/ResetButton.visible=false
+		$OtherSettings/BottomContainer/MainMenuButton.text="Resume"
 	
+		
 	if FileAccess.file_exists("user://musicdata.save"):
 		var file = FileAccess.open("user://musicdata.save", FileAccess.READ)
 		musicLevel = file.get_var(musicLevel)
@@ -34,7 +44,12 @@ func _ready():
 		
 
 func _on_main_menu_button_pressed():
-	mainMenu.visible = true
+	
+	if isInLevel:
+		get_parent().visible=true#make pause screen visible
+	else:
+		mainMenu.visible = true
+		
 	self.visible = false
 
 
@@ -43,6 +58,7 @@ func _on_reset_button_pressed():
 
 
 func _on_joystick_button_pressed():
+	updateJoystick=true
 	add_child(joystickSettings.instantiate())
 	$OtherSettings.visible = false
 

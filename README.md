@@ -1,3 +1,5 @@
+I am working on the settings menu, will upload it in my next commit by tomorrow noon.
+
 # GDC-2D-Shooter TODO List
 
 1. Create a start game page (Done)
@@ -20,4 +22,3 @@
 18. Stop powerups from spawning into asteroids (done)
 19. implement world boundary (done)
 20. Add arrows to point at off screen powerups (done)
-21. Resolve everything in Bugs & Issues list
