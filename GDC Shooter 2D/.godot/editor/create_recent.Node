@@ -1,3 +1,4 @@
+Button
 Sprite2D
 TextureRect
 ParallaxLayer
@@ -10,7 +11,6 @@ Node
 Node2D
 TouchScreenButton
 CanvasLayer
-Button
 VSplitContainer
 ScrollContainer
 GridContainer

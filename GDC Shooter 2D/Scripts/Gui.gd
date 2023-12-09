@@ -50,11 +50,13 @@ func set_joystick():
 		$joystick_left.global_position = positions[0]
 		$joystick_right.global_position = positions[2]
 		$WeaponSelect.global_position = positions[1]
+		$joystick_left.scale=positions[3]
+		$WeaponSelect.scale=positions[4]
+		$joystick_right.scale=positions[5]
 
 func _process(delta):
-	if settingsMenu.updateJoystick==true:
-		settingsMenu.updateJoystick=false
-		set_joystick()
+	
+	pass
 	
 
 func updatePlayerHealth(num): #updates gui bar (does not affect player, this is just visual)
@@ -86,21 +88,25 @@ func _on_pause_pressed():
 
 
 func _on_resume_pressed():
+	set_joystick()
 	pauseAnim.play_backwards("Pause")
 	_toggle_visibility_to(true)
 
 
 func _on_menu_pressed():
+	set_joystick()
 	save_high_score()
 	get_tree().paused=false
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 
 func _on_quit_pressed():
+	set_joystick()
 	save_high_score()
 	get_tree().quit()
 
 func _toggle_visibility_to(value : bool):
+	set_joystick()
 	$Pause.visible = value
 	$WeaponSelect.visible = value
 	$joystick_left.visible = value
@@ -141,6 +147,7 @@ func _on_pause_anim_animation_finished(anim_name):
 
 
 func _on_settings_pressed():
+	
 	settingsMenu.visible = true
 	visible=false
 

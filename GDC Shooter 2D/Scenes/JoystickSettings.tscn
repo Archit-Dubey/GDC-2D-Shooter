@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cocwm3qg016c7"]
+[gd_scene load_steps=21 format=3 uid="uid://cocwm3qg016c7"]
 
 [ext_resource type="Script" path="res://Scripts/joystick_settings.gd" id="1_5oejq"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="2_dpcde"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="4_dr8iv"]
 [ext_resource type="Texture2D" uid="uid://dsuvsfd10x7el" path="res://Assets/Art/Joystick/joystick_base_outline.png" id="5_vgw3r"]
 [ext_resource type="Texture2D" uid="uid://dhfi0b2414spu" path="res://Assets/Art/Joystick/joystick_tip.png" id="6_p4e5y"]
+[ext_resource type="Texture2D" uid="uid://dtu2eyrro3ld3" path="res://Assets/Art/UI/zoom_in.png" id="7_hn01f"]
+[ext_resource type="Texture2D" uid="uid://cdn4okc5mt6ye" path="res://Assets/Art/UI/zoom_out.png" id="8_8568t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_red0b"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -257,6 +259,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wq2ir")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gkkp2")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8n1cl")
 
+[node name="scaleUp" type="Button" parent="."]
+offset_left = 1736.0
+offset_top = 432.0
+offset_right = 1768.0
+offset_bottom = 464.0
+scale = Vector2(4, 4)
+mouse_filter = 1
+icon = ExtResource("7_hn01f")
+
+[node name="scaleDown" type="Button" parent="."]
+offset_left = 1736.0
+offset_top = 616.0
+offset_right = 1768.0
+offset_bottom = 648.0
+scale = Vector2(4, 4)
+icon = ExtResource("8_8568t")
+
 [connection signal="button_down" from="WeaponSelect" to="." method="_on_weapon_select_button_down" flags=18]
 [connection signal="button_up" from="WeaponSelect" to="." method="_on_weapon_select_button_up" flags=18]
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed" flags=18]
@@ -265,3 +284,5 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_8n1cl")
 [connection signal="button_up" from="Joystick1/Base/Joystick1" to="." method="_on_joystick_1_button_up" flags=18]
 [connection signal="button_down" from="Joystick2/Base/Joystick2" to="." method="_on_joystick_2_button_down" flags=18]
 [connection signal="button_up" from="Joystick2/Base/Joystick2" to="." method="_on_joystick_2_button_up" flags=18]
+[connection signal="pressed" from="scaleUp" to="." method="_on_scale_up_pressed"]
+[connection signal="pressed" from="scaleDown" to="." method="_on_scale_down_pressed"]

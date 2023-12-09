@@ -2,7 +2,6 @@ extends CanvasLayer
 
 var musicLevel = 0
 var soundLevel = 0
-var updateJoystick=false
 var isInLevel=false
 
 @onready var mainMenu = null
@@ -58,7 +57,7 @@ func _on_reset_button_pressed():
 
 
 func _on_joystick_button_pressed():
-	updateJoystick=true
+	
 	add_child(joystickSettings.instantiate())
 	$OtherSettings.visible = false
 
