@@ -18,6 +18,9 @@ var positions = [Vector2(0,0),Vector2(0,0),Vector2(0,0),1,1,1] #also added scale
 func update_pos():
 	positions = [joystick1.position,weaponButton.position,joystick2.position,
 				joystick1.scale,weaponButton.scale,joystick2.scale]
+	var file = FileAccess.open("user://joystickdata.save", FileAccess.WRITE)
+	file.store_var(positions)
+	
 func _ready():
 	
 	ResourceLoader.load_threaded_request("Scenes/JoystickSettings.tscn")
@@ -33,9 +36,8 @@ func _ready():
 		joystick2.scale=positions[5]
 		weaponButton.scale=positions[4]
 	else:
-		var file = FileAccess.open("user://joystickdata.save", FileAccess.WRITE)
 		update_pos()
-		file.store_var(positions)
+		
 
 func _process(delta):
 	if checkPos == 1:
@@ -54,8 +56,6 @@ func _on_joystick_1_button_down():
 
 func _on_joystick_1_button_up():
 	update_pos()
-	var file = FileAccess.open("user://joystickdata.save", FileAccess.WRITE)
-	file.store_var(positions)
 	checkPos = 0
 	
 
@@ -65,8 +65,6 @@ func _on_joystick_2_button_down():
 
 func _on_joystick_2_button_up():
 	update_pos()
-	var file = FileAccess.open("user://joystickdata.save", FileAccess.WRITE)
-	file.store_var(positions)
 	checkPos = 0
 
 	
@@ -77,8 +75,7 @@ func _on_weapon_select_button_down():
 
 func _on_weapon_select_button_up():
 	update_pos()
-	var file = FileAccess.open("user://joystickdata.save", FileAccess.WRITE)
-	file.store_var(positions)
+	
 	checkPos = 0
 	
 
