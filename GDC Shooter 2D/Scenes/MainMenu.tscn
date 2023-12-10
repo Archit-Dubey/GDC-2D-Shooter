@@ -1,10 +1,55 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch8ml4uc6g6on"]
+[gd_scene load_steps=21 format=3 uid="uid://ch8ml4uc6g6on"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_no32d"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_t2kru"]
 [ext_resource type="PackedScene" uid="uid://cneeg56atf3bf" path="res://Scenes/settings_menu.tscn" id="4_xk2vm"]
 [ext_resource type="Texture2D" uid="uid://ca08cv28k8t7w" path="res://Assets/Art/Environment/BlackSpace1.png" id="5_haetb"]
 [ext_resource type="AudioStream" uid="uid://b3lw8pjmulcam" path="res://Assets/Audio/Music/SongA.wav" id="5_soqeb"]
+[ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="6_2b1df"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://Scenes/virtual_joystick.tscn" id="7_0df17"]
+[ext_resource type="Texture2D" uid="uid://bsbsii2akfwby" path="res://Assets/Art/UI/Enemy icons/Chaser1.png" id="8_h47gv"]
+[ext_resource type="Texture2D" uid="uid://7ibawplyhk78" path="res://Assets/Art/UI/Enemy icons/Chaser2.png" id="9_mdl2r"]
+[ext_resource type="Texture2D" uid="uid://crs6qt1oyfko6" path="res://Assets/Art/UI/Enemy icons/Chaser3.png" id="10_asoet"]
+[ext_resource type="Texture2D" uid="uid://oco0ugfgd4uw" path="res://Assets/Art/UI/Enemy icons/shooter1.png" id="11_e5ye6"]
+[ext_resource type="Texture2D" uid="uid://c1h8d2gtmwl4w" path="res://Assets/Art/UI/Enemy icons/shooter2.png" id="12_xj3m4"]
+[ext_resource type="Texture2D" uid="uid://borjxiid23oub" path="res://Assets/Art/UI/Enemy icons/shooter3.png" id="13_1mpwl"]
+[ext_resource type="Texture2D" uid="uid://wpk41nbheegm" path="res://Assets/Art/UI/Enemy icons/Unknown1.png" id="14_4x8kw"]
+[ext_resource type="Texture2D" uid="uid://cnstapjd7qkpg" path="res://Assets/Art/UI/Enemy icons/Unknown2.png" id="15_rorxw"]
+[ext_resource type="Texture2D" uid="uid://c17irlyh4eke5" path="res://Assets/Art/UI/Enemy icons/Unknown3.png" id="16_jueh6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8mf1"]
+bg_color = Color(1, 1, 1, 0.556863)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_y07vu"]
+frames = 3
+frame_0/texture = ExtResource("8_h47gv")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("9_mdl2r")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("10_asoet")
+frame_2/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6rhac"]
+frames = 3
+frame_0/texture = ExtResource("11_e5ye6")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("12_xj3m4")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("13_1mpwl")
+frame_2/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_s3d5f"]
+frames = 3
+frame_0/texture = ExtResource("14_4x8kw")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("15_rorxw")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("16_jueh6")
+frame_2/duration = 0.2
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_no32d")
@@ -22,6 +67,7 @@ bus = &"Music"
 visible = false
 
 [node name="MainMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,8 +81,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -539.0
+offset_top = 43.0
 offset_right = 539.0
-offset_bottom = 124.0
+offset_bottom = 167.0
 grow_horizontal = 2
 theme = ExtResource("1_t2kru")
 text = "GDC 2D Shooter Game"
@@ -64,6 +111,15 @@ mouse_filter = 1
 theme = ExtResource("1_t2kru")
 theme_override_font_sizes/font_size = 84
 text = " Play"
+alignment = 0
+
+[node name="Instructions" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 79
+text = " Instructions"
 alignment = 0
 
 [node name="Settings" type="Button" parent="MainMenu/VBoxContainer"]
@@ -94,6 +150,357 @@ scale = Vector2(1.434, 1.591)
 texture = ExtResource("5_haetb")
 centered = false
 
+[node name="InstructionScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoPage1" type="Control" parent="InstructionScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vbox" type="VBoxContainer" parent="InstructionScreen/InfoPage1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.0
+offset_top = -301.0
+offset_right = 458.0
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="InstructionScreen/InfoPage1/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Movement"
+
+[node name="Label2" type="Label" parent="InstructionScreen/InfoPage1/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "Use the joystick on the bottom left to move the spaceship"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="InstructionScreen/InfoPage1/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Aiming and Firing"
+
+[node name="Label4" type="Label" parent="InstructionScreen/InfoPage1/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "Use the joystick on the bottom right to aim/turn your spaceship. Pull the inner circle outside the edge to fire"
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="InstructionScreen/InfoPage1/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Switching Weapons"
+
+[node name="Label6" type="Label" parent="InstructionScreen/InfoPage1/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "Tap the button on the bottom to cycle through all available weapons"
+autowrap_mode = 3
+
+[node name="WeaponSelect" type="Button" parent="InstructionScreen/InfoPage1"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -139.0
+offset_top = 357.0
+offset_right = 31.0
+offset_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(85, 50)
+mouse_filter = 1
+theme = ExtResource("1_t2kru")
+theme_override_styles/normal = ExtResource("6_2b1df")
+theme_override_styles/hover = ExtResource("6_2b1df")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p8mf1")
+theme_override_styles/disabled = ExtResource("6_2b1df")
+theme_override_styles/focus = ExtResource("6_2b1df")
+text = "Weapons"
+expand_icon = true
+
+[node name="joystick_right" parent="InstructionScreen/InfoPage1" instance=ExtResource("7_0df17")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 599.0
+offset_top = 181.0
+offset_right = 799.0
+offset_bottom = 381.0
+grow_horizontal = 0
+grow_vertical = 0
+script = null
+
+[node name="joystick_left" parent="InstructionScreen/InfoPage1" instance=ExtResource("7_0df17")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -830.0
+offset_top = 188.0
+offset_right = -630.0
+offset_bottom = 388.0
+grow_vertical = 0
+script = null
+
+[node name="InfoPage2" type="Control" parent="InstructionScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vbox" type="VBoxContainer" parent="InstructionScreen/InfoPage2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.0
+offset_top = -301.0
+offset_right = 458.0
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Chasers"
+
+[node name="Label2" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "These enemies chase and collide with you, dealing massive amounts of damage"
+autowrap_mode = 3
+
+[node name="Empty label" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+
+[node name="Label5" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Shooters"
+
+[node name="Label4" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "These enemies follow you until you are in range and fire projectiles at you"
+autowrap_mode = 3
+
+[node name="Empty label2" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+
+[node name="Label6" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Caution!"
+
+[node name="Label7" type="Label" parent="InstructionScreen/InfoPage2/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "Avoid venturing too far into space...nobody knows what you will encounter"
+autowrap_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="InstructionScreen/InfoPage2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -674.0
+offset_top = -358.0
+offset_right = -624.0
+offset_bottom = -308.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.67884, 5.68385)
+texture = SubResource("AnimatedTexture_y07vu")
+
+[node name="TextureRect2" type="TextureRect" parent="InstructionScreen/InfoPage2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -674.0
+offset_top = -94.0
+offset_right = -624.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.67884, 5.68385)
+texture = SubResource("AnimatedTexture_6rhac")
+
+[node name="TextureRect3" type="TextureRect" parent="InstructionScreen/InfoPage2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -674.0
+offset_top = 178.0
+offset_right = -624.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.67884, 5.68385)
+texture = SubResource("AnimatedTexture_s3d5f")
+
+[node name="InfoPage3" type="Control" parent="InstructionScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vbox" type="VBoxContainer" parent="InstructionScreen/InfoPage3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.0
+offset_top = -301.0
+offset_right = 458.0
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label5" type="Label" parent="InstructionScreen/InfoPage3/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Changing Controller Position"
+
+[node name="Label6" type="Label" parent="InstructionScreen/InfoPage3/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "The controller positions and size can be modified or reset to default by visiting 
+Settings>Joystick Settings"
+autowrap_mode = 3
+
+[node name="Label7" type="Label" parent="InstructionScreen/InfoPage3/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Changing Audio Settings"
+
+[node name="Label8" type="Label" parent="InstructionScreen/InfoPage3/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "Audio settings can be configured by visiting
+Settings"
+autowrap_mode = 3
+
+[node name="Label9" type="Label" parent="InstructionScreen/InfoPage3/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 60
+text = "Resetting Game Progress"
+
+[node name="Label10" type="Label" parent="InstructionScreen/InfoPage3/Vbox"]
+layout_mode = 2
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 40
+text = "Game progress can be wiped by visiting
+Settings>Reset Game Stats"
+autowrap_mode = 3
+
+[node name="Next" type="Button" parent="InstructionScreen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -299.0
+offset_top = 88.0
+offset_right = -124.0
+offset_bottom = 185.0
+grow_horizontal = 0
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 80
+text = "Next"
+
+[node name="BackToMenu" type="Button" parent="InstructionScreen"]
+layout_mode = 1
+offset_left = 102.0
+offset_top = 98.0
+offset_right = 328.0
+offset_bottom = 195.0
+theme = ExtResource("1_t2kru")
+theme_override_font_sizes/font_size = 80
+text = "Menu"
+
 [connection signal="pressed" from="MainMenu/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="InstructionScreen/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="InstructionScreen/BackToMenu" to="." method="_on_back_to_menu_pressed"]

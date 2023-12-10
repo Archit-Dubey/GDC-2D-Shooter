@@ -1,11 +1,13 @@
-Button
-Sprite2D
 TextureRect
+HBoxContainer
+Button
+Control
+VBoxContainer
+Label
+RichTextLabel
+Sprite2D
 ParallaxLayer
 ParallaxBackground
-Control
-Label
-HBoxContainer
 HSplitContainer
 Node
 Node2D
@@ -16,7 +18,6 @@ ScrollContainer
 GridContainer
 HSlider
 CheckButton
-VBoxContainer
 AnimatedSprite2D
 AnimationPlayer
 ColorRect
@@ -29,4 +30,3 @@ PanelContainer
 VisibleOnScreenNotifier2D
 CollisionShape2D
 Area2D
-CollisionPolygon2D

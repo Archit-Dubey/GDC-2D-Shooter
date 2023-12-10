@@ -17,7 +17,7 @@ extends CharacterBody2D
 @export var maxMovespeed=300#to cap the speed when speed powerup is picked up
 @export var movingspeed = 300
 @export var rotation_speed = 5 
-@export var defaultFireRate=0.25 #no of seconds between each bullet
+@export var defaultFireRate=0.4 #no of seconds between each bullet
 @export var maxHealth=100
 @export var maxLives = 3
 @export var lives = 3
