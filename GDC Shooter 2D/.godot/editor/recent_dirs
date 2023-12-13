@@ -1,3 +1,4 @@
+res://Assets/Art/Player
 res://Scenes
 res://Scripts
 res://
@@ -7,7 +8,6 @@ D:/GodotProjects
 C:/Program Files/Java/jdk-20/bin
 res://Themes
 res://Assets/Art/Enemies/Straight
-res://Assets/Art/Player
 res://Assets/Art/Enemies/Chaser
 res://Assets
 res://Assets/Art/Powerups

@@ -52,7 +52,7 @@ func _physics_process(delta):
 		if direction != Vector2(0,0):
 			
 			# To make the player motion smoother with joystick
-			velocity += direction * movingspeed * delta
+			velocity = direction * movingspeed
 			
 		else:
 			velocity = Vector2(0,0)

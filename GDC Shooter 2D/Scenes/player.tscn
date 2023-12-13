@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://xcee157fq5ca"]
+[gd_scene load_steps=13 format=3 uid="uid://xcee157fq5ca"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_is4dd"]
 [ext_resource type="Texture2D" uid="uid://b85jnsbrm7wj6" path="res://Assets/Art/Player/Player death.png" id="2_1q65a"]
-[ext_resource type="Texture2D" uid="uid://tiko2t3qtqlb" path="res://Assets/Art/Player/Player Sprites.png" id="2_81p4u"]
 [ext_resource type="AudioStream" uid="uid://vmqey78kv06w" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerFire.wav" id="3_4a50l"]
+[ext_resource type="Texture2D" uid="uid://ckg6qblbgwxb" path="res://Assets/Art/Player/PlayerShip.png" id="4_b4urk"]
 [ext_resource type="AudioStream" uid="uid://koho0vn1aup6" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerExplode.wav" id="4_pek3k"]
 [ext_resource type="AudioStream" uid="uid://bfpmkm28g5tu4" path="res://Assets/Audio/Sound Effects/Sound Effects/LifeGain.wav" id="5_066n1"]
 
@@ -19,17 +19,9 @@ region = Rect2(50, 0, 50, 50)
 atlas = ExtResource("2_1q65a")
 region = Rect2(100, 0, 50, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppgtp"]
-atlas = ExtResource("2_81p4u")
-region = Rect2(0, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5h1rg"]
-atlas = ExtResource("2_81p4u")
-region = Rect2(50, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e72hr"]
-atlas = ExtResource("2_81p4u")
-region = Rect2(100, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dcw0"]
+atlas = ExtResource("4_b4urk")
+region = Rect2(0, 0, 1000, 1000)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pc2h0"]
 animations = [{
@@ -49,13 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ppgtp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5h1rg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e72hr")
+"texture": SubResource("AtlasTexture_4dcw0")
 }],
 "loop": true,
 "name": &"Idle",
@@ -66,19 +52,18 @@ animations = [{
 radius = 1200.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-position = Vector2(400, 200)
 script = ExtResource("1_is4dd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_pc2h0")
-animation = &"Death"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.592345
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
 rotation = 1.5708
-polygon = PackedVector2Array(-9.15527e-05, -25, -3.00008, -22, -8.00005, -12, -25, 24, 25, 24, 7.99995, -12, 2.99992, -22)
+polygon = PackedVector2Array(-0.000376479, -104, -8.00035, -96, -16.0003, -95.9999, -24.0003, -71.9999, -32.0002, -47.9999, -40.0001, -39.9999, -48.0001, -39.9998, -79.9999, 24.0003, -87.9998, 64.0003, -87.9997, 72.0003, -79.9997, 80.0003, -71.9997, 88.0003, -63.9997, 88.0002, -47.9997, 80.0002, -39.9997, 88.0001, -23.9997, 80.0001, -15.9997, 88.0001, -7.99965, 96, 0.000347519, 96, 8.00035, 96, 16.0003, 87.9999, 24.0003, 79.9999, 40.0003, 87.9999, 48.0003, 79.9998, 56.0003, 87.9998, 80.0003, 79.9997, 88.0003, 71.9997, 88.0002, 47.9997, 55.9999, -24.0002, 47.9999, -40.0002, 39.9999, -40.0001, 31.9998, -48.0001, 23.9997, -72.0001, 15.9997, -96.0001, 7.99965, -96)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(24, 0)
@@ -114,12 +99,10 @@ bus = &"SoundFX"
 one_shot = true
 
 [node name="bounds" type="Area2D" parent="."]
-position = Vector2(-400, -200)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bounds"]
-position = Vector2(394, 202)
 shape = SubResource("CircleShape2D_0dyq3")
 
 [connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]

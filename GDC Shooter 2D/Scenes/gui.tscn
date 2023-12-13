@@ -310,6 +310,18 @@ theme_override_styles/focus = ExtResource("5_cp2g3")
 text = "testing"
 expand_icon = true
 
+[node name="SettingsMenu" parent="." instance=ExtResource("6_j58cu")]
+process_mode = 3
+visible = false
+
+[node name="joystick_left" parent="." instance=ExtResource("6_l3ahn")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = 0.0
+grow_vertical = 0
+
 [node name="joystick_right" parent="." instance=ExtResource("6_l3ahn")]
 anchors_preset = 3
 anchor_left = 1.0
@@ -324,17 +336,6 @@ grow_horizontal = 0
 grow_vertical = 0
 use_input_actions = false
 action_mode = 1
-
-[node name="joystick_left" parent="." instance=ExtResource("6_l3ahn")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = 0.0
-grow_vertical = 0
-
-[node name="SettingsMenu" parent="." instance=ExtResource("6_j58cu")]
-process_mode = 3
 
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

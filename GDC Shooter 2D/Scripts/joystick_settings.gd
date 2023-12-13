@@ -8,8 +8,8 @@ var checkPos = 0
 
 var lastPressed=null
 
-var maxScale=3
-var minScale=0.2
+var maxScale=2
+var minScale=1
 var scaleFactor=0.1
 
 var positions = [Vector2(0,0),Vector2(0,0),Vector2(0,0),1,1,1] #also added scale to this
@@ -18,6 +18,7 @@ var positions = [Vector2(0,0),Vector2(0,0),Vector2(0,0),1,1,1] #also added scale
 func update_pos():
 	positions = [joystick1.position,weaponButton.position,joystick2.position,
 				joystick1.scale,weaponButton.scale,joystick2.scale]
+	print(positions)
 	var file = FileAccess.open("user://joystickdata.save", FileAccess.WRITE)
 	file.store_var(positions)
 	
@@ -33,8 +34,9 @@ func _ready():
 		weaponButton.position = positions[1]
 		joystick2.position = positions[2]
 		joystick1.scale=positions[3]
-		joystick2.scale=positions[5]
 		weaponButton.scale=positions[4]
+		joystick2.scale=positions[5]
+		
 	else:
 		update_pos()
 		

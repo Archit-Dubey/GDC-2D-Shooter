@@ -6,7 +6,7 @@ extends Control
 @export var pressed_color := Color.GRAY
 
 ## If the input is inside this range, the output is zero.
-@export_range(0, 200, 1) var deadzone_size : float = 10
+@export_range(0, 200, 1) var deadzone_size : float = 5
 
 ## The max distance the tip can reach.
 @export_range(0, 500, 1) var clampzone_size : float = 75
@@ -59,9 +59,9 @@ var shoot := false
 var _touch_index : int = -1
 
 @onready var _base := $Base
-@onready var _tip := $Base/Tip
+@onready var _tip := $Tip
 
-@onready var _base_radius = _base.size * _base.get_global_transform_with_canvas().get_scale() / 2
+@onready var _base_radius = size * scale / 2
 
 @onready var _base_default_position : Vector2 = _base.position
 @onready var _tip_default_position : Vector2 = _tip.position
@@ -71,6 +71,7 @@ var _touch_index : int = -1
 # FUNCTIONS
 
 func _ready() -> void:
+	
 	if not DisplayServer.is_touchscreen_available() and visibility_mode == Visibility_mode.TOUCHSCREEN_ONLY:
 		hide()
 
@@ -79,6 +80,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			if _is_point_inside_joystick_area(event.position) and _touch_index == -1:
 				if joystick_mode == Joystick_mode.DYNAMIC or (joystick_mode == Joystick_mode.FIXED and _is_point_inside_base(event.position)):
+					print("true")
 					if joystick_mode == Joystick_mode.DYNAMIC:
 						_move_base(event.position)
 					_touch_index = event.index
@@ -123,7 +125,6 @@ func _update_joystick(touch_position: Vector2) -> void:
 			shoot = false
 	
 	vector = vector.limit_length(clampzone_size)
-	
 	_move_tip(center + vector)
 	
 	if vector.length_squared() > deadzone_size * deadzone_size:

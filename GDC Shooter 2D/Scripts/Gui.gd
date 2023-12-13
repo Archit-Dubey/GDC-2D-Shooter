@@ -47,12 +47,19 @@ func set_joystick():
 	if FileAccess.file_exists("user://joystickdata.save"):
 		var file = FileAccess.open("user://joystickdata.save", FileAccess.READ)
 		var positions = file.get_var()
-		$joystick_left.global_position = positions[0]
-		$joystick_right.global_position = positions[2]
-		$WeaponSelect.global_position = positions[1]
 		$joystick_left.scale=positions[3]
 		$WeaponSelect.scale=positions[4]
 		$joystick_right.scale=positions[5]
+		$joystick_left.position = positions[0]
+		$joystick_right.position = positions[2]
+		$WeaponSelect.position = positions[1]
+		
+		# As we have already imported the scene as a child the base_radius and clampzone_size didm't change according to the scale
+		$joystick_left._base_radius = $joystick_left.size * $joystick_left.scale / 2
+		$joystick_right._base_radius = $joystick_right.size * $joystick_right.scale / 2
+		$joystick_left.clampzone_size = $joystick_left._base_radius.x * 0.9
+		$joystick_right.clampzone_size = $joystick_right._base_radius.x * 0.9
+		
 
 func _process(delta):
 	

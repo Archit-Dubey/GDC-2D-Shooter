@@ -146,7 +146,7 @@ alignment = 0
 motion_mirroring = Vector2(1920, 1080)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(1.434, 1.591)
+scale = Vector2(2, 2)
 texture = ExtResource("5_haetb")
 centered = false
 

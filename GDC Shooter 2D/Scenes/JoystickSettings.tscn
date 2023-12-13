@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cocwm3qg016c7"]
+[gd_scene load_steps=20 format=3 uid="uid://cocwm3qg016c7"]
 
 [ext_resource type="Script" path="res://Scripts/joystick_settings.gd" id="1_5oejq"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="2_dpcde"]
 [ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="3_uhi05"]
 [ext_resource type="FontFile" uid="uid://dsclevxwkkq4o" path="res://Fonts/NovaSquare-Regular.ttf" id="4_dr8iv"]
-[ext_resource type="Texture2D" uid="uid://dsuvsfd10x7el" path="res://Assets/Art/Joystick/joystick_base_outline.png" id="5_vgw3r"]
-[ext_resource type="Texture2D" uid="uid://dhfi0b2414spu" path="res://Assets/Art/Joystick/joystick_tip.png" id="6_p4e5y"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://Scenes/virtual_joystick.tscn" id="7_3f5i3"]
 [ext_resource type="Texture2D" uid="uid://dtu2eyrro3ld3" path="res://Assets/Art/UI/zoom_in.png" id="7_hn01f"]
 [ext_resource type="Texture2D" uid="uid://cdn4okc5mt6ye" path="res://Assets/Art/UI/zoom_out.png" id="8_8568t"]
 
@@ -142,123 +141,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_xrdn5")
 theme_override_styles/focus = SubResource("StyleBoxFlat_iq5aj")
 text = " Done "
 
-[node name="Joystick1" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -200.0
-offset_right = 200.0
-grow_vertical = 0
-pivot_offset = Vector2(100, 100)
-
-[node name="Base" type="TextureRect" parent="Joystick1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(100, 100)
-mouse_force_pass_scroll_events = false
-texture = ExtResource("5_vgw3r")
-stretch_mode = 5
-
-[node name="Tip" type="TextureRect" parent="Joystick1/Base"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(50, 50)
-texture = ExtResource("6_p4e5y")
-stretch_mode = 5
-
-[node name="Joystick1" type="Button" parent="Joystick1/Base"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_afvs3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r74mj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m1gr6")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fotyl")
-
-[node name="Joystick2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -200.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(100, 100)
-
-[node name="Base" type="TextureRect" parent="Joystick2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(100, 100)
-mouse_force_pass_scroll_events = false
-texture = ExtResource("5_vgw3r")
-stretch_mode = 5
-
-[node name="Tip" type="TextureRect" parent="Joystick2/Base"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(50, 50)
-texture = ExtResource("6_p4e5y")
-stretch_mode = 5
-
-[node name="Joystick2" type="Button" parent="Joystick2/Base"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_bsxfl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wq2ir")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gkkp2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_8n1cl")
-
 [node name="scaleUp" type="Button" parent="."]
 offset_left = 1736.0
 offset_top = 432.0
@@ -276,13 +158,60 @@ offset_bottom = 648.0
 scale = Vector2(4, 4)
 icon = ExtResource("8_8568t")
 
+[node name="Joystick1" parent="." instance=ExtResource("7_3f5i3")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = 0.0
+grow_vertical = 0
+script = null
+
+[node name="Joystick1" type="Button" parent="Joystick1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_afvs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r74mj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m1gr6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fotyl")
+
+[node name="Joystick2" parent="." instance=ExtResource("7_3f5i3")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+script = null
+
+[node name="Joystick2" type="Button" parent="Joystick2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsxfl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wq2ir")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkkp2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8n1cl")
+
 [connection signal="button_down" from="WeaponSelect" to="." method="_on_weapon_select_button_down" flags=18]
 [connection signal="button_up" from="WeaponSelect" to="." method="_on_weapon_select_button_up" flags=18]
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed" flags=18]
 [connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed" flags=18]
-[connection signal="button_down" from="Joystick1/Base/Joystick1" to="." method="_on_joystick_1_button_down" flags=18]
-[connection signal="button_up" from="Joystick1/Base/Joystick1" to="." method="_on_joystick_1_button_up" flags=18]
-[connection signal="button_down" from="Joystick2/Base/Joystick2" to="." method="_on_joystick_2_button_down" flags=18]
-[connection signal="button_up" from="Joystick2/Base/Joystick2" to="." method="_on_joystick_2_button_up" flags=18]
 [connection signal="pressed" from="scaleUp" to="." method="_on_scale_up_pressed"]
 [connection signal="pressed" from="scaleDown" to="." method="_on_scale_down_pressed"]
+[connection signal="button_down" from="Joystick1/Joystick1" to="." method="_on_joystick_1_button_down" flags=18]
+[connection signal="button_up" from="Joystick1/Joystick1" to="." method="_on_joystick_1_button_up" flags=18]
+[connection signal="button_down" from="Joystick2/Joystick2" to="." method="_on_joystick_2_button_down" flags=18]
+[connection signal="button_up" from="Joystick2/Joystick2" to="." method="_on_joystick_2_button_up" flags=18]
