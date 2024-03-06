@@ -1,6 +1,6 @@
+TextureRect
 CollisionPolygon2D
 CollisionShape2D
-TextureRect
 HBoxContainer
 Button
 Control
@@ -30,4 +30,3 @@ NavigationRegion2D
 CenterContainer
 PanelContainer
 VisibleOnScreenNotifier2D
-Area2D

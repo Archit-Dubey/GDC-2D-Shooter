@@ -1,21 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1x5hmb0jwkmo"]
+[gd_scene load_steps=13 format=3 uid="uid://c1x5hmb0jwkmo"]
 
 [ext_resource type="Texture2D" uid="uid://c4tvg4j8dfywu" path="res://Assets/Art/Enemies/Chaser/Chaser Sprites.png" id="1_j021e"]
 [ext_resource type="Script" path="res://Scripts/chaser_enemy_trial.gd" id="1_o43x2"]
-[ext_resource type="Texture2D" uid="uid://dnbhlo1ed1v6n" path="res://Assets/Art/Enemies/Chaser/Chaser death.png" id="2_l41dg"]
+[ext_resource type="Texture2D" uid="uid://djl8rs0g5wxji" path="res://Assets/Art/Enemies/Chaser/ChaserDeath.png" id="2_sfsui"]
+[ext_resource type="Texture2D" uid="uid://di7wwwn61sok" path="res://Assets/Art/Enemies/Chaser/new_enemy.png" id="3_xacgc"]
 [ext_resource type="AudioStream" uid="uid://buw3iaf3fg0n7" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav" id="4_iq4dg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eirgw"]
-atlas = ExtResource("2_l41dg")
-region = Rect2(0, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_acx0g"]
+atlas = ExtResource("2_sfsui")
+region = Rect2(0, 0, 312, 545)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6tmu4"]
-atlas = ExtResource("2_l41dg")
-region = Rect2(50, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs8ic"]
+atlas = ExtResource("2_sfsui")
+region = Rect2(312, 0, 312, 545)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_abh0k"]
-atlas = ExtResource("2_l41dg")
-region = Rect2(100, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaf5l"]
+atlas = ExtResource("3_xacgc")
+region = Rect2(0, 0, 312, 545)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rwsg"]
 atlas = ExtResource("1_j021e")
@@ -33,17 +34,22 @@ region = Rect2(100, 0, 50, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eirgw")
+"texture": SubResource("AtlasTexture_acx0g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6tmu4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_abh0k")
+"texture": SubResource("AtlasTexture_cs8ic")
 }],
 "loop": false,
 "name": &"Death",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaf5l")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -56,7 +62,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7ompr")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"IdleOrg",
 "speed": 5.0
 }]
 
@@ -66,22 +72,21 @@ collision_mask = 3
 script = ExtResource("1_o43x2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = -1.5708
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_7y8ky")
 animation = &"Death"
 autoplay = "Idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = -1.5708
-polygon = PackedVector2Array(1, -24, -9, -14, -3, -7, -15, 4, 0, 23, 18, 6, 9, -3, 13, -12)
+polygon = PackedVector2Array(16.0001, -39.9999, 24.0001, -31.9999, 24.0001, -15.9999, 32, -7.99988, 24, 8.68798e-05, 15.9999, 16.0001, 7.99986, 40, -0.000202719, 56, -8.00014, 40, -16.0001, 15.9999, -24, -8.68798e-05, -32, -8.00012, -23.9999, -16.0001, -23.9999, -32.0001, -15.9999, -40.0001, 8.68798e-05, -24)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 rotation = -1.5708
-polygon = PackedVector2Array(1.00009, -25, -9.99995, -14, -3.99997, -7.00001, -16, 3.99994, -8.68798e-05, 24, 19, 6.00007, 10, -2.99996, 13, -13)
+polygon = PackedVector2Array(16.0001, -39.9999, 24.0001, -39.9999, 32.0001, -15.9999, 32, -7.99988, 24, 8.00009, 15.9999, 24.0001, 7.99983, 48, -0.000231679, 64, -8.00017, 48, -16.0001, 23.9999, -24, 7.99991, -32, -8.00012, -31.9999, -16.0001, -23.9999, -40.0001, -15.9999, -40.0001, 0.00011584, -32)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 50.0

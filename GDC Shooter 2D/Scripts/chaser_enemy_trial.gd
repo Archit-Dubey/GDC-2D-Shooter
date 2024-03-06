@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var health=20
 @export var damageFactor=20
 @export var score=100#score increase on death
-@export var speed = 200  # Adjust this value to control the speed of the enemy
+@export var speed = 250  # Adjust this value to control the speed of the enemy
 
 @onready var navigation_agent = $NavigationAgent2D
 

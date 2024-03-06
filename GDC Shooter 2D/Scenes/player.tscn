@@ -1,81 +1,75 @@
-[gd_scene load_steps=15 format=3 uid="uid://xcee157fq5ca"]
+[gd_scene load_steps=13 format=3 uid="uid://xcee157fq5ca"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_is4dd"]
-[ext_resource type="Texture2D" uid="uid://b85jnsbrm7wj6" path="res://Assets/Art/Player/Player death.png" id="2_1q65a"]
+[ext_resource type="Texture2D" uid="uid://b6vmx2lwtgnjo" path="res://Assets/Art/Player/PlayerDeath.png" id="2_1emwm"]
 [ext_resource type="AudioStream" uid="uid://vmqey78kv06w" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerFire.wav" id="3_4a50l"]
-[ext_resource type="Texture2D" uid="uid://tiko2t3qtqlb" path="res://Assets/Art/Player/Player Sprites.png" id="3_mumli"]
+[ext_resource type="Texture2D" uid="uid://ckg6qblbgwxb" path="res://Assets/Art/Player/PlayerShip.png" id="3_xc5q2"]
 [ext_resource type="AudioStream" uid="uid://koho0vn1aup6" path="res://Assets/Audio/Sound Effects/Sound Effects/PlayerExplode.wav" id="4_pek3k"]
 [ext_resource type="AudioStream" uid="uid://bfpmkm28g5tu4" path="res://Assets/Audio/Sound Effects/Sound Effects/LifeGain.wav" id="5_066n1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ma1t2"]
-atlas = ExtResource("2_1q65a")
-region = Rect2(0, 0, 50, 50)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dyq3"]
+radius = 1200.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8cdhn"]
-atlas = ExtResource("2_1q65a")
-region = Rect2(50, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f67k0"]
+atlas = ExtResource("2_1emwm")
+region = Rect2(0, 0, 1000, 750)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oeuhn"]
-atlas = ExtResource("2_1q65a")
-region = Rect2(100, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kxxn"]
+atlas = ExtResource("2_1emwm")
+region = Rect2(1000, 0, 1000, 750)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_exupw"]
-atlas = ExtResource("3_mumli")
-region = Rect2(0, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nd13"]
+atlas = ExtResource("2_1emwm")
+region = Rect2(2000, 0, 1000, 750)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_87o1s"]
-atlas = ExtResource("3_mumli")
-region = Rect2(50, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lnx0p"]
-atlas = ExtResource("3_mumli")
-region = Rect2(100, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p4kh"]
+atlas = ExtResource("3_xc5q2")
+region = Rect2(0, 0, 1000, 750)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pc2h0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ma1t2")
+"texture": SubResource("AtlasTexture_f67k0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8cdhn")
+"texture": SubResource("AtlasTexture_1kxxn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oeuhn")
+"texture": SubResource("AtlasTexture_4nd13")
 }],
 "loop": true,
 "name": &"Death",
-"speed": 10.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_exupw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_87o1s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lnx0p")
+"texture": SubResource("AtlasTexture_8p4kh")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0dyq3"]
-radius = 1200.0
-
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_is4dd")
 
+[node name="bounds" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds"]
+shape = SubResource("CircleShape2D_0dyq3")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_pc2h0")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-24, 24, -16, 0, -24, -24, 24, 0)
+polygon = PackedVector2Array(-40, 24, -32, 16, -48, 8, -48, -8, -32, -16, -40, -24, -56, -32, -48, -40, -40, -48, -24, -48, 32, -40, 32, -24, 56, -16, 56, -8, 48, 0, 56, 16, 32, 24, 32, 40, -24, 48, -40, 48, -48, 40, -56, 32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(24, 0)
@@ -83,8 +77,11 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
 
-[node name="GunTip" type="Node2D" parent="."]
-position = Vector2(23, 0)
+[node name="GunTip2" type="Node2D" parent="."]
+position = Vector2(24, 24)
+
+[node name="GunTip1" type="Node2D" parent="."]
+position = Vector2(24, -24)
 
 [node name="gunCoolDownTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -110,13 +107,6 @@ bus = &"SoundFX"
 [node name="animTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="bounds" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds"]
-shape = SubResource("CircleShape2D_0dyq3")
-
-[connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]
 [connection signal="area_exited" from="bounds" to="." method="_on_bounds_area_exited"]
 [connection signal="body_exited" from="bounds" to="." method="_on_bounds_body_exited"]
+[connection signal="timeout" from="animTimer" to="." method="_on_anim_timer_timeout"]

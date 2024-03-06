@@ -10,7 +10,8 @@ extends CharacterBody2D
 @onready var sprite=$AnimatedSprite2D
 @onready var navigation_agent = $NavigationAgent2D
 @onready var player = $"../../Player"
-@onready var gun = $GunTip
+@onready var gun1 = $GunTip
+@onready var gun2 = $GunTip2
 @onready var GUI=$"../../GUI"
 @onready var bullet = preload("res://Scenes/straight_shooter_bullet.tscn")
 @onready var spawner=$"../.."
@@ -76,11 +77,17 @@ func _on_timer_timeout():
 	if global_position.distance_to(player.global_position)<maxRange:
 		fireSound.play()
 		var newBullet=bullet.instantiate()
-		newBullet.global_position=gun.global_position
+		newBullet.global_position=gun1.global_position
 		newBullet.set_direction(rotation)
 		newBullet.damage=bulletDamage
 		newBullet.global_rotation_degrees = global_rotation_degrees
-		gun.add_child(newBullet)
+		gun1.add_child(newBullet)
+		newBullet=bullet.instantiate()
+		newBullet.global_position=gun2.global_position
+		newBullet.set_direction(rotation)
+		newBullet.damage=bulletDamage
+		newBullet.global_rotation_degrees = global_rotation_degrees
+		gun2.add_child(newBullet)
 
 
 func _on_area_2d_body_entered(body):

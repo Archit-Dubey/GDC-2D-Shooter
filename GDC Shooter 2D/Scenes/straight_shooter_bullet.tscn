@@ -60,19 +60,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5icju"]
-radius = 3.0
-height = 12.0
+radius = 5.0
+height = 16.0
 
 [node name="Straight_Shooter_Bullet" type="Area2D" groups=["EnemyBullet"]]
 script = ExtResource("1_qqyyu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_qo3xr")
-animation = &"Hit"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

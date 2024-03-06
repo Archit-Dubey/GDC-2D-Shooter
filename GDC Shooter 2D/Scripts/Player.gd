@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 
-@onready var gun=$GunTip # the tip of the gun from which projectiles will be spawned
+@onready var gun1=$GunTip1 # the tip of the gun from which projectiles will be spawned
+@onready var gun2=$GunTip2 # the tip of the gun from which projectiles will be spawned
 @onready var gunCoolDown=$gunCoolDownTimer # timer to cap fire rate
 @onready var defaultBullet=preload("res://Scenes/defaultBullet.tscn") #basic bullet type
 @onready var strongBullet=preload("res://Scenes/strongBullet.tscn")
@@ -80,10 +81,15 @@ func _physics_process(delta):
 			if currBullet!=null:
 				fireSound.play()
 				var newBullet=currBullet.instantiate()
-				newBullet.global_position=gun.global_position
+				newBullet.global_position=gun1.global_position
 				newBullet.set_direction(rotation)
 				newBullet.global_rotation_degrees = global_rotation_degrees
-				gun.add_child(newBullet)
+				gun1.add_child(newBullet)
+				newBullet=currBullet.instantiate()
+				newBullet.global_position=gun2.global_position
+				newBullet.set_direction(rotation)
+				newBullet.global_rotation_degrees = global_rotation_degrees
+				gun2.add_child(newBullet)
 				gunCoolDown.start()
 				
 				

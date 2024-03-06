@@ -2,21 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://bs1nv3ld1mkkq" path="res://Assets/Art/Enemies/Straight/Straight Shoot Sprites.png" id="1_akgwj"]
 [ext_resource type="Script" path="res://Scripts/Straight_Shooter_Enemy.gd" id="1_dqyth"]
-[ext_resource type="Texture2D" uid="uid://cr71y5wtmk6gw" path="res://Assets/Art/Enemies/Straight/Straight Shoot death.png" id="2_ip7sq"]
+[ext_resource type="Texture2D" uid="uid://5e8b207tm1ey" path="res://Assets/Art/Enemies/Straight/StraightShooterDeath.png" id="2_3vfg5"]
 [ext_resource type="AudioStream" uid="uid://bfy3trkx4bmbb" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyFire.wav" id="3_ja8og"]
+[ext_resource type="Texture2D" uid="uid://d3578mfvvbtm3" path="res://Assets/Art/Enemies/Straight/straight.png" id="4_s23ay"]
 [ext_resource type="AudioStream" uid="uid://buw3iaf3fg0n7" path="res://Assets/Audio/Sound Effects/Sound Effects/EnemyExplode.wav" id="4_wpnpl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lht7r"]
-atlas = ExtResource("2_ip7sq")
-region = Rect2(0, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_d32wa"]
+atlas = ExtResource("2_3vfg5")
+region = Rect2(0, 0, 310, 362)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eijy7"]
-atlas = ExtResource("2_ip7sq")
-region = Rect2(50, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o683m"]
-atlas = ExtResource("2_ip7sq")
-region = Rect2(100, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfmp3"]
+atlas = ExtResource("2_3vfg5")
+region = Rect2(310, 0, 310, 362)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6xrm"]
 atlas = ExtResource("1_akgwj")
@@ -30,17 +27,18 @@ region = Rect2(50, 0, 50, 50)
 atlas = ExtResource("1_akgwj")
 region = Rect2(100, 0, 50, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxyxd"]
+atlas = ExtResource("4_s23ay")
+region = Rect2(0, 0, 310, 288)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xn2v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lht7r")
+"texture": SubResource("AtlasTexture_d32wa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eijy7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o683m")
+"texture": SubResource("AtlasTexture_bfmp3")
 }],
 "loop": false,
 "name": &"Death",
@@ -59,14 +57,18 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxyxd")
+}],
+"loop": true,
+"name": &"Idle_new",
+"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ls6an"]
-radius = 24.0
-height = 52.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_idumi"]
-radius = 28.6575
+radius = 85.4181
 
 [node name="Straight_Shooter_Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 3
@@ -75,20 +77,22 @@ script = ExtResource("1_dqyth")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
+scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_7xn2v")
 animation = &"Death"
-autoplay = "Idle"
-frame = 2
-frame_progress = 1.0
+autoplay = "Idle_new"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ls6an")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(56, 0, 32, -32, 40, -40, 40, -56, 8, -56, -24, -40, -32, -40, -48, -32, -56, -24, -48, -24, -40, -16, -56, -8, -56, 8, -40, 16, -48, 24, -56, 24, -48, 32, -32, 40, -24, 40, 8, 56, 40, 56, 40, 40, 32, 32)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="GunTip" type="Node2D" parent="."]
-position = Vector2(23, 0)
+position = Vector2(39, -45)
+
+[node name="GunTip2" type="Node2D" parent="."]
+position = Vector2(39, 44)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 50.0
@@ -97,13 +101,6 @@ path_max_distance = 500.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 100.0
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, -1.78814e-07)
-rotation = -2.38476
-shape = SubResource("CircleShape2D_idumi")
 
 [node name="fireSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ja8og")
@@ -115,6 +112,13 @@ bus = &"SoundFX"
 stream = ExtResource("4_wpnpl")
 volume_db = -80.0
 bus = &"SoundFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -1.78814e-07)
+rotation = -2.38476
+shape = SubResource("CircleShape2D_idumi")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

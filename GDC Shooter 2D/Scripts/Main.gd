@@ -22,6 +22,7 @@ var spawnedBosses=[]
 var enemy_count = 0
 var powerups_count = 0
 var spawn_powerup=false
+var enemy_pos_bool = -1
 
 var org_screenX = null
 var org_screenY = null
@@ -123,7 +124,8 @@ func _on_enemy_spawner_timer_timeout():
 	
 		# Random enemy will be spawned around the player	
 		var enemy = enemy_scenes.pick_random().instantiate()
-		enemy.global_position = Vector2(player.global_position.x + random.randi_range(-500, 500),player.global_position.y + random.randi_range(-500, 500))
+		enemy.global_position = Vector2(player.global_position.x + enemy_pos_bool * random.randi_range(300, 500),player.global_position.y + enemy_pos_bool * random.randi_range(300, 500))
+		enemy_pos_bool = -enemy_pos_bool
 		enemy_container.add_child(enemy)
 	
 	else:

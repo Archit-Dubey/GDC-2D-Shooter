@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ch8ml4uc6g6on"]
+[gd_scene load_steps=15 format=3 uid="uid://ch8ml4uc6g6on"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_no32d"]
 [ext_resource type="Theme" uid="uid://na1w3fkpwv6b" path="res://Themes/MainTheme.tres" id="1_t2kru"]
@@ -7,12 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://b3lw8pjmulcam" path="res://Assets/Audio/Music/SongA.wav" id="5_soqeb"]
 [ext_resource type="StyleBox" uid="uid://c5oqyfkq3k315" path="res://Themes/roundedFlatStyleBox.tres" id="6_2b1df"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://Scenes/virtual_joystick.tscn" id="7_0df17"]
-[ext_resource type="Texture2D" uid="uid://bsbsii2akfwby" path="res://Assets/Art/UI/Enemy icons/Chaser1.png" id="8_h47gv"]
-[ext_resource type="Texture2D" uid="uid://7ibawplyhk78" path="res://Assets/Art/UI/Enemy icons/Chaser2.png" id="9_mdl2r"]
-[ext_resource type="Texture2D" uid="uid://crs6qt1oyfko6" path="res://Assets/Art/UI/Enemy icons/Chaser3.png" id="10_asoet"]
-[ext_resource type="Texture2D" uid="uid://oco0ugfgd4uw" path="res://Assets/Art/UI/Enemy icons/shooter1.png" id="11_e5ye6"]
-[ext_resource type="Texture2D" uid="uid://c1h8d2gtmwl4w" path="res://Assets/Art/UI/Enemy icons/shooter2.png" id="12_xj3m4"]
-[ext_resource type="Texture2D" uid="uid://borjxiid23oub" path="res://Assets/Art/UI/Enemy icons/shooter3.png" id="13_1mpwl"]
+[ext_resource type="Texture2D" uid="uid://di7wwwn61sok" path="res://Assets/Art/Enemies/Chaser/new_enemy.png" id="11_idgtr"]
+[ext_resource type="Texture2D" uid="uid://d3578mfvvbtm3" path="res://Assets/Art/Enemies/Straight/straight.png" id="12_xn0v7"]
 [ext_resource type="Texture2D" uid="uid://wpk41nbheegm" path="res://Assets/Art/UI/Enemy icons/Unknown1.png" id="14_4x8kw"]
 [ext_resource type="Texture2D" uid="uid://cnstapjd7qkpg" path="res://Assets/Art/UI/Enemy icons/Unknown2.png" id="15_rorxw"]
 [ext_resource type="Texture2D" uid="uid://c17irlyh4eke5" path="res://Assets/Art/UI/Enemy icons/Unknown3.png" id="16_jueh6"]
@@ -23,24 +19,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_y07vu"]
-frames = 3
-frame_0/texture = ExtResource("8_h47gv")
-frame_0/duration = 0.2
-frame_1/texture = ExtResource("9_mdl2r")
-frame_1/duration = 0.2
-frame_2/texture = ExtResource("10_asoet")
-frame_2/duration = 0.2
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_6rhac"]
-frames = 3
-frame_0/texture = ExtResource("11_e5ye6")
-frame_0/duration = 0.2
-frame_1/texture = ExtResource("12_xj3m4")
-frame_1/duration = 0.2
-frame_2/texture = ExtResource("13_1mpwl")
-frame_2/duration = 0.2
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_s3d5f"]
 frames = 3
@@ -355,38 +333,6 @@ theme_override_font_sizes/font_size = 40
 text = "Avoid venturing too far into space...nobody knows what you will encounter"
 autowrap_mode = 3
 
-[node name="TextureRect4" type="TextureRect" parent="InstructionScreen/InfoPage2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -674.0
-offset_top = -358.0
-offset_right = -624.0
-offset_bottom = -308.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5.67884, 5.68385)
-texture = SubResource("AnimatedTexture_y07vu")
-
-[node name="TextureRect2" type="TextureRect" parent="InstructionScreen/InfoPage2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -674.0
-offset_top = -94.0
-offset_right = -624.0
-offset_bottom = -44.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5.67884, 5.68385)
-texture = SubResource("AnimatedTexture_6rhac")
-
 [node name="TextureRect3" type="TextureRect" parent="InstructionScreen/InfoPage2"]
 layout_mode = 1
 anchors_preset = 8
@@ -402,6 +348,24 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5.67884, 5.68385)
 texture = SubResource("AnimatedTexture_s3d5f")
+
+[node name="TextureRect4" type="TextureRect" parent="InstructionScreen/InfoPage2"]
+layout_mode = 0
+offset_left = -576.0
+offset_top = -294.0
+offset_right = -264.0
+offset_bottom = 251.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_idgtr")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="InstructionScreen/InfoPage2"]
+layout_mode = 0
+offset_left = -671.0
+offset_top = -48.0
+offset_right = -361.0
+offset_bottom = 240.0
+texture = ExtResource("12_xn0v7")
 
 [node name="InfoPage3" type="Control" parent="InstructionScreen"]
 visible = false

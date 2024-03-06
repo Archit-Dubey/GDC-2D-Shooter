@@ -226,6 +226,6 @@ texture_normal = ExtResource("5_i7xd7")
 [connection signal="button_up" from="Joystick1/Joystick1" to="." method="_on_joystick_1_button_up" flags=18]
 [connection signal="button_down" from="Joystick2/Joystick2" to="." method="_on_joystick_2_button_down" flags=18]
 [connection signal="button_up" from="Joystick2/Joystick2" to="." method="_on_joystick_2_button_up" flags=18]
-[connection signal="pressed" from="ScaleDown" to="." method="_on_scale_down_pressed"]
 [connection signal="pressed" from="ScaleDown" to="." method="_on_scale_up_pressed"]
+[connection signal="pressed" from="ScaleDown" to="." method="_on_scale_down_pressed"]
 [connection signal="pressed" from="ScaleUp" to="." method="_on_scale_up_pressed"]
