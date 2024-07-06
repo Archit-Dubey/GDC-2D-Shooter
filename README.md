@@ -1,4 +1,3 @@
-I am working on the settings menu, will upload it in my next commit by tomorrow noon.
 
 # GDC-2D-Shooter TODO List
 
